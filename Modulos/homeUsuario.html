@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>index</title>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=code" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+      <link rel="stylesheet" href="../css/index.css">
+      <link rel="stylesheet" href="../css/home.css">
+</head>
+<body>
+      <nav class="nav">
+      <!-- SIDEBAR -->
+      <ul class="sidebar">
+         <li class="close-btn" onclick="hideSidebar()">
+            <i class="fa-solid fa-xmark"></i>
+         </li>
+
+         <li class="sidebar-title">
+            <img class="navbar-img1-sidebar" src="../img/logoblanco1.png">
+            <span>Universidad Nacional <br> Autónoma de México</span>
+         </li>
+
+         <li><a href="Inicio.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
+         <li><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</a></li>
+      </ul>
+
+      <!-- NAVBAR -->
+      <ul class="navbar">
+         <li class="logo">
+            <img class="navbar-img1" src="../img/logoblanco1.png">
+            <span class="title">Universidad Nacional <br> Autónoma de México</span>
+         </li>
+
+         <li class="nav-item hideOnMobile">
+            <i class="icon-nav fa-solid fa-house"></i>
+            <a href="homeUsuario.html">Inicio</a>
+         </li>
+
+
+         <li class="nav-item hideOnMobile">
+            <i class="icon-nav fa-solid fa-right-from-bracket"></i>
+            <a href="index.html">Cerrar sesión</a>
+         </li>
+
+         <li class="logo2">
+            <img class="navbar-img2" src="../img/escudoFCA.png">
+         </li>
+
+         <li class="nav-message-icon" onclick="toggleNotifications()">
+            <i class="fa-regular fa-envelope" style="--color: rgb(0, 0, 0);"></i>
+            <span class="message-badge">3</span>
+         </li>
+
+         <li class="menu-btn" onclick="showSidebar()">
+            <i class="fa-solid fa-bars"></i>
+         </li>
+      </ul>
+</nav>
+
+   <!-- PANEL DE NOTIFICACIONES -->
+   <div id="notificationsPanel" class="notifications-panel">
+      <div class="notifications-header">
+         <h3>Notificaciones</h3>
+         <button class="close-notifications" onclick="toggleNotifications()">×</button>
+      </div>
+      <div class="notifications-list">
+         <div class="notification-item">
+            <strong>De Administración:</strong>
+            <p>Profesor (Director del profesor). le comunica informando que el espacio solicitado...</p>
+         </div>
+         <div class="notification-item">
+            <strong>De Administración:</strong>
+            <p>Profesor (Director del profesor). le comunica informando que el espacio solicitado...</p>
+         </div>
+         <div class="notification-item">
+            <strong>De Administración:</strong>
+            <p>Profesor (Director del profesor). le comunica informando que el espacio solicitado ya se encuentra ocupado por otro profesor. Si requiere asignación de espacio que cumpla con sus especificaciones, le solicita especificar una segunda opción de horario para asignación del espacio.</p>
+         </div>
+      </div>
+   </div>
+
+   <div class="container1">
+      <div class="user-info-section">
+         <h2>Información del Usuario</h2>
+         <div class="info-card">
+            <div class="info-item">
+               <span class="data-label">Nombre:</span>
+               <span class="data-value" id="nombreUsuario">---</span>
+            </div>
+            <div class="info-item">
+               <span class="data-label">Rol:</span>
+               <span class="data-value" id="rolUsuario">---</span>
+            </div>
+            <div class="info-item">
+               <span class="data-label">Semestre:</span>
+               <span class="data-value">2025-2</span>
+            </div>
+         </div>
+      </div>
+
+      <div class="options-section">
+         <h2>Opciones Disponibles</h2>
+         <div class="options-grid" id="optionsContainer">
+            <!-- Las opciones se cargarán según el tipo de usuario -->
+         </div>
+      </div>
+   </div>
+
+   <footer class="footer">
+      <div class="footer-text-der">
+         <div class="iconos-footer">
+            <a class="icon fa-brands fa-x-twitter" style="--color: rgb(0, 0, 0);"></a>
+            <i class="icon fa-brands fa-youtube" style="--color: red;"></i>
+            <i class="icon fa-brands fa-instagram" style="--color: rgb(210, 30, 108);"></i>
+            <i class="icon fa-brands fa-whatsapp" style="--color: rgb(0, 133, 9);"></i>
+            <i class="icon fa-brands fa-facebook" style="--color: rgb(17, 80, 255);"></i>
+            <i class="icon fa-regular fa-envelope" style="--color: rgb(0, 0, 0);"></i>
+         </div>
+         <p>© 2026 | Todos los derechos reservados. Universidad Nacional Autónoma de México - Facultad de Contaduría y
+            Administración. Plataforma de Gestión Académica.</p>
+      </div>
+   </footer>
+   
+<script>
+const sidebar = document.querySelector('.sidebar');
+const BREAKPOINT = 900;
+
+function showSidebar() {
+    sidebar.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function hideSidebar() {
+    sidebar.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+window.addEventListener('resize', () => {
+    if (window.innerWidth > BREAKPOINT) {
+        hideSidebar();
+    }
+});
+
+// FUNCIÓN PARA TOGGLE DEL PANEL DE NOTIFICACIONES
+function toggleNotifications() {
+    const panel = document.getElementById('notificationsPanel');
+    panel.classList.toggle('active');
+}
+
+// Cerrar panel si se hace click fuera
+document.addEventListener('click', (e) => {
+    const panel = document.getElementById('notificationsPanel');
+    const icon = document.querySelector('.nav-message-icon');
+    if (!panel.contains(e.target) && !icon.contains(e.target)) {
+        panel.classList.remove('active');
+    }
+});
+
+// FUNCIÓN PARA CARGAR OPCIONES SEGÚN EL TIPO DE USUARIO
+function cargarOpcionesSegunTipo() {
+    const tipoUsuario = localStorage.getItem('tipoUsuario') || 'administrador';
+    const nombreUsuario = localStorage.getItem('nombreUsuario') || 'Usuario';
+    const container = document.getElementById('optionsContainer');
+    
+    // Actualizar nombre y rol del usuario
+    document.getElementById('nombreUsuario').textContent = nombreUsuario;
+    const rolDisplay = tipoUsuario === 'administrador' ? 'Administrador' : 'Profesor';
+    document.getElementById('rolUsuario').textContent = rolDisplay;
+
+    let html = '';
+
+    if (tipoUsuario === 'administrador') {
+        // Opciones para Administrador
+        html = `
+            <a class="option-card" href="BuscarSalon.html">
+               <i class="fa-solid fa-door-open"></i>
+               <h3>Buscar Salón</h3>
+               <p>Encuentra salones disponibles</p>
+            </a>
+            <a class="option-card" href="BuscarMateria.html">
+               <i class="fa-solid fa-book"></i>
+               <h3>Consultar Materia</h3>
+               <p>Revisa información de materias</p>
+            </a>
+            <a class="option-card" href="Edificios.html">
+               <i class="fa-solid fa-building"></i>
+               <h3>Consultar Edificio</h3>
+               <p>Explora edificios disponibles</p>
+            </a>
+            <a class="option-card" href="BuscarProfesor.html">
+               <i class="fa-solid fa-chalkboard-user"></i>
+               <h3>Buscar Profesor</h3>
+               <p>Busca profesores y horarios</p>
+            </a>
+            <a class="option-card" href="solicitudes.html">
+               <i class="fa-solid fa-file-lines"></i>
+               <h3>Ver Solicitudes</h3>
+               <p>Gestiona tus solicitudes</p>
+            </a>
+        `;
+    } else if (tipoUsuario === 'profesor') {
+        // Opciones para Profesor
+        html = `
+            <a class="option-card" href="Edificios.html">
+               <i class="fa-solid fa-building"></i>
+               <h3>Consultar Edificio</h3>
+               <p>Explora edificios disponibles</p>
+            </a>
+            <a class="option-card" href="BuscarMateria.html">
+               <i class="fa-solid fa-book"></i>
+               <h3>Consultar Materia</h3>
+               <p>Revisa información de materias</p>
+            </a>
+            <a class="option-card" href="crearSolicitud.html">
+               <i class="fa-solid fa-plus-circle"></i>
+               <h3>Crear Solicitud</h3>
+               <p>Crea nuevas solicitudes de espacios</p>
+            </a>
+        `;
+    }
+
+    container.innerHTML = html;
+}
+
+// Cargar opciones cuando se carga la página
+document.addEventListener('DOMContentLoaded', cargarOpcionesSegunTipo);
+</script>
+
+</body>
+</html>

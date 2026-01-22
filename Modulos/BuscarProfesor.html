@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Profesor - FCA</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=code" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/buscarProfesor.css">
+</head>
+<body>
+    <header>
+    <nav class="nav">
+        <!-- SIDEBAR -->
+        <ul class="sidebar">
+            <li class="close-btn" onclick="hideSidebar()">
+                <i class="fa-solid fa-xmark"></i>
+            </li>
+
+            <li class="sidebar-title">
+                <img class="navbar-img1-sidebar" src="../img/logoblanco1.png">
+                <span>Universidad Nacional <br> Autónoma de México</span>
+            </li>
+
+            <li><a href="Inicio.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
+            <li><a href="Inicio.html"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</a></li>
+        </ul>
+
+        <!-- NAVBAR -->
+        <ul class="navbar">
+            <li class="logo">
+            <img class="navbar-img1" src="../img/logoblanco1.png">
+            </li>
+
+            <li class="nav-item hideOnMobile">
+                <i class="icon-nav fa-solid fa-house"></i>
+                <a href="Inicio.html">Inicio</a>
+            </li>
+
+            <li class="nav-item hideOnMobile">
+                <i class="icon-nav fa-solid fa-right-from-bracket"></i>
+                <a href="Inicio.html">Cerrar sesión</a>
+            </li>
+
+            <li class="logo2">
+                <img class="navbar-img2" src="../img/escudoFCA.png">
+            </li>
+
+            <li class="menu-btn" onclick="showSidebar()">
+                <i class="fa-solid fa-bars"></i>
+            </li>
+        </ul>
+    </nav>
+    </header>
+
+    <div class="search-container">
+        <div class="search-header">
+            <h1>Buscar Profesor</h1>
+            <div class="search-box-wrapper">
+                <input type="text" id="searchInput" class="search-box" placeholder="Buscar por nombre o materia...">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+        </div>
+
+        <div class="filters">
+            <select id="departamentoFilter">
+                <option value="">Todos los Departamentos</option>
+                <option value="sistemas">Sistemas Computacionales</option>
+                <option value="finanzas">Finanzas</option>
+                <option value="administracion">Administración</option>
+                <option value="economia">Economía</option>
+            </select>
+            <select id="materiaFilter">
+                <option value="">Todas las Materias</option>
+                <option value="ingenieria">Ingeniería de Software</option>
+                <option value="bases">Bases de Datos</option>
+                <option value="web">Programación Web</option>
+                <option value="estructura">Estructura de Datos</option>
+            </select>
+        </div>
+
+        <div class="profesores-grid">
+            <div class="profesor-card" data-materia="ingenieria" data-departamento="sistemas">
+                <div class="profesor-header">
+                    <img src="img/logoblanco1.png" alt="Profesor">
+                    <span class="estatus">Disponible</span>
+                </div>
+                <h3>Marvin Jose Rayas Sanchez</h3>
+                <p class="departamento"><strong>Departamento:</strong> Sistemas Computacionales</p>
+                <p class="materias"><strong>Materias:</strong></p>
+                <ul>
+                    <li>Ingeniería de Software</li>
+                    <li>Estructura de Datos</li>
+                </ul>
+                <div class="horario-preview">
+                    <strong>Horarios disponibles:</strong>
+                    <p>Lunes a Viernes: 8:00 - 10:00</p>
+                </div>
+                <button class="btn-ver-horario" onclick="verHorario('Marvin Jose Rayas Sanchez')">Ver Horario</button>
+            </div>
+
+            <div class="profesor-card" data-materia="bases" data-departamento="sistemas">
+                <div class="profesor-header">
+                    <img src="img/logoblanco1.png" alt="Profesor">
+                    <span class="estatus">Disponible</span>
+                </div>
+                <h3>Dr. Juan Carlos López</h3>
+                <p class="departamento"><strong>Departamento:</strong> Sistemas Computacionales</p>
+                <p class="materias"><strong>Materias:</strong></p>
+                <ul>
+                    <li>Bases de Datos</li>
+                    <li>Programación Web</li>
+                </ul>
+                <div class="horario-preview">
+                    <strong>Horarios disponibles:</strong>
+                    <p>Martes a Jueves: 10:00 - 12:00</p>
+                </div>
+                <button class="btn-ver-horario" onclick="verHorario('Dr. Juan Carlos López')">Ver Horario</button>
+            </div>
+
+            <div class="profesor-card" data-materia="web" data-departamento="sistemas">
+                <div class="profesor-header">
+                    <img src="img/logoblanco1.png" alt="Profesor">
+                    <span class="estatus">Disponible</span>
+                </div>
+                <h3>Dra. María García González</h3>
+                <p class="departamento"><strong>Departamento:</strong> Sistemas Computacionales</p>
+                <p class="materias"><strong>Materias:</strong></p>
+                <ul>
+                    <li>Programación Web</li>
+                    <li>Ingeniería de Software</li>
+                </ul>
+                <div class="horario-preview">
+                    <strong>Horarios disponibles:</strong>
+                    <p>Lunes, Miércoles, Viernes: 14:00 - 16:00</p>
+                </div>
+                <button class="btn-ver-horario" onclick="verHorario('Dra. María García González')">Ver Horario</button>
+            </div>
+
+            <div class="profesor-card" data-materia="estructura" data-departamento="finanzas">
+                <div class="profesor-header">
+                    <img src="img/logoblanco1.png" alt="Profesor">
+                    <span class="estatus">No Disponible</span>
+                </div>
+                <h3>Mtro. Roberto Martínez</h3>
+                <p class="departamento"><strong>Departamento:</strong> Finanzas</p>
+                <p class="materias"><strong>Materias:</strong></p>
+                <ul>
+                    <li>Estructura de Datos</li>
+                </ul>
+                <div class="horario-preview">
+                    <strong>Próxima disponibilidad:</strong>
+                    <p>Próximo semestre</p>
+                </div>
+                <button class="btn-ver-horario" disabled>Ver Horario</button>
+            </div>
+
+            <div class="profesor-card" data-materia="ingenieria" data-departamento="administracion">
+                <div class="profesor-header">
+                    <img src="img/logoblanco1.png" alt="Profesor">
+                    <span class="estatus">Disponible</span>
+                </div>
+                <h3>Lic. Patricia Rodríguez</h3>
+                <p class="departamento"><strong>Departamento:</strong> Administración</p>
+                <p class="materias"><strong>Materias:</strong></p>
+                <ul>
+                    <li>Ingeniería de Software</li>
+                    <li>Bases de Datos</li>
+                </ul>
+                <div class="horario-preview">
+                    <strong>Horarios disponibles:</strong>
+                    <p>Martes, Jueves: 11:00 - 13:00</p>
+                </div>
+                <button class="btn-ver-horario" onclick="verHorario('Lic. Patricia Rodríguez')">Ver Horario</button>
+            </div>
+
+            <div class="profesor-card" data-materia="web" data-departamento="economia">
+                <div class="profesor-header">
+                    <img src="img/logoblanco1.png" alt="Profesor">
+                    <span class="estatus">Disponible</span>
+                </div>
+                <h3>Dr. Fernando Soto</h3>
+                <p class="departamento"><strong>Departamento:</strong> Economía</p>
+                <p class="materias"><strong>Materias:</strong></p>
+                <ul>
+                    <li>Programación Web</li>
+                </ul>
+                <div class="horario-preview">
+                    <strong>Horarios disponibles:</strong>
+                    <p>Lunes a Viernes: 17:00 - 19:00</p>
+                </div>
+                <button class="btn-ver-horario" onclick="verHorario('Dr. Fernando Soto')">Ver Horario</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-text-der">
+            <div class="iconos-footer">
+                <a class="icon fa-brands fa-x-twitter" style="--color: rgb(0, 0, 0);"></a>
+                <i class="icon fa-brands fa-youtube" style="--color: red;"></i>
+                <i class="icon fa-brands fa-instagram" style="--color: rgb(210, 30, 108);"></i>
+                <i class="icon fa-brands fa-whatsapp" style="--color: rgb(0, 133, 9);"></i>
+                <i class="icon fa-brands fa-facebook" style="--color: rgb(17, 80, 255);"></i>
+                <i class="icon fa-regular fa-envelope" style="--color: rgb(0, 0, 0);"></i>
+            </div>
+            <p>© 2026 | Todos los derechos reservados. Universidad Nacional Autónoma de México - Facultad de Contaduría y Administración. Plataforma de Gestión Académica.</p>
+        </div>
+    </footer>
+
+    <script>
+        const sidebar = document.querySelector('.sidebar');
+        const BREAKPOINT = 900;
+
+        function showSidebar() {
+            sidebar.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function hideSidebar() {
+            sidebar.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > BREAKPOINT) {
+                hideSidebar();
+            }
+        });
+
+        // BÚSQUEDA Y FILTROS
+        const searchInput = document.getElementById('searchInput');
+        const departamentoFilter = document.getElementById('departamentoFilter');
+        const materiaFilter = document.getElementById('materiaFilter');
+        const cards = document.querySelectorAll('.profesor-card');
+
+        function filtrarProfesores() {
+            const searchValue = searchInput.value.toLowerCase();
+            const departamentoValue = departamentoFilter.value;
+            const materiaValue = materiaFilter.value;
+
+            cards.forEach(card => {
+                const nombre = card.querySelector('h3').textContent.toLowerCase();
+                const departamento = card.dataset.departamento;
+                const materia = card.dataset.materia;
+
+                const coincideNombre = nombre.includes(searchValue) || searchValue === '';
+                const coincideDepartamento = departamento === departamentoValue || departamentoValue === '';
+                const coincideMateria = materia === materiaValue || materiaValue === '';
+
+                card.style.display = coincideNombre && coincideDepartamento && coincideMateria ? 'flex' : 'none';
+            });
+        }
+
+        searchInput.addEventListener('input', filtrarProfesores);
+        departamentoFilter.addEventListener('change', filtrarProfesores);
+        materiaFilter.addEventListener('change', filtrarProfesores);
+
+        function verHorario(profesor) {
+            // Por ahora redirige a HorarioProfesor.html
+            // En el futuro se puede pasar el nombre del profesor como parámetro
+            window.location.href = 'HorarioProfesor.html';
+        }
+    </script>
+</body>
+</html>

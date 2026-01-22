@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Salón - FCA</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=code" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/buscarProfesor.css">
+</head>
+<body>
+    <header>
+    <nav class="nav">
+        <!-- SIDEBAR -->
+        <ul class="sidebar">
+            <li class="close-btn" onclick="hideSidebar()">
+                <i class="fa-solid fa-xmark"></i>
+            </li>
+
+            <li class="sidebar-title">
+                <img class="navbar-img1-sidebar" src="../img/logoblanco1.png">
+                <span>Universidad Nacional <br> Autónoma de México</span>
+            </li>
+
+            <li><a href="homeUsuario.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
+            <li><a href="Inicio.html"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</a></li>
+        </ul>
+
+        <!-- NAVBAR -->
+        <ul class="navbar">
+            <li class="logo">
+            <img class="navbar-img1" src="../img/logoblanco1.png">
+            </li>
+
+            <li class="nav-item hideOnMobile">
+                <i class="icon-nav fa-solid fa-house"></i>
+                <a href="homeUsuario.html">Inicio</a>
+            </li>
+
+            <li class="nav-item hideOnMobile">
+                <i class="icon-nav fa-solid fa-right-from-bracket"></i>
+                <a href="Inicio.html">Cerrar sesión</a>
+            </li>
+
+            <li class="logo2">
+                <img class="navbar-img2" src="../img/escudoFCA.png">
+            </li>
+
+            <li class="menu-btn" onclick="showSidebar()">
+                <i class="fa-solid fa-bars"></i>
+            </li>
+        </ul>
+    </nav>
+    </header>
+
+    <div class="search-container">
+        <div class="search-header">
+            <h1>Buscar Salón</h1>
+            <div class="search-box-wrapper">
+                <input type="text" id="searchInput" class="search-box" placeholder="Buscar por número de salón o edificio...">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+        </div>
+
+        <div class="filters">
+            <select id="edificioFilter">
+                <option value="">Todos los Edificios</option>
+                <option value="k">Edificio K</option>
+                <option value="a">Edificio A</option>
+                <option value="b">Edificio B</option>
+                <option value="c">Edificio C</option>
+            </select>
+            <select id="turnoFilter">
+                <option value="">Todos los Turnos</option>
+                <option value="matutino">Matutino</option>
+                <option value="vespertino">Vespertino</option>
+            </select>
+        </div>
+
+        <div class="profesores-grid">
+            <div class="profesor-card" data-edificio="k" data-turno="matutino">
+                <div class="profesor-header">
+                    <i class="fas fa-door-open" style="font-size: 40px; color: #3366cc;"></i>
+                    <span class="estatus">Disponible</span>
+                </div>
+                <h3>Salón K-001</h3>
+                <p class="departamento"><strong>Edificio:</strong> K</p>
+                <p class="materias"><strong>Información:</strong></p>
+                <ul>
+                    <li>Asientos: 56</li>
+                    <li>Equipo Cómputo: Sí</li>
+                </ul>
+                <div class="horario-preview">
+                    <strong>Turno:</strong>
+                    <p>Matutino</p>
+                </div>
+                <button class="btn-ver-horario" onclick="verSalon('K-001')">Ver Horario</button>
+            </div>
+
+            <div class="profesor-card" data-edificio="k" data-turno="matutino">
+                <div class="profesor-header">
+                    <i class="fas fa-door-open" style="font-size: 40px; color: #3366cc;"></i>
+                    <span class="estatus">Disponible</span>
+                </div>
+                <h3>Salón K-002</h3>
+                <p class="departamento"><strong>Edificio:</strong> K</p>
+                <p class="materias"><strong>Información:</strong></p>
+                <ul>
+                    <li>Asientos: 48</li>
+                    <li>Equipo Cómputo: No</li>
+                </ul>
+                <div class="horario-preview">
+                    <strong>Turno:</strong>
+                    <p>Matutino</p>
+                </div>
+                <button class="btn-ver-horario" onclick="verSalon('K-002')">Ver Horario</button>
+            </div>
+
+            <div class="profesor-card" data-edificio="k" data-turno="vespertino">
+                <div class="profesor-header">
+                    <i class="fas fa-door-open" style="font-size: 40px; color: #3366cc;"></i>
+                    <span class="estatus">Disponible</span>
+                </div>
+                <h3>Salón K-101</h3>
+                <p class="departamento"><strong>Edificio:</strong> K</p>
+                <p class="materias"><strong>Información:</strong></p>
+                <ul>
+                    <li>Asientos: 40</li>
+                    <li>Equipo Cómputo: Sí</li>
+                </ul>
+                <div class="horario-preview">
+                    <strong>Turno:</strong>
+                    <p>Vespertino</p>
+                </div>
+                <button class="btn-ver-horario" onclick="verSalon('K-101')">Ver Horario</button>
+            </div>
+
+            <div class="profesor-card" data-edificio="k" data-turno="vespertino">
+                <div class="profesor-header">
+                    <i class="fas fa-door-open" style="font-size: 40px; color: #3366cc;"></i>
+                    <span class="estatus">Disponible</span>
+                </div>
+                <h3>Salón K-102</h3>
+                <p class="departamento"><strong>Edificio:</strong> K</p>
+                <p class="materias"><strong>Información:</strong></p>
+                <ul>
+                    <li>Asientos: 52</li>
+                    <li>Equipo Cómputo: Sí</li>
+                </ul>
+                <div class="horario-preview">
+                    <strong>Turno:</strong>
+                    <p>Vespertino</p>
+                </div>
+                <button class="btn-ver-horario" onclick="verSalon('K-102')">Ver Horario</button>
+            </div>
+
+            <div class="profesor-card" data-edificio="k" data-turno="matutino">
+                <div class="profesor-header">
+                    <i class="fas fa-door-open" style="font-size: 40px; color: #3366cc;"></i>
+                    <span class="estatus">Disponible</span>
+                </div>
+                <h3>Salón K-201</h3>
+                <p class="departamento"><strong>Edificio:</strong> K</p>
+                <p class="materias"><strong>Información:</strong></p>
+                <ul>
+                    <li>Asientos: 60</li>
+                    <li>Equipo Cómputo: Sí</li>
+                </ul>
+                <div class="horario-preview">
+                    <strong>Turno:</strong>
+                    <p>Matutino</p>
+                </div>
+                <button class="btn-ver-horario" onclick="verSalon('K-201')">Ver Horario</button>
+            </div>
+
+            <div class="profesor-card" data-edificio="k" data-turno="vespertino">
+                <div class="profesor-header">
+                    <i class="fas fa-door-open" style="font-size: 40px; color: #3366cc;"></i>
+                    <span class="estatus">Disponible</span>
+                </div>
+                <h3>Salón K-301</h3>
+                <p class="departamento"><strong>Edificio:</strong> K</p>
+                <p class="materias"><strong>Información:</strong></p>
+                <ul>
+                    <li>Asientos: 45</li>
+                    <li>Equipo Cómputo: No</li>
+                </ul>
+                <div class="horario-preview">
+                    <strong>Turno:</strong>
+                    <p>Vespertino</p>
+                </div>
+                <button class="btn-ver-horario" onclick="verSalon('K-301')">Ver Horario</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-text-der">
+            <div class="iconos-footer">
+                <a class="icon fa-brands fa-x-twitter" style="--color: rgb(0, 0, 0);"></a>
+                <i class="icon fa-brands fa-youtube" style="--color: red;"></i>
+                <i class="icon fa-brands fa-instagram" style="--color: rgb(210, 30, 108);"></i>
+                <i class="icon fa-brands fa-whatsapp" style="--color: rgb(0, 133, 9);"></i>
+                <i class="icon fa-brands fa-facebook" style="--color: rgb(17, 80, 255);"></i>
+                <i class="icon fa-regular fa-envelope" style="--color: rgb(0, 0, 0);"></i>
+            </div>
+            <p>© 2026 | Todos los derechos reservados. Universidad Nacional Autónoma de México - Facultad de Contaduría y Administración. Plataforma de Gestión Académica.</p>
+        </div>
+    </footer>
+
+    <script>
+        const sidebar = document.querySelector('.sidebar');
+        const BREAKPOINT = 900;
+
+        function showSidebar() {
+            sidebar.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function hideSidebar() {
+            sidebar.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > BREAKPOINT) {
+                hideSidebar();
+            }
+        });
+
+        // BÚSQUEDA Y FILTROS
+        const searchInput = document.getElementById('searchInput');
+        const edificioFilter = document.getElementById('edificioFilter');
+        const turnoFilter = document.getElementById('turnoFilter');
+        const cards = document.querySelectorAll('.profesor-card');
+
+        function filtrarSalones() {
+            const searchValue = searchInput.value.toLowerCase();
+            const edificioValue = edificioFilter.value;
+            const turnoValue = turnoFilter.value;
+
+            cards.forEach(card => {
+                const nombre = card.querySelector('h3').textContent.toLowerCase();
+                const edificio = card.dataset.edificio;
+                const turno = card.dataset.turno;
+
+                const coincideNombre = nombre.includes(searchValue) || searchValue === '';
+                const coincideEdificio = edificio === edificioValue || edificioValue === '';
+                const coincideTurno = turno === turnoValue || turnoValue === '';
+
+                card.style.display = coincideNombre && coincideEdificio && coincideTurno ? 'flex' : 'none';
+            });
+        }
+
+        searchInput.addEventListener('input', filtrarSalones);
+        edificioFilter.addEventListener('change', filtrarSalones);
+        turnoFilter.addEventListener('change', filtrarSalones);
+
+        function verSalon(salon) {
+            // Redirige a EdificioInfo.html
+            window.location.href = 'EdificioInfo.html';
+        }
+    </script>
+</body>
+</html>

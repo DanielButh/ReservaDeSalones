@@ -1,0 +1,196 @@
+
+.container {
+    margin-bottom: 30px;
+    margin: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 20px;
+    overflow: hidden;
+    align-content: center;
+}
+
+.principales {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    cursor: pointer;
+}
+
+.principales:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+/* ESTILOS DEL BUSCADOR */
+.search {
+    background: linear-gradient(135deg, #5A9DCC 0%, #3366cc 100%);
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 15px;
+    margin: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.search h1 {
+    color: white;
+    font-size: 2.5rem;
+    margin: 0 0 30px 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.searching {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.box-search {
+    width: 100%;
+    max-width: 500px;
+    padding: 15px 20px 15px 50px;
+    font-size: 1.1rem;
+    border: 2px solid white;
+    border-radius: 25px;
+    background: white;
+    transition: all 0.3s ease;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.box-search:focus {
+    outline: none;
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.box-search::placeholder {
+    color: #999;
+}
+
+.icon-search {
+    position: absolute;
+    left: 25px;
+    font-size: 1.3rem;
+    color: #5A9DCC;
+    pointer-events: none;
+}
+
+.section-group {
+    margin: 0;
+}
+
+.section-title {
+    color: #3366cc;
+    font-size: 2rem;
+    padding: 20px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+
+
+h2 {
+    margin-bottom: 0;
+    margin-top: 10px;
+    padding: 0;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.principales:hover h2 {
+    color: #5A9DCC;
+}
+
+.img {
+    object-fit: cover;
+    width: 280px;
+    height: 320px;
+    margin: 0;
+    background-position: center;
+    border-radius: 8px;
+    max-inline-size: 100%;
+    transition: all 0.3s ease;
+}
+
+.principales:hover .img {
+    transform: scale(1.05);
+}
+
+/* LÍNEA DIVISORA */
+.divicion {
+    border: 2px solid #5A9DCC;
+    margin: 40px 20px;
+    border-radius: 5px;
+    opacity: 0.5;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    .search {
+        padding: 30px 15px;
+        border-radius: 10px;
+    }
+
+    .search h1 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+
+    .box-search {
+        max-width: 100%;
+        padding: 12px 15px 12px 45px;
+        font-size: 1rem;
+    }
+
+    .icon-search {
+        left: 15px;
+        font-size: 1.1rem;
+    }
+
+    .principales {
+        width: 280px;
+        height: 380px;
+    }
+
+    .img {
+        width: 240px;
+        height: 280px;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    div > p,
+    .search + p {
+        font-size: 1.5rem;
+        padding: 15px;
+    }
+}
+
+.divicion {
+    margin: 50px;
+    background: black;
+    height: 5px;
+}

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Materias</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=code" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <!-- <link rel="stylesheet" href="../css/nav.css"> -->
+    <link rel="stylesheet" href="../css/registrarMateria.css">
+    
+    </head>
+
+    <body>
+    <header>
+    <nav class="nav">
+    <!-- SIDEBAR -->
+    <ul class="sidebar">
+        <li class="close-btn" onclick="hideSidebar()">
+            <i class="fa-solid fa-xmark"></i>
+        </li>
+
+        <li class="sidebar-title">
+            <img class="navbar-img1-sidebar" src="../img/logoblanco1.png">
+            <span>Universidad Nacional <br> Autónoma de México</span>
+        </li>
+
+        <li><a href="Inicio.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
+        <li><a href="#"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</a></li>
+    </ul>
+
+    <!-- NAVBAR -->
+    <ul class="navbar">
+        <li class="logo">
+            <img class="navbar-img1" src="../img/logoblanco1.png">
+            <span class="title">Universidad Nacional <br> Autónoma de México</span>
+        </li>
+
+        <li class="nav-item hideOnMobile">
+            <i class="icon-nav fa-solid fa-house"></i>
+            <a href="Inicio.html">Inicio</a>
+        </li>
+
+        <li class="nav-item hideOnMobile">
+            <i class="icon-nav fa-solid fa-right-from-bracket"></i>
+            <a href="#">Cerrar sesión</a>
+        </li>
+
+        <li class="logo2">
+            <img class="navbar-img2" src="../img/escudoFCA.png">
+        </li>
+
+        <li class="menu-btn" onclick="showSidebar()">
+            <i class="fa-solid fa-bars"></i>
+        </li>
+    </ul>
+</nav>
+</header>
+
+    <h1>Registrar Materia</h1>
+    <div class="container-materia">
+        <div class="busqueda">
+        <label class="label-busqueda">Nombre o Clave de la materia</label>
+
+            <div class="back">
+                <div class="search">
+                    <h1>Selecciona una materia o profesor</h1>
+                    <div>
+                        <li class="search-bar">
+                            <input class="box-search" type="search" placeholder="Buscar">
+                            <span class="icon-search"><i class="fas fa-search"></i></span>
+                        </li>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h2>Administracion de la funcion informática - 5501</h2>
+            <div>
+                <div class="campos-row">
+                    <div class="campos">
+                        <label class="etiqueta">Semestre</label>
+                        <div class="info">2025-2</div>
+                    </div>
+                    <div class="campos">
+                        <label class="etiqueta">Profesor</label>
+                        <div class="info">Sandra Cejudo</div>
+                    </div>
+                </div>
+            </div>
+        <div class="dias-container">
+            <span class="dias-label">Días</span>
+            <div class="dias-botones">
+                <button class="dia-btn">Lunes</button>
+                <button class="dia-btn">Martes</button>
+                <button class="dia-btn">Miércoles</button>
+                <button class="dia-btn">Jueves</button>
+                <button class="dia-btn">Viernes</button>
+                <button class="dia-btn">Sábado</button>
+            </div>
+        </div>
+        
+        <div class="campos-botones-row">
+            <div>
+                <div class="campos">
+                    <label class="etiqueta">Grupo</label>
+                    <div class="info">2</div>
+                </div>
+                <div class="campos">
+                    <label class="etiqueta">Horario</label>
+                    <div class="info">08:00 - 10:00</div>
+                </div>
+                <div class="campos">
+                    <label class="etiqueta">Edificio</label>
+                    <div class="info">FCA</div>
+                </div>
+                <div class="campos">
+                    <label class="etiqueta">Salón</label>
+                    <div class="info">101</div>
+                </div>
+            </div>
+            <div class="btn" id="btnRegistrar">
+                <span class="text-btn">Registrar</span>
+            </div>
+        </div>
+    </div>
+
+<footer class="footer">
+            <div class="footer-text-der">
+                <div class="">
+                    <i class="icon fa-brands fa-youtube" style="--color: red;"></i>
+                    <i class="icon fa-brands fa-instagram" style="--color: rgb(210, 30, 108);"></i>
+                    <i class="icon fa-brands fa-whatsapp" style="--color: rgb(0, 133, 9);"></i>
+                    <i class="icon fa-brands fa-facebook" style="--color: rgb(17, 80, 255);"></i>
+                    <i class="icon fa-regular fa-envelope" style="--color: rgb(0, 0, 0);"></i>
+                </div>
+                <p>© 2026 | Todos los derechos reservados. Universidad Nacional Autónoma de México - Facultad de Contaduría y Administración. Plataforma de Gestión Académica.</p>
+            </div>
+        </footer>
+        <!-- Mensaje de confirmación -->
+<div id="mensaje-exito" class="mensaje-exito oculto">
+    <i class="fa-solid fa-circle-check icon-check"></i>
+    <span>Registro de materia exitoso</span>
+    <i class="fa-solid fa-xmark icon-close" onclick="cerrarMensaje()"></i>
+</div>
+
+    </body>
+</html>
+
+<script>
+document.querySelectorAll(".dia-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+        btn.classList.toggle("activo");
+    });
+});
+
+// Desvanecimiento automático del mensaje de éxito en 2 segundos
+window.addEventListener('load', () => {
+    const mensaje = document.getElementById("mensaje-exito");
+    if (mensaje && !mensaje.classList.contains("oculto")) {
+        setTimeout(() => {
+            mensaje.classList.add("fade-out");
+            setTimeout(() => {
+                mensaje.classList.add("oculto");
+            }, 2000);
+        }, 1000);
+    }
+});
+
+function cerrarMensaje() {
+    const mensaje = document.getElementById("mensaje-exito");
+    mensaje.classList.add("fade-out");
+
+    setTimeout(() => {
+        mensaje.classList.add("oculto");
+    }, 2000);
+}
+</script>
+
+<script>
+document.getElementById("btnRegistrar").addEventListener("click", () => {
+    const mensaje = document.getElementById("mensaje-exito");
+
+    // Reiniciar estados
+    mensaje.classList.remove("oculto", "fade-out");
+
+    // Mostrar mensaje
+    mensaje.style.opacity = "1";
+
+    // A los 3 segundos empieza a desvanecer
+    setTimeout(() => {
+        mensaje.classList.add("fade-out");
+        // A los 2 segundos adicionales se oculta completamente
+        setTimeout(() => {
+            mensaje.classList.add("oculto");
+        }, 2000);
+    }, 3000);
+});
+
+function cerrarMensaje() {
+    const mensaje = document.getElementById("mensaje-exito");
+    mensaje.classList.add("fade-out");
+
+    setTimeout(() => {
+        mensaje.classList.add("oculto");
+    }, 2000);
+}
+</script>
+
+<script>
+const sidebar = document.querySelector('.sidebar');
+const BREAKPOINT = 900;
+
+function showSidebar() {
+    sidebar.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function hideSidebar() {
+    sidebar.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+window.addEventListener('resize', () => {
+    if (window.innerWidth > BREAKPOINT) {
+        hideSidebar();
+    }
+});
+</script>
+

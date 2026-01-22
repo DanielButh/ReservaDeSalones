@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitudes FCA</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=code" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <!-- <link rel="stylesheet" href="../css/nav.css"> -->
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/solicitudes.css">
+    
+
+    </head>
+
+    <body>
+    <header>
+    <nav class="nav">
+    <!-- SIDEBAR -->
+    <ul class="sidebar">
+        <li class="close-btn" onclick="hideSidebar()">
+            <i class="fa-solid fa-xmark"></i>
+        </li>
+
+        <li class="sidebar-title">
+            <img class="navbar-img1-sidebar" src="../img/logoblanco1.png">
+            <span>Universidad Nacional <br> Autónoma de México</span>
+        </li>
+
+        <li><a href="Inicio.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
+        <li><a href="#"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</a></li>
+    </ul>
+
+    <!-- NAVBAR -->
+    <ul class="navbar">
+        <li class="logo">
+            <img class="navbar-img1" src="../img/logoblanco1.png">
+            <a>
+            <span class="title">Universidad Nacional <br> Autónoma de México</span></a>
+        </li>
+
+        <li class="nav-item hideOnMobile">
+            <i class="icon-nav fa-solid fa-house"></i>
+            <a href="homeUsuario.html">Inicio</a>
+        </li>
+
+        </li>
+
+        <li class="nav-item hideOnMobile">
+            <i class="icon-nav fa-solid fa-right-from-bracket"></i>
+            <a href="#">Cerrar sesión</a>
+        </li>
+
+        <li class="logo2">
+            <img class="navbar-img2" src="../img/escudoFCA.png">
+        </li>
+
+        <li class="menu-btn" onclick="showSidebar()">
+            <i class="fa-solid fa-bars"></i>
+        </li>
+    </ul>
+</nav>
+</header>
+
+    <div class="search-container-solicitud">
+        <div class="search-header-solicitud">
+            <h1>Selecciona una materia o profesor</h1>
+            <div class="search-box-wrapper-solicitud">
+                <input type="text" class="search-box-solicitud" placeholder="Buscar materia o profesor...">
+                <i class="fas fa-search search-icon-solicitud"></i>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="soli solicitud-item" data-profesor="Marvin Jose Rayas Sanchez" data-materia="Ingenieria de Software"> 
+        <div class="solinfo">
+            <a>Profesor: Marvin Jose Rayas Sanchez</a>
+            <a>Materia: Ingenieria de Software</a>
+            <a>Dias: Martes, Jueves</a>
+            <a>Horario: 9 - 11</a>
+            <a>Edificio: K</a>
+            <a>Salon: K-101</a>
+        </div>
+        <div class="contenedor-acciones">
+            <div class="mensaje-aprobacion">
+                <div class="icono-aprobado">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <p class="texto-aprobacion">Solicitud Aprobada Exitosamente</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="soli solicitud-item" data-profesor="Pedro Gómez Martínez" data-materia="Estructuras de Datos" id="solicitud-2"> 
+        <div class="solinfo">
+            <a>Profesor: Pedro Gómez Martínez</a>
+            <a>Materia: Estructuras de Datos</a>
+            <a>Dias: Lunes, Miércoles</a>
+            <a>Horario: 9 - 11</a>
+            <a>Edificio: K</a>
+            <a>Salon: K-101</a>
+        </div>
+        <div class="contenedor-acciones">
+            <div class="aviso" id="aviso-restriccion">
+                ATENCION!
+                ESTE ESPACIO YA SE ENCUENTRA OCUPADO
+            </div>
+            <div class="btns-conflicto">
+                <button class="btn-eliminar-solicitud">Eliminar de la Lista</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="soli solicitud-item" data-profesor="Laura García Pérez" data-materia="Programación Orientada a Objetos"> 
+        <div class="solinfo">
+            <a>Profesor: Laura García Pérez</a>
+            <a>Materia: Programación Orientada a Objetos</a>
+            <a>Dias: Lunes, Miércoles, Viernes</a>
+            <a>Horario: 13 - 15</a>
+            <a>Edificio: B</a>
+            <a>Salon: B-203</a>
+        </div>
+        <div class="contenedor-acciones">
+            <div class="rechazo">
+                Razon de rechazo: 
+                <div>
+                    <textarea class="text-area" name="rechazo" id="rechazo" disabled>El edificio B no cuenta con disponibilidad en el horario solicitado.</textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="soli solicitud-item" data-profesor="Carlos Alberto Morales" data-materia="Base de Datos"> 
+        <div class="solinfo">
+            <a>Profesor: Carlos Alberto Morales</a>
+            <a>Materia: Base de Datos</a>
+            <a>Dias: Martes, Jueves</a>
+            <a>Horario: 14 - 16</a>
+            <a>Edificio: A</a>
+            <a>Salon: A-201</a>
+        </div>
+        <div class="contenedor-acciones">
+            <div class="btns">
+                <button class="aceptar-btn">Aprobar</button>
+                <button class="rechazar-btn">Rechazar</button>
+            </div>
+            <div class="formulario-rechazo" style="display: none;">
+                <label for="razon-rechazo">Razón del rechazo:</label>
+                <textarea class="textarea-razon" placeholder="Ingrese la razón del rechazo..."></textarea>
+                <div class="botones-rechazo">
+                    <button class="btn-guardar-rechazo">Guardar</button>
+                    <button class="btn-cancelar-rechazo">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="soli solicitud-item" data-profesor="Ana Patricia López García" data-materia="Análisis y Diseño de Sistemas"> 
+        <div class="solinfo">
+            <a>Profesor: Ana Patricia López García</a>
+            <a>Materia: Análisis y Diseño de Sistemas</a>
+            <a>Dias: Martes, Jueves, Viernes</a>
+            <a>Horario: 11 - 13</a>
+            <a>Edificio: C</a>
+            <a>Salon: C-105</a>
+        </div>
+        <div class="contenedor-acciones">
+            <div class="btns">
+                <button class="aceptar-btn">Aprobar</button>
+                <button class="rechazar-btn">Rechazar</button>
+            </div>
+            <div class="formulario-rechazo" style="display: none;">
+                <label for="razon-rechazo">Razón del rechazo:</label>
+                <textarea class="textarea-razon" placeholder="Ingrese la razón del rechazo..."></textarea>
+                <div class="botones-rechazo">
+                    <button class="btn-guardar-rechazo">Guardar</button>
+                    <button class="btn-cancelar-rechazo">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="soli solicitud-item" data-profesor="Roberto Fernández Silva" data-materia="Programación Avanzada"> 
+        <div class="solinfo">
+            <a>Profesor: Roberto Fernández Silva</a>
+            <a>Materia: Programación Avanzada</a>
+            <a>Dias: Lunes, Miércoles</a>
+            <a>Horario: 16 - 18</a>
+            <a>Edificio: A</a>
+            <a>Salon: A-305</a>
+        </div>
+        <div class="contenedor-acciones">
+            <div class="btns">
+                <button class="aceptar-btn">Aprobar</button>
+                <button class="rechazar-btn">Rechazar</button>
+            </div>
+            <div class="formulario-rechazo" style="display: none;">
+                <label for="razon-rechazo">Razón del rechazo:</label>
+                <textarea class="textarea-razon" placeholder="Ingrese la razón del rechazo..."></textarea>
+                <div class="botones-rechazo">
+                    <button class="btn-guardar-rechazo">Guardar</button>
+                    <button class="btn-cancelar-rechazo">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="soli solicitud-item" data-profesor="María del Carmen Rodríguez" data-materia="Contabilidad Financiera"> 
+        <div class="solinfo">
+            <a>Profesor: María del Carmen Rodríguez</a>
+            <a>Materia: Contabilidad Financiera</a>
+            <a>Dias: Lunes, Miércoles, Viernes</a>
+            <a>Horario: 8 - 10</a>
+            <a>Edificio: C</a>
+            <a>Salon: C-402</a>
+        </div>
+        <div class="contenedor-acciones">
+            <div class="btns">
+                <button class="aceptar-btn">Aprobar</button>
+                <button class="rechazar-btn">Rechazar</button>
+            </div>
+            <div class="formulario-rechazo" style="display: none;">
+                <label for="razon-rechazo">Razón del rechazo:</label>
+                <textarea class="textarea-razon" placeholder="Ingrese la razón del rechazo..."></textarea>
+                <div class="botones-rechazo">
+                    <button class="btn-guardar-rechazo">Guardar</button>
+                    <button class="btn-cancelar-rechazo">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="soli solicitud-item" data-profesor="Francisco Javier López" data-materia="Sistemas Operativos"> 
+        <div class="solinfo">
+            <a>Profesor: Francisco Javier López</a>
+            <a>Materia: Sistemas Operativos</a>
+            <a>Dias: Martes, Jueves</a>
+            <a>Horario: 15 - 17</a>
+            <a>Edificio: K</a>
+            <a>Salon: K-205</a>
+        </div>
+        <div class="contenedor-acciones">
+            <div class="btns">
+                <button class="aceptar-btn">Aprobar</button>
+                <button class="rechazar-btn">Rechazar</button>
+            </div>
+            <div class="formulario-rechazo" style="display: none;">
+                <label for="razon-rechazo">Razón del rechazo:</label>
+                <textarea class="textarea-razon" placeholder="Ingrese la razón del rechazo..."></textarea>
+                <div class="botones-rechazo">
+                    <button class="btn-guardar-rechazo">Guardar</button>
+                    <button class="btn-cancelar-rechazo">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenedor para solicitudes dinámicas desde localStorage -->
+    <div id="solicitudes-dinamicas"></div>
+
+    <!-- MODAL DE CONFIRMACIÓN -->
+    <div id="confirmModal" class="modal-overlay" style="display: none;">
+        <div class="modal-box">
+            <p id="modalMessage" class="modal-message">¿Está seguro que desea APROBAR esta solicitud?</p>
+            <div class="modal-buttons">
+                <button class="btn-accept" onclick="confirmAction()">Aceptar</button>
+                <button class="btn-cancel" onclick="closeModal()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+            <div class="footer-text-der">
+                <div class="iconos-footer">
+                    <a class="icon fa-brands fa-x-twitter" style="--color: rgb(0, 0, 0);"></a>
+                    <i class="icon fa-brands fa-youtube" style="--color: red;"></i>
+                    <i class="icon fa-brands fa-instagram" style="--color: rgb(210, 30, 108);"></i>
+                    <i class="icon fa-brands fa-whatsapp" style="--color: rgb(0, 133, 9);"></i>
+                    <i class="icon fa-brands fa-facebook" style="--color: rgb(17, 80, 255);"></i>
+                    <i class="icon fa-regular fa-envelope" style="--color: rgb(0, 0, 0);"></i>
+                </div>
+                <p>© 2026 | Todos los derechos reservados. Universidad Nacional Autónoma de México - Facultad de Contaduría y Administración. Plataforma de Gestión Académica.</p>
+            </div>
+        </footer>
+    </body>
+</html>
+
+<script>
+const sidebar = document.querySelector('.sidebar');
+const BREAKPOINT = 900;
+let currentAction = null;
+let currentSolicitud = null;
+
+// Cargar solicitudes desde localStorage
+function cargarSolicitudesDinamicas() {
+    const container = document.getElementById('solicitudes-dinamicas');
+    const solicitudes = JSON.parse(localStorage.getItem('solicitudes')) || [];
+    
+    solicitudes.forEach(solicitud => {
+        // Detectar conflictos (mismo día, edificio, salón y horario)
+        const conflictos = solicitudes.filter(s => 
+            s.edificio === solicitud.edificio && 
+            s.salon === solicitud.salon && 
+            s.horario === solicitud.horario && 
+            s.dia === solicitud.dia && 
+            s.id !== solicitud.id
+        );
+        
+        const tieneConflicto = conflictos.length > 0;
+        let avisoHTML = '';
+        
+        if (tieneConflicto) {
+            avisoHTML = `
+                <div class="aviso" id="aviso-restriccion">
+                    ATENCION!
+                    CONFLICTO DE HORARIO Y SALON
+                </div>
+            `;
+        }
+        
+        const solicitudHTML = `
+            <div class="soli solicitud-item" data-profesor="${solicitud.profesor}" data-materia="${solicitud.materia}" data-id="${solicitud.id}"> 
+                <div class="solinfo">
+                    <a>Profesor: ${solicitud.profesor}</a>
+                    <a>Materia: ${solicitud.materia}</a>
+                    <a>Clave: ${solicitud.clave}</a>
+                    <a>Día: ${solicitud.dia}</a>
+                    <a>Horario: ${solicitud.horario}</a>
+                    <a>Edificio: ${solicitud.edificio}</a>
+                    <a>Salon: ${solicitud.salon}</a>
+                </div>
+                <div class="contenedor-acciones">
+                    ${avisoHTML}
+                    <div class="btns" ${solicitud.estado !== 'pendiente' ? 'style="display: none;"' : ''}>
+                        <button class="aceptar-btn" onclick="aprobarSolicitudDinamica('${solicitud.id}')">Aprobar</button>
+                        <button class="rechazar-btn" onclick="rechazarSolicitudDinamica('${solicitud.id}')">Rechazar</button>
+                    </div>
+                    <div class="formulario-rechazo" style="display: none;">
+                        <label for="razon-rechazo">Razón del rechazo:</label>
+                        <textarea class="textarea-razon" placeholder="Ingrese la razón del rechazo..."></textarea>
+                        <div class="botones-rechazo">
+                            <button class="btn-guardar-rechazo" onclick="guardarRechasoDinamico('${solicitud.id}')">Guardar</button>
+                            <button class="btn-cancelar-rechazo" onclick="cancelarRechasoDinamico('${solicitud.id}')">Cancelar</button>
+                        </div>
+                    </div>
+                    ${solicitud.estado === 'aprobada' ? `
+                        <div class="mensaje-aprobacion">
+                            <div class="icono-aprobado">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <p class="texto-aprobacion">Solicitud Aprobada Exitosamente</p>
+                        </div>
+                        <div class="btns" style="margin-top: 10px;">
+                            <button class="rechazar-btn" onclick="cancelarAprobacion('${solicitud.id}')">Cancelar Aprobación</button>
+                        </div>
+                    ` : ''}
+                    ${solicitud.estado === 'rechazada' ? `
+                        <div class="rechazo">
+                            Razon de rechazo: 
+                            <div>
+                                <textarea class="text-area" name="rechazo" disabled>${solicitud.razonRechazo || ''}</textarea>
+                            </div>
+                        </div>
+                        <div class="btns" style="margin-top: 10px;">
+                            <button class="aceptar-btn" onclick="aprobarSolicitudDinamica('${solicitud.id}')">Cambiar a Aprobar</button>
+                            <button class="rechazar-btn" onclick="rechazarSolicitudDinamica('${solicitud.id}')">Editar Rechazo</button>
+                        </div>
+                    ` : ''}
+                    ${solicitud.estado === 'bloqueada' ? `
+                        <div class="aviso" id="aviso-restriccion">
+                            ATENCION!
+                            ESTE ESPACIO YA SE ENCUENTRA OCUPADO
+                        </div>
+                        <div class="btns" style="margin-top: 10px;">
+                            <button class="rechazar-btn" onclick="rechazarSolicitudDinamica('${solicitud.id}')">Desbloquear y Rechazar</button>
+                        </div>
+                    ` : ''}
+                </div>
+            </div>
+        `;
+        container.innerHTML += solicitudHTML;
+    });
+}
+
+// Aprobar solicitud dinámica
+function aprobarSolicitudDinamica(id) {
+    let solicitudes = JSON.parse(localStorage.getItem('solicitudes')) || [];
+    const indexAprobada = solicitudes.findIndex(s => s.id == id);
+    
+    if (indexAprobada !== -1) {
+        const solicitudAprobada = solicitudes[indexAprobada];
+        solicitudAprobada.estado = 'aprobada';
+        
+        // Bloquear todas las solicitudes conflictivas (mismo día, edificio, salón y horario)
+        solicitudes.forEach(s => {
+            if (s.id != id && 
+                s.edificio === solicitudAprobada.edificio && 
+                s.salon === solicitudAprobada.salon && 
+                s.horario === solicitudAprobada.horario && 
+                s.dia === solicitudAprobada.dia && 
+                s.estado === 'pendiente') {
+                s.estado = 'bloqueada';
+            }
+        });
+        
+        localStorage.setItem('solicitudes', JSON.stringify(solicitudes));
+        
+        // Recargar las solicitudes
+        document.getElementById('solicitudes-dinamicas').innerHTML = '';
+        cargarSolicitudesDinamicas();
+    }
+}
+
+// Cancelar aprobación de solicitud
+function cancelarAprobacion(id) {
+    let solicitudes = JSON.parse(localStorage.getItem('solicitudes')) || [];
+    const solicitud = solicitudes.find(s => s.id == id);
+    
+    if (solicitud) {
+        solicitud.estado = 'pendiente';
+        localStorage.setItem('solicitudes', JSON.stringify(solicitudes));
+        
+        // Recargar las solicitudes
+        document.getElementById('solicitudes-dinamicas').innerHTML = '';
+        cargarSolicitudesDinamicas();
+    }
+}
+
+// Rechazar solicitud dinámica
+function rechazarSolicitudDinamica(id) {
+    const solicitudes = JSON.parse(localStorage.getItem('solicitudes')) || [];
+    const solicitud = solicitudes.find(s => s.id == id);
+    
+    if (solicitud) {
+        // Si está bloqueada, desbloquear primero
+        if (solicitud.estado === 'bloqueada') {
+            solicitud.estado = 'pendiente';
+            localStorage.setItem('solicitudes', JSON.stringify(solicitudes));
+            document.getElementById('solicitudes-dinamicas').innerHTML = '';
+            cargarSolicitudesDinamicas();
+            return;
+        }
+        
+        const elemento = document.querySelector(`[data-id="${solicitud.id}"]`);
+        if (elemento) {
+            const btns = elemento.querySelectorAll('.btns');
+            const formulario = elemento.querySelector('.formulario-rechazo');
+            
+            // Ocultar todos los botones y mostrar formulario
+            btns.forEach(btn => btn.style.display = 'none');
+            if (formulario) {
+                formulario.style.display = 'flex';
+            }
+        }
+    }
+}
+
+// Guardar rechazo dinámico
+function guardarRechasoDinamico(id) {
+    let solicitudes = JSON.parse(localStorage.getItem('solicitudes')) || [];
+    const solicitud = solicitudes.find(s => s.id == id);
+    
+    if (solicitud) {
+        const elemento = document.querySelector(`[data-id="${solicitud.id}"]`);
+        const textarea = elemento.querySelector('.textarea-razon');
+        const razon = textarea.value;
+        
+        if (razon.trim() === '') {
+            alert('Por favor ingrese una razón del rechazo');
+            return;
+        }
+        
+        solicitud.estado = 'rechazada';
+        solicitud.razonRechazo = razon;
+        localStorage.setItem('solicitudes', JSON.stringify(solicitudes));
+        
+        // Recargar para reflejar cambios
+        document.getElementById('solicitudes-dinamicas').innerHTML = '';
+        cargarSolicitudesDinamicas();
+    }
+}
+
+// Cancelar rechazo dinámico
+function cancelarRechasoDinamico(id) {
+    const solicitudes = JSON.parse(localStorage.getItem('solicitudes')) || [];
+    const solicitud = solicitudes.find(s => s.id == id);
+    
+    if (solicitud) {
+        const elemento = document.querySelector(`[data-id="${solicitud.id}"]`);
+        if (elemento) {
+            const btns = elemento.querySelectorAll('.btns');
+            const formulario = elemento.querySelector('.formulario-rechazo');
+            const textarea = elemento.querySelector('.textarea-razon');
+            
+            textarea.value = '';
+            btns.forEach(btn => btn.style.display = 'flex');
+            if (formulario) {
+                formulario.style.display = 'none';
+            }
+        }
+    }
+}
+
+function showSidebar() {
+    sidebar.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function hideSidebar() {
+    sidebar.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+window.addEventListener('resize', () => {
+    if (window.innerWidth > BREAKPOINT) {
+        hideSidebar();
+    }
+});
+
+// Función para mostrar el modal
+function showConfirmModal(action, solicitud) {
+    const modal = document.getElementById('confirmModal');
+    const message = document.getElementById('modalMessage');
+    
+    currentSolicitud = solicitud;
+    
+    if (action === 'aprobar') {
+        message.textContent = '¿Está seguro que desea APROBAR esta solicitud?';
+        currentAction = 'aprobar';
+    } else if (action === 'rechazar') {
+        message.textContent = '¿Está seguro que desea RECHAZAR esta solicitud?';
+        currentAction = 'rechazar';
+    }
+    
+    modal.style.display = 'flex';
+}
+
+// Función para cerrar el modal
+function closeModal() {
+    const modal = document.getElementById('confirmModal');
+    modal.style.display = 'none';
+    currentAction = null;
+    currentSolicitud = null;
+}
+
+// Función para confirmar la acción
+function confirmAction() {
+    if (currentAction === 'aprobar' && currentSolicitud) {
+        // Obtener el contenedor de acciones de la solicitud
+        const contenedorAcciones = currentSolicitud.querySelector('.contenedor-acciones');
+        
+        // Crear mensaje de aprobación
+        const mensajeAprobacion = document.createElement('div');
+        mensajeAprobacion.className = 'mensaje-aprobacion';
+        mensajeAprobacion.innerHTML = `
+            <div class="icono-aprobado">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <p class="texto-aprobacion">Solicitud Aprobada Exitosamente</p>
+        `;
+        
+        // Limpiar el contenedor y agregar el mensaje
+        contenedorAcciones.innerHTML = '';
+        contenedorAcciones.appendChild(mensajeAprobacion);
+    } else if (currentAction === 'rechazar') {
+        alert('Solicitud rechazada');
+    }
+    closeModal();
+}
+
+// Agregar event listeners a todos los botones
+document.addEventListener('DOMContentLoaded', function() {
+    // Cargar solicitudes dinámicas desde localStorage
+    cargarSolicitudesDinamicas();
+    
+    const aprobarBtns = document.querySelectorAll('.aceptar-btn');
+    const rechazarBtns = document.querySelectorAll('.rechazar-btn');
+    const eliminarBtn = document.querySelector('.btn-eliminar-solicitud');
+    
+    // Funcionalidad del botón eliminar
+    if (eliminarBtn) {
+        eliminarBtn.addEventListener('click', function() {
+            const solicitud = eliminarBtn.closest('.soli');
+            solicitud.style.animation = 'fadeOut 0.5s ease-out';
+            setTimeout(() => {
+                solicitud.remove();
+            }, 500);
+        });
+    }
+    
+    aprobarBtns.forEach(btn => {
+        if (!btn.hasAttribute('onclick')) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const solicitud = btn.closest('.soli');
+                showConfirmModal('aprobar', solicitud);
+            });
+        }
+    });
+    
+    rechazarBtns.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const solicitud = btn.closest('.soli');
+            const formulario = solicitud.querySelector('.formulario-rechazo');
+            const botonesDiv = solicitud.querySelector('.btns');
+            
+            // Ocultar botones y mostrar formulario
+            botonesDiv.style.display = 'none';
+            formulario.style.display = 'flex';
+            
+            // Agregar listeners a los botones del formulario
+            const btnGuardar = formulario.querySelector('.btn-guardar-rechazo');
+            const btnCancelar = formulario.querySelector('.btn-cancelar-rechazo');
+            const textarea = formulario.querySelector('.textarea-razon');
+            
+            btnGuardar.addEventListener('click', function() {
+                const razon = textarea.value;
+                if (razon.trim() === '') {
+                    alert('Por favor ingrese una razón del rechazo');
+                    return;
+                }
+                
+                // Ocultar formulario y mostrar la razón de rechazo
+                formulario.style.display = 'none';
+                botonesDiv.style.display = 'none';
+                
+                // Crear y mostrar la sección de rechazo
+                const rechazoDiv = solicitud.querySelector('.rechazo');
+                if (!rechazoDiv) {
+                    const nuevoRechazo = document.createElement('div');
+                    nuevoRechazo.className = 'rechazo';
+                    nuevoRechazo.innerHTML = `
+                        Razon de rechazo: 
+                        <div>
+                            <textarea class="text-area" name="rechazo" disabled>${razon}</textarea>
+                        </div>
+                    `;
+                    solicitud.querySelector('.contenedor-acciones').appendChild(nuevoRechazo);
+                } else {
+                    rechazoDiv.style.display = 'flex';
+                    rechazoDiv.querySelector('.text-area').value = razon;
+                }
+            });
+            
+            btnCancelar.addEventListener('click', function() {
+                // Limpiar textarea y volver a mostrar botones
+                textarea.value = '';
+                formulario.style.display = 'none';
+                botonesDiv.style.display = 'flex';
+            });
+        });
+    });
+
+    // Funcionalidad del buscador
+    const searchInput = document.querySelector('.search-box-solicitud');
+    if (searchInput) {
+        searchInput.addEventListener('keyup', function() {
+            filtrarSolicitudes(this.value.toLowerCase());
+        });
+    }
+});
+
+// Función para filtrar solicitudes
+function filtrarSolicitudes(searchTerm) {
+    const solicitudes = document.querySelectorAll('.solicitud-item');
+    
+    solicitudes.forEach(solicitud => {
+        const profesor = solicitud.getAttribute('data-profesor').toLowerCase();
+        const materia = solicitud.getAttribute('data-materia').toLowerCase();
+        
+        if (profesor.includes(searchTerm) || materia.includes(searchTerm)) {
+            solicitud.style.display = 'flex';
+        } else {
+            solicitud.style.display = 'none';
+        }
+    });
+}
+
+// Función para abrir modal en la segunda solicitud (con restricción)
+function abrirModalSolicitud2() {
+    const modal = document.getElementById('confirmModal');
+    const modalMessage = document.getElementById('modalMessage');
+    const solicitud = document.getElementById('solicitud-2');
+    
+    modalMessage.textContent = '¿Está seguro que desea APROBAR esta solicitud?';
+    currentSolicitud = solicitud;
+    currentAction = 'aprobar';
+    modal.style.display = 'flex';
+}
+
+// Cerrar modal al hacer click fuera de él
+document.addEventListener('click', function(event) {
+    const modal = document.getElementById('confirmModal');
+    if (event.target === modal) {
+        closeModal();
+    }
+});
+</script>

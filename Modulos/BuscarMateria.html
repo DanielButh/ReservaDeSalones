@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Materia</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=code" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/buscarMatera.css">
+</head>
+<body>
+    <header>
+    <nav class="nav">
+    <!-- SIDEBAR -->
+    <ul class="sidebar">
+        <li class="close-btn" onclick="hideSidebar()">
+            <i class="fa-solid fa-xmark"></i>
+        </li>
+
+        <li class="sidebar-title">
+            <img class="navbar-img1-sidebar" src="../img/logoblanco1.png">
+            <span>Universidad Nacional <br> Autónoma de México</span>
+        </li>
+
+        <li><a href="homeUsuario.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
+        <li><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</a></li>
+    </ul>
+
+    <!-- NAVBAR -->
+    <ul class="navbar">
+        <li class="logo">
+            <img class="navbar-img1" src="../img/logoblanco1.png">
+            <span class="title">Universidad Nacional <br> Autónoma de México</span>
+        </li>
+
+        <li class="nav-item hideOnMobile">
+            <i class="icon-nav fa-solid fa-house"></i>
+            <a href="homeUsuario.html">Inicio</a>
+        </li>
+
+        <li class="nav-item hideOnMobile">
+            <i class="icon-nav fa-solid fa-right-from-bracket"></i>
+            <a href="index.html">Cerrar sesión</a>
+        </li>
+
+        <li class="logo2">
+            <img class="navbar-img2" src="../img/escudoFCA.png">
+        </li>
+
+        <li class="menu-btn" onclick="showSidebar()">
+            <i class="fa-solid fa-bars"></i>
+        </li>
+    </ul>
+</nav>
+</header>
+
+    <h1 style="text-align: center; margin: 2rem 0; font-size: 2.5rem; font-weight: bold;">Selecciona una materia</h1>
+
+    <div class="search-container">
+        <label class="search-label">Buscar:</label>
+        <input type="text" class="search-input" placeholder="" id="searchInput">
+    </div>
+
+    <div class="materias-container">
+        <div class="materia-item">
+            <div class="materia-imagen"></div>
+            <div class="materia-info">
+                <div class="materia-nombre">Materia 1</div>
+                <div class="materia-grupo">Grupo: 1792</div>
+            </div>
+        </div>
+
+        <div class="materia-item">
+            <div class="materia-imagen"></div>
+            <div class="materia-info">
+                <div class="materia-nombre">Materia 2</div>
+                <div class="materia-grupo">Grupo: 1792</div>
+            </div>
+        </div>
+
+        <div class="materia-item">
+            <div class="materia-imagen"></div>
+            <div class="materia-info">
+                <div class="materia-nombre">Materia 3</div>
+                <div class="materia-grupo">Grupo: 1792</div>
+            </div>
+        </div>
+
+        <div class="materia-item">
+            <div class="materia-imagen"></div>
+            <div class="materia-info">
+                <div class="materia-nombre">Materia 4</div>
+                <div class="materia-grupo">Grupo: 1792</div>
+            </div>
+        </div>
+
+        <div class="materia-item">
+            <div class="materia-imagen"></div>
+            <div class="materia-info">
+                <div class="materia-nombre">Materia 5</div>
+                <div class="materia-grupo">Grupo: 1792</div>
+            </div>
+        </div>
+
+        <div class="materia-item">
+            <div class="materia-imagen"></div>
+            <div class="materia-info">
+                <div class="materia-nombre">Materia 6</div>
+                <div class="materia-grupo">Grupo: 1792</div>
+            </div>
+        </div>
+
+        <div class="materia-item">
+            <div class="materia-imagen"></div>
+            <div class="materia-info">
+                <div class="materia-nombre">Materia 7</div>
+                <div class="materia-grupo">Grupo: 1792</div>
+            </div>
+        </div>
+
+        <div class="materia-item">
+            <div class="materia-imagen"></div>
+            <div class="materia-info">
+                <div class="materia-nombre">Materia 8</div>
+                <div class="materia-grupo">Grupo: 1792</div>
+            </div>
+        </div>
+
+        <div class="materia-item">
+            <div class="materia-imagen"></div>
+            <div class="materia-info">
+                <div class="materia-nombre">Materia 9</div>
+                <div class="materia-grupo">Grupo: 1792</div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-text-der">
+            <div class="">
+                <i class="icon fa-brands fa-youtube" style="--color: red;"></i>
+                <i class="icon fa-brands fa-instagram" style="--color: rgb(210, 30, 108);"></i>
+                <i class="icon fa-brands fa-whatsapp" style="--color: rgb(0, 133, 9);"></i>
+                <i class="icon fa-brands fa-facebook" style="--color: rgb(17, 80, 255);"></i>
+                <i class="icon fa-regular fa-envelope" style="--color: rgb(0, 0, 0);"></i>
+            </div>
+            <p>© 2026 | Todos los derechos reservados. Universidad Nacional Autónoma de México - Facultad de Contaduría y Administración. Plataforma de Gestión Académica.</p>
+        </div>
+    </footer>
+
+<script>
+const sidebar = document.querySelector('.sidebar');
+const BREAKPOINT = 900;
+
+function showSidebar() {
+    sidebar.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function hideSidebar() {
+    sidebar.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+window.addEventListener('resize', () => {
+    if (window.innerWidth > BREAKPOINT) {
+        hideSidebar();
+    }
+});
+
+// Función de búsqueda
+document.getElementById('searchInput').addEventListener('keyup', function(e) {
+    const searchTerm = e.target.value.toLowerCase();
+    const materiasItems = document.querySelectorAll('.materia-item');
+    
+    materiasItems.forEach(item => {
+        const materiaName = item.querySelector('.materia-nombre').textContent.toLowerCase();
+        if (materiaName.includes(searchTerm)) {
+            item.style.display = 'flex';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+    "equipamiento": [
+        {
+        "id_equipamiento": 1,
+        "nombre": "equipo de proyección"
+        },
+        {
+        "id_equipamiento": 2,
+        "nombre": "manta de proyección"
+        }
+    ]
+}

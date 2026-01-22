@@ -1,0 +1,10 @@
+{
+    "semestres":[
+        {
+            "id_semestre":1,
+            "ciclo":"2026-1",
+            "fecha_inicio": "2025-08-05",
+            "fecha_fin": "2025-12-13"
+        }
+    ]
+}

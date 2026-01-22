@@ -1,0 +1,150 @@
+{
+    "cursos": [
+        {
+        "id_materia": 1,
+        "id_grupo": 1,
+        "id_profesor": 1,
+        "horarios": [
+            { "dia": "Lunes", "hora_inicio": "08:00", "hora_fin": "09:30" },
+            { "dia": "Miércoles", "hora_inicio": "08:00", "hora_fin": "09:30" }
+        ]
+        },
+        {
+        "id_materia": 2,
+        "id_grupo": 1,
+        "id_profesor": 2,
+        "horarios": [
+            { "dia": "Martes", "hora_inicio": "09:30", "hora_fin": "11:00" },
+            { "dia": "Jueves", "hora_inicio": "09:30", "hora_fin": "11:00" }
+        ]
+        },
+        {
+        "id_materia": 3,
+        "id_grupo": 1,
+        "id_profesor": 3,
+        "horarios": [
+            { "dia": "Viernes", "hora_inicio": "08:00", "hora_fin": "11:00" }
+        ]
+        },
+
+        {
+        "id_curso": 1,
+        "id_materia": 1,
+        "id_grupo": 2,
+        "id_profesor": 4,
+        "horarios": [
+            { "dia": "Lunes", "hora_inicio": "16:00", "hora_fin": "17:30" },
+            { "dia": "Miércoles", "hora_inicio": "16:00", "hora_fin": "17:30" }
+        ]
+        },
+        {
+        "id_curso": 2,
+        "id_materia": 2,
+        "id_grupo": 2,
+        "id_profesor": 5,
+        "horarios": [
+            { "dia": "Martes", "hora_inicio": "17:30", "hora_fin": "19:00" },
+            { "dia": "Jueves", "hora_inicio": "17:30", "hora_fin": "19:00" }
+        ]
+        },
+        {
+        "id_curso": 3,
+        "id_materia": 3,
+        "id_grupo": 2,
+        "id_profesor": 1,
+        "horarios": [
+            { "dia": "Viernes", "hora_inicio": "16:00", "hora_fin": "19:00" }
+        ]
+        },
+
+        {
+        "id_curso": 4,
+        "id_materia": 4,
+        "id_grupo": 4,
+        "id_profesor": 6,
+        "horarios": [
+            { "dia": "Lunes", "hora_inicio": "08:00", "hora_fin": "09:30" },
+            { "dia": "Miércoles", "hora_inicio": "08:00", "hora_fin": "09:30" }
+        ]
+        },
+        {
+        "id_curso": 5,
+        "id_materia": 5,
+        "id_grupo": 4,
+        "id_profesor": 7,
+        "horarios": [
+            { "dia": "Martes", "hora_inicio": "09:30", "hora_fin": "11:00" },
+            { "dia": "Jueves", "hora_inicio": "09:30", "hora_fin": "11:00" }
+        ]
+        },
+        {
+        "id_curso": 6,
+        "id_materia": 6,
+        "id_grupo": 4,
+        "id_profesor": 8,
+        "horarios": [
+            { "dia": "Viernes", "hora_inicio": "08:00", "hora_fin": "11:00" }
+        ]
+        },
+
+        {
+        "id_curso": 7,
+        "id_materia": 7,
+        "id_grupo": 7,
+        "id_profesor": 11,
+        "horarios": [
+            { "dia": "Lunes", "hora_inicio": "08:00", "hora_fin": "09:30" },
+            { "dia": "Miércoles", "hora_inicio": "08:00", "hora_fin": "09:30" }
+        ]
+        },
+        {
+        "id_curso": 8,
+        "id_materia": 8,
+        "id_grupo": 7,
+        "id_profesor": 12,
+        "horarios": [
+            { "dia": "Martes", "hora_inicio": "09:30", "hora_fin": "11:00" },
+            { "dia": "Jueves", "hora_inicio": "09:30", "hora_fin": "11:00" }
+        ]
+        },
+        {
+        "id_curso": 9,
+        "id_materia": 9,
+        "id_grupo": 7,
+        "id_profesor": 13,
+        "horarios": [
+            { "dia": "Viernes", "hora_inicio": "08:00", "hora_fin": "11:00" }
+        ]
+        },
+
+        {
+        "id_curso": 10,
+        "id_materia": 10,
+        "id_grupo": 9,
+        "id_profesor": 16,
+        "horarios": [
+            { "dia": "Lunes", "hora_inicio": "08:00", "hora_fin": "09:30" },
+            { "dia": "Miércoles", "hora_inicio": "08:00", "hora_fin": "09:30" }
+        ]
+        },
+        {
+        "id_curso": 11,
+        "id_materia": 11,
+        "id_grupo": 9,
+        "id_profesor": 17,
+        "horarios": [
+            { "dia": "Martes", "hora_inicio": "09:30", "hora_fin": "11:00" },
+            { "dia": "Jueves", "hora_inicio": "09:30", "hora_fin": "11:00" }
+        ]
+        },
+        {
+        "id_curso": 12,
+        "id_materia": 12,
+        "id_grupo": 9,
+        "id_profesor": 18,
+        "horarios": [
+            { "dia": "Viernes", "hora_inicio": "08:00", "hora_fin": "11:00" }
+        ]
+        }
+    ]
+}

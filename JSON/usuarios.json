@@ -1,0 +1,248 @@
+{
+    "usuarios": [
+        {
+        "id_usuario": 1,
+        "nombre_completo": "Ana Maria Lopez Garcia",
+        "rfc": "LOGA850312AB1",
+        "correo": "ana_lopez@fca.unam.mx",
+        "numero_trabajador": "1000000000001",
+        "rol_usuario": "administrador",
+        "contrasenia": "123",
+        "carrera": "Administración"
+        },
+        {
+        "id_usuario": 2,
+        "nombre_completo": "Carlos Eduardo Perez Ramos",
+        "rfc": "PERC830715CD2",
+        "correo": "carlos_perez@fca.unam.mx",
+        "numero_trabajador": "1000000000002",
+        "rol_usuario": "administrador",
+        "contrasenia": "123",
+        "carrera": "Contaduria"
+        },
+        {
+        "id_usuario": 3,
+        "nombre_completo": "Luis Fernando Martinez Soto",
+        "rfc": "MASL820910EF3",
+        "correo": "luis_martinez@fca.unam.mx",
+        "numero_trabajador": "1000000000003",
+        "rol_usuario": "administrador",
+        "contrasenia": "123",
+        "carrera": "Informatica"
+        },
+        {
+        "id_usuario": 4,
+        "nombre_completo": "Patricia Elena Gomez Ruiz",
+        "rfc": "GORP840221GH4",
+        "correo": "patricia_gomez@fca.unam.mx",
+        "numero_trabajador": "1000000000004",
+        "rol_usuario": "administrador",
+        "contrasenia": "123",
+        "carrera": "Negocios internacionales"
+        },
+
+        {
+        "id_usuario": 5,
+        "nombre_completo": "Miguel Angel Torres Diaz",
+        "rfc": "TODM790305IJ5",
+        "correo": "miguel_torres@fca.unam.mx",
+        "numero_trabajador": "1000000000005",
+        "rol_usuario": "profesor",
+        "contrasenia": "123",
+        "carrera": "Administración"
+        },
+        {
+        "id_usuario": 6,
+        "nombre_completo": "Laura Isabel Hernandez Cruz",
+        "rfc": "HECL810418KL6",
+        "correo": "laura_hernandez@fca.unam.mx",
+        "numero_trabajador": "1000000000006",
+        "rol_usuario": "profesor",
+        "contrasenia": "123",
+        "carrera": "Administración"
+        },
+        {
+        "id_usuario": 7,
+        "nombre_completo": "Jorge Alberto Ramirez Flores",
+        "rfc": "RAFJ800622MN7",
+        "correo": "jorge_ramirez@fca.unam.mx",
+        "numero_trabajador": "1000000000007",
+        "rol_usuario": "profesor",
+        "contrasenia": "123",
+        "carrera": "Administración"
+        },
+        {
+        "id_usuario": 8,
+        "nombre_completo": "Sofia Beatriz Morales Vega",
+        "rfc": "MOVS860917OP8",
+        "correo": "sofia_morales@fca.unam.mx",
+        "numero_trabajador": "1000000000008",
+        "rol_usuario": "profesor",
+        "contrasenia": "123",
+        "carrera": "Administración"
+        },
+        {
+        "id_usuario": 9,
+        "nombre_completo": "Ricardo Antonio Castillo Luna",
+        "rfc": "CALR780101QR9",
+        "correo": "ricardo_castillo@fca.unam.mx",
+        "numero_trabajador": "1000000000009",
+        "rol_usuario": "profesor",
+        "contrasenia": "123",
+        "carrera": "Administración"
+        },
+
+        {
+        "id_usuario": 10,
+        "nombre_completo": "Daniel Alejandro Flores Mendoza",
+        "rfc": "FOMD790811ST1",
+        "correo": "daniel_flores@fca.unam.mx",
+        "numero_trabajador": "1000000000010",
+        "rol_usuario": "profesor",
+        "contrasenia": "123",
+        "carrera": "Contaduria"
+        },
+        {
+        "id_usuario": 11,
+        "nombre_completo": "Mariana Fernanda Rios Ortega",
+        "rfc": "RIOM850402UV2",
+        "correo": "mariana_rios@fca.unam.mx",
+        "numero_trabajador": "1000000000011",
+        "rol_usuario": "profesor",
+        "contrasenia": "123",
+        "carrera": "Contaduria"
+        },
+        {
+        "id_usuario": 12,
+        "nombre_completo": "Hector Ivan Sanchez Pineda",
+        "rfc": "SAPH820915WX3",
+        "correo": "hector_sanchez@fca.unam.mx",
+        "numero_trabajador": "1000000000012",
+        "rol_usuario": "profesor",
+        "contrasenia": "123",
+        "carrera": "Contaduria"
+        },
+        {
+        "id_usuario": 13,
+        "nombre_completo": "Claudia Veronica Nunez Torres",
+        "rfc": "NUTC830730YZ4",
+        "correo": "claudia_nunez@fca.unam.mx",
+        "numero_trabajador": "1000000000013",
+        "rol_usuario": "profesor",
+        "contrasenia": "123",
+        "carrera": "Contaduria"
+        },
+        {
+        "id_usuario": 14,
+        "nombre_completo": "Oscar Raul Medina Campos",
+        "rfc": "MECO810506AB5",
+        "correo": "oscar_medina@fca.unam.mx",
+        "numero_trabajador": "1000000000014",
+        "rol_usuario": "profesor",
+        "contrasenia": "123",
+        "carrera": "Contaduria"
+        },
+
+        {
+        "id_usuario": 15,
+        "nombre_completo": "Ivan Roberto Salas Jimenez",
+        "rfc": "SAJI840818CD6",
+        "correo": "ivan_salas@fca.unam.mx",
+        "numero_trabajador": "1000000000015",
+        "rol_usuario": "profesor",
+        "contrasenia": "123",
+        "carrera": "Informatica"
+        },
+        {
+        "id_usuario": 16,
+        "nombre_completo": "Paola Andrea Cruz Valdez",
+        "rfc": "CUVP860224EF7",
+        "correo": "paola_cruz@fca.unam.mx",
+        "numero_trabajador": "1000000000016",
+        "rol_usuario": "profesor",
+        "contrasenia": "123",
+        "carrera": "Informatica"
+        },
+        {
+        "id_usuario": 17,
+        "nombre_completo": "Sergio Adrian Vega Torres",
+        "rfc": "VETS790913GH8",
+        "correo": "sergio_vega@fca.unam.mx",
+        "numero_trabajador": "1000000000017",
+        "rol_usuario": "profesor",
+        "contrasenia": "123",
+        "carrera": "Informatica"
+        },
+        {
+        "id_usuario": 18,
+        "nombre_completo": "Natalia Irene Campos Reyes",
+        "rfc": "CARE880330IJ9",
+        "correo": "natalia_campos@fca.unam.mx",
+        "numero_trabajador": "1000000000018",
+        "rol_usuario": "profesor",
+        "contrasenia": "123",
+        "carrera": "Informatica"
+        },
+        {
+        "id_usuario": 19,
+        "nombre_completo": "Fernando Emilio Ortiz Luna",
+        "rfc": "OILF820707KL1",
+        "correo": "fernando_ortiz@fca.unam.mx",
+        "numero_trabajador": "1000000000019",
+        "rol_usuario": "profesor",
+        "contrasenia": "123",
+        "carrera": "Informatica"
+        },
+
+        {
+        "id_usuario": 20,
+        "nombre_completo": "Andrea Lucia Herrera Morales",
+        "rfc": "HEMA850115MN2",
+        "correo": "andrea_herrera@fca.unam.mx",
+        "numero_trabajador": "1000000000020",
+        "rol_usuario": "profesor",
+        "contrasenia": "123",
+        "carrera": "Negocios internacionales"
+        },
+        {
+        "id_usuario": 21,
+        "nombre_completo": "Jose Manuel Navarro Torres",
+        "rfc": "NATJ810924OP3",
+        "correo": "jose_navarro@fca.unam.mx",
+        "numero_trabajador": "1000000000021",
+        "rol_usuario": "profesor",
+        "contrasenia": "123",
+        "carrera": "Negocios internacionales"
+        },
+        {
+        "id_usuario": 22,
+        "nombre_completo": "Valeria Paola Mendez Castillo",
+        "rfc": "MECP870411QR4",
+        "correo": "valeria_mendez@fca.unam.mx",
+        "numero_trabajador": "1000000000022",
+        "rol_usuario": "profesor",
+        "contrasenia": "123",
+        "carrera": "Negocios internacionales"
+        },
+        {
+        "id_usuario": 23,
+        "nombre_completo": "Rafael Ignacio Luna Perez",
+        "rfc": "LUPR800528ST5",
+        "correo": "rafael_luna@fca.unam.mx",
+        "numero_trabajador": "1000000000023",
+        "rol_usuario": "profesor",
+        "contrasenia": "123",
+        "carrera": "Negocios internacionales"
+        },
+        {
+        "id_usuario": 24,
+        "nombre_completo": "Monica Isabel Flores Quintana",
+        "rfc": "FIQM830912UV6",
+        "correo": "monica_flores@fca.unam.mx",
+        "numero_trabajador": "1000000000024",
+        "rol_usuario": "profesor",
+        "contrasenia": "123",
+        "carrera": "Negocios internacionales"
+        }
+  ]
+}

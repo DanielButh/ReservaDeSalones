@@ -1,0 +1,74 @@
+{
+    "edificios": [
+        {
+        "id_edificio": 1,
+        "nombre": "Edificio A",
+        "fotografia": "/edificios/edificio_a.png"
+        },
+        {
+        "id_edificio": 2,
+        "nombre": "Edificio B",
+        "fotografia": "/edificios/edificio_b.png"
+        },
+        {
+        "id_edificio": 3,
+        "nombre": "Edificio C",
+        "fotografia": "/edificios/edificio_c.png"
+        },
+        {
+        "id_edificio": 4,
+        "nombre": "Edificio D",
+        "fotografia": "/edificios/edificio_d.png"
+        },
+        {
+        "id_edificio": 5,
+        "nombre": "Edificio F",
+        "fotografia": "/edificios/edificio_f.png"
+        },
+        {
+        "id_edificio": 6,
+        "nombre": "Edificio G",
+        "fotografia": "/edificios/edificio_g.png"
+        },
+        {
+        "id_edificio": 7,
+        "nombre": "Edificio H",
+        "fotografia": "/edificios/edificio_h.png"
+        },
+        {
+        "id_edificio": 8,
+        "nombre": "Edificio I",
+        "fotografia": "/edificios/edificio_i.png"
+        },
+        {
+        "id_edificio": 9,
+        "nombre": "Edificio J",
+        "fotografia": "/edificios/edificio_j.png"
+        },
+        {
+        "id_edificio": 10,
+        "nombre": "Edificio K",
+        "fotografia": "/edificios/edificio_k.png"
+        },
+        {
+        "id_edificio": 11,
+        "nombre": "Centro de Informatica",
+        "fotografia": "/edificios/centro_de_informatica.png"
+        },
+        {
+        "id_edificio": 12,
+        "nombre": "Aulas - Biblioteca",
+        "fotografia": "/edificios/aulas_biblioteca.png"
+        },
+        {
+        "id_edificio": 13,
+        "nombre": "Aulas - 2do Piso sala de firmas",
+        "fotografia": "/edificios/aulas_2do_piso_sala_de_firmas.png"
+        },
+        {
+        "id_edificio": 14,
+        "nombre": "Aulas - Metodo del caso",
+        "fotografia": "/edificios/aulas_metodo_del_caso.png"
+        }
+  ]
+}

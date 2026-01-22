@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horario Profesor - FCA</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=code" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/horarioProfesor.css">
+</head>
+<body>
+    <header>
+    <nav class="nav">
+        <!-- SIDEBAR -->
+        <ul class="sidebar">
+            <li class="close-btn" onclick="hideSidebar()">
+                <i class="fa-solid fa-xmark"></i>
+            </li>
+
+            <li class="sidebar-title">
+                <img class="navbar-img1-sidebar" src="../img/logoblanco1.png">
+                <span>Universidad Nacional <br> Autónoma de México</span>
+            </li>
+
+            <li><a href="Inicio.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
+            <li><a href="BuscarProfesor.html"><i class="fa-solid fa-search"></i> Buscar Profesor</a></li>
+            <li><a href="Inicio.html"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</a></li>
+        </ul>
+
+        <!-- NAVBAR -->
+        <ul class="navbar">
+            <li class="logo">
+                <img class="navbar-img1" src="../img/logoblanco1.png">
+                <span class="title">Universidad Nacional <br> Autónoma de México</span>
+            </li>
+
+            <li class="nav-item hideOnMobile">
+                <i class="icon-nav fa-solid fa-house"></i>
+                <a href="homeUsuario.html">Inicio</a>
+            </li>
+
+            <li class="nav-item hideOnMobile">
+                <i class="icon-nav fa-solid fa-search"></i>
+                <a href="BuscarProfesor.html">Buscar Profesor</a>
+            </li>s
+
+            <li class="nav-item hideOnMobile">
+                <i class="icon-nav fa-solid fa-right-from-bracket"></i>
+                <a href="index.html">Cerrar sesión</a>
+            </li>
+
+            <li class="logo2">
+                <img class="navbar-img2" src="../img/escudoFCA.png">
+            </li>
+
+            <li class="menu-btn" onclick="showSidebar()">
+                <i class="fa-solid fa-bars"></i>
+            </li>
+        </ul>
+    </nav>
+    </header>
+
+    <div class="horario-container">
+        <div class="horario-header">
+            <h1>Mi Horario</h1>
+            <div class="profesor-info">
+                <strong>Profesor:</strong> Marvin Jose Rayas Sanchez
+            </div>
+        </div>
+
+        <div class="horario-content">
+            <div class="horario-filtros">
+                <label>
+                    <strong>Semestre:</strong>
+                    <select>
+                        <option>2025-1</option>
+                        <option>2025-2</option>
+                    </select>
+                </label>
+                <label>
+                    <strong>Carrera:</strong>
+                    <select>
+                        <option>Administración</option>
+                        <option>Contabilidad</option>
+                        <option>Informática</option>
+                    </select>
+                </label>
+            </div>
+
+            <div class="horario-tabla">
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Hora</th>
+                            <th>Lunes</th>
+                            <th>Martes</th>
+                            <th>Miércoles</th>
+                            <th>Jueves</th>
+                            <th>Viernes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="time-slot">07:00 - 08:00</td>
+                            <td class="empty"></td>
+                            <td class="class" style="background: #4A90E2;">
+                                <strong>Ingeniería de Software</strong><br>
+                                <small>K-001</small>
+                            </td>
+                            <td class="empty"></td>
+                            <td class="class" style="background: #4A90E2;">
+                                <strong>Ingeniería de Software</strong><br>
+                                <small>K-001</small>
+                            </td>
+                            <td class="empty"></td>
+                        </tr>
+                        <tr>
+                            <td class="time-slot">08:00 - 09:00</td>
+                            <td class="empty"></td>
+                            <td class="class" style="background: #4A90E2;">
+                                <strong>Ingeniería de Software</strong><br>
+                                <small>K-001</small>
+                            </td>
+                            <td class="empty"></td>
+                            <td class="class" style="background: #4A90E2;">
+                                <strong>Ingeniería de Software</strong><br>
+                                <small>K-001</small>
+                            </td>
+                            <td class="empty"></td>
+                        </tr>
+                        <tr>
+                            <td class="time-slot">09:00 - 10:00</td>
+                            <td class="class" style="background: #50C878;">
+                                <strong>Bases de Datos</strong><br>
+                                <small>K-105</small>
+                            </td>
+                            <td class="empty"></td>
+                            <td class="class" style="background: #50C878;">
+                                <strong>Bases de Datos</strong><br>
+                                <small>K-105</small>
+                            </td>
+                            <td class="empty"></td>
+                            <td class="class" style="background: #50C878;">
+                                <strong>Bases de Datos</strong><br>
+                                <small>K-105</small>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="time-slot">10:00 - 11:00</td>
+                            <td class="class" style="background: #50C878;">
+                                <strong>Bases de Datos</strong><br>
+                                <small>K-105</small>
+                            </td>
+                            <td class="empty"></td>
+                            <td class="class" style="background: #50C878;">
+                                <strong>Bases de Datos</strong><br>
+                                <small>K-105</small>
+                            </td>
+                            <td class="empty"></td>
+                            <td class="class" style="background: #50C878;">
+                                <strong>Bases de Datos</strong><br>
+                                <small>K-105</small>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="time-slot">11:00 - 12:00</td>
+                            <td class="empty"></td>
+                            <td class="class" style="background: #FFB84D;">
+                                <strong>Programación Web</strong><br>
+                                <small>K-210</small>
+                            </td>
+                            <td class="empty"></td>
+                            <td class="class" style="background: #FFB84D;">
+                                <strong>Programación Web</strong><br>
+                                <small>K-210</small>
+                            </td>
+                            <td class="empty"></td>
+                        </tr>
+                        <tr>
+                            <td class="time-slot">12:00 - 13:00</td>
+                            <td class="empty"></td>
+                            <td class="class" style="background: #FFB84D;">
+                                <strong>Programación Web</strong><br>
+                                <small>K-210</small>
+                            </td>
+                            <td class="empty"></td>
+                            <td class="class" style="background: #FFB84D;">
+                                <strong>Programación Web</strong><br>
+                                <small>K-210</small>
+                            </td>
+                            <td class="empty"></td>
+                        </tr>
+                        <tr>
+                            <td class="time-slot">13:00 - 14:00</td>
+                            <td colspan="5" class="empty" style="text-align: center; color: #999;">Descanso</td>
+                        </tr>
+                        <tr>
+                            <td class="time-slot">14:00 - 15:00</td>
+                            <td class="class" style="background: #9B59B6;">
+                                <strong>Estructura de Datos</strong><br>
+                                <small>K-315</small>
+                            </td>
+                            <td class="empty"></td>
+                            <td class="class" style="background: #9B59B6;">
+                                <strong>Estructura de Datos</strong><br>
+                                <small>K-315</small>
+                            </td>
+                            <td class="empty"></td>
+                            <td class="class" style="background: #9B59B6;">
+                                <strong>Estructura de Datos</strong><br>
+                                <small>K-315</small>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="time-slot">15:00 - 16:00</td>
+                            <td class="class" style="background: #9B59B6;">
+                                <strong>Estructura de Datos</strong><br>
+                                <small>K-315</small>
+                            </td>
+                            <td class="empty"></td>
+                            <td class="class" style="background: #9B59B6;">
+                                <strong>Estructura de Datos</strong><br>
+                                <small>K-315</small>
+                            </td>
+                            <td class="empty"></td>
+                            <td class="class" style="background: #9B59B6;">
+                                <strong>Estructura de Datos</strong><br>
+                                <small>K-315</small>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="horario-leyenda">
+                <h3>Leyenda de Clases</h3>
+                <div class="leyenda-items">
+                    <div class="leyenda-item">
+                        <div class="leyenda-color" style="background: #4A90E2;"></div>
+                        <span>Ingeniería de Software (2 horas/semana)</span>
+                    </div>
+                    <div class="leyenda-item">
+                        <div class="leyenda-color" style="background: #50C878;"></div>
+                        <span>Bases de Datos (3 horas/semana)</span>
+                    </div>
+                    <div class="leyenda-item">
+                        <div class="leyenda-color" style="background: #FFB84D;"></div>
+                        <span>Programación Web (2 horas/semana)</span>
+                    </div>
+                    <div class="leyenda-item">
+                        <div class="leyenda-color" style="background: #9B59B6;"></div>
+                        <span>Estructura de Datos (3 horas/semana)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-text-der">
+            <div class="iconos-footer">
+                <a class="icon fa-brands fa-x-twitter" style="--color: rgb(0, 0, 0);"></a>
+                <i class="icon fa-brands fa-youtube" style="--color: red;"></i>
+                <i class="icon fa-brands fa-instagram" style="--color: rgb(210, 30, 108);"></i>
+                <i class="icon fa-brands fa-whatsapp" style="--color: rgb(0, 133, 9);"></i>
+                <i class="icon fa-brands fa-facebook" style="--color: rgb(17, 80, 255);"></i>
+                <i class="icon fa-regular fa-envelope" style="--color: rgb(0, 0, 0);"></i>
+            </div>
+            <p>© 2026 | Todos los derechos reservados. Universidad Nacional Autónoma de México - Facultad de Contaduría y Administración. Plataforma de Gestión Académica.</p>
+        </div>
+    </footer>
+
+    <script>
+        const sidebar = document.querySelector('.sidebar');
+        const BREAKPOINT = 900;
+
+        function showSidebar() {
+            sidebar.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function hideSidebar() {
+            sidebar.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > BREAKPOINT) {
+                hideSidebar();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=code" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/edinfo.css">
+    <!-- <link rel="stylesheet" href="../css/nav.css"> -->
+    <link rel="stylesheet" href="../css/index.css">
+    <title>Edificio Información</title>
+</head>
+<body>
+    <header>
+    <nav class="nav">
+    <!-- SIDEBAR -->
+    <ul class="sidebar">
+        <li class="close-btn" onclick="hideSidebar()">
+            <i class="fa-solid fa-xmark"></i>
+        </li>
+
+        <li class="sidebar-title">
+            <img class="navbar-img1-sidebar" src="../img/logoblanco1.png">
+            <span>Universidad Nacional <br> Autónoma de México</span>
+        </li>
+
+        <li><a href="Inicio.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
+        <li><a href="#"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</a></li>
+    </ul>
+
+    <!-- NAVBAR -->
+    <ul class="navbar">
+        <li class="logo">
+            <img class="navbar-img1" src="../img/logoblanco1.png">
+            <span class="title">Universidad Nacional <br> Autónoma de México</span>
+        </li>
+
+        <li class="nav-item hideOnMobile">
+            <i class="icon-nav fa-solid fa-house"></i>
+            <a href="homeUsuario.html">Inicio</a>
+        </li>
+
+        <li class="nav-item hideOnMobile">
+            <i class="icon-nav fa-solid fa-right-from-bracket"></i>
+            <a href="index.html">Cerrar sesión</a>
+        </li>
+
+        <li class="logo2">
+            <img class="navbar-img2" src="../img/escudoFCA.png">
+        </li>
+
+        <li class="menu-btn" onclick="showSidebar()">
+            <i class="fa-solid fa-bars"></i>
+        </li>
+    </ul>
+</nav>
+</header>
+
+    <div class="container">
+        <div class="title-edificio" id="tituloEdificio">Edificio</div>
+        <div class="cont">
+            <div class="card">
+                <div class="cardimg">
+                    <div class="text" id="infoEdificio">
+                        Edificio: ---<br>
+                        Salón: ---<br>
+                        Número de asientos: ---
+                    </div>
+                </div>
+                <div class="tag">
+                    <p><span>Información</span></p>
+                </div>
+                <div class="curve_one"></div>
+                <div class="curve_two"></div>
+            </div>
+
+            <div>
+                <img class="img" src="../img/salon.jpg" alt="image">
+            </div>
+        </div>
+
+        <div class="search">
+            <h1>Buscar materia</h1>
+            <div>
+                <li class="searching">
+                    <input class="box-search" type="search" placeholder="Buscar">
+                    <span class="icon-search"><i class="fas fa-search"></i></span>
+                </li>
+            </div>
+        </div>
+
+        <div id="mensajeRegistro" class="modal-overlay" style="display: none;">
+            <div class="modal-box">
+                <h2>Registrar Materia</h2>
+                <form id="formularioMateria" onsubmit="aceptarRegistroMateria(event)">
+                    <div class="form-group">
+                        <label for="nombreProfesor">Nombre del Profesor:</label>
+                        <input type="text" id="nombreProfesor" name="nombreProfesor" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="claveAsignatura">Clave de la Asignatura:</label>
+                        <input type="text" id="claveAsignatura" name="claveAsignatura" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nombreAsignatura">Nombre de la Asignatura:</label>
+                        <input type="text" id="nombreAsignatura" name="nombreAsignatura" required>
+                    </div>
+                    <div class="modal-buttons">
+                        <button type="submit" class="aceptar-btn">Aceptar</button>
+                        <button type="button" onclick="cancelarRegistroMateria()" class="rechazar-btn">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="filt">
+            <div class="dropdown-container">
+                <a class="filters" id="turnoBtn" onclick="toggleDropdown(event, 'turno')">
+                    <span class="filter-label">Turno</span> <i class="fas fa-solid fa-caret-down"></i>
+                </a>
+                <div class="dropdown" id="turno">
+                    <ul>
+                        <li><a href="#" onclick="selectOption(event, 'turno', 'Todos')">Todos</a></li>
+                        <li><a href="#" onclick="selectOption(event, 'turno', 'Matutino')">Matutino</a></li>
+                        <li><a href="#" onclick="selectOption(event, 'turno', 'Vespertino')">Vespertino</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Restored: contenedor de horarios (solo visualización de materias) -->
+        <div class="hor">
+            Horario
+            <div id="horarioFiltrado" class="horario-container">
+                <!-- Los días se mostrarán aquí dinámicamente -->
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-text-der">
+            <div class="">
+                <i class="icon fa-brands fa-youtube" style="--color: red;"></i>
+                <i class="icon fa-brands fa-instagram" style="--color: rgb(210, 30, 108);"></i>
+                <i class="icon fa-brands fa-whatsapp" style="--color: rgb(0, 133, 9);"></i>
+                <i class="icon fa-brands fa-facebook" style="--color: rgb(17, 80, 255);"></i>
+                <i class="icon fa-regular fa-envelope" style="--color: rgb(0, 0, 0);"></i>
+            </div>
+            <h5>© 2026 | Todos los derechos reservados. Universidad Nacional Autónoma de México - Facultad de Contaduría y Administración. Plataforma de Gestión Académica.</h5>
+        </div>
+    </footer>
+
+    <script>
+        // Variable para almacenar la selección actual del turno
+        let filtrosActivos = {
+            turno: null
+        };
+        let salonActual = '';
+        let edificioActual = '';
+        let diaRegistroActual = '';
+        let horarioRegistroActual = '';
+
+        // Datos de los edificios con sus salones y asientos
+        const datosEdificios = {
+            "A": { "nombre": "Edificio A", "salones": ["A-001", "A-002", "A-003", "A-004", "A-101", "A-102", "A-103", "A-104", "A-105", "A-201", "A-202", "A-203", "A-204", "A-205"], "asientos": 50 },
+            "B": { "nombre": "Edificio B", "salones": ["B-001", "B-002", "B-003", "B-004", "B-005", "B-006", "B-007", "B-101", "B-102", "B-103", "B-104", "B-105", "B-106", "B-107", "B-201", "B-202", "B-203", "B-204", "B-205", "B-207"], "asientos": 50 },
+            "C": { "nombre": "Edificio C", "salones": ["C-001", "C-002", "C-003", "C-004", "C-101", "C-102", "C-103", "C-104", "C-105", "C-201", "C-202", "C-203", "C-204", "C-205"], "asientos": 50 },
+            "D": { "nombre": "Edificio D", "salones": ["D-001", "D-002", "D-003", "D-004", "D-005", "D-006", "D-101", "D-102", "D-103", "D-104", "D-105", "D-106", "D-107", "D-201", "D-202", "D-203", "D-204", "D-205", "D-206", "D-207"], "asientos": 50 },
+            "F": { "nombre": "Edificio F", "salones": ["F-001", "F-002", "F-003", "F-004", "F-005", "F-101", "F-102", "F-103", "F-104", "F-105", "F-106", "F-107"], "asientos": 40 },
+            "G": { "nombre": "Edificio G", "salones": ["G-01", "G-02", "G-03", "G-04", "G-05", "G-06", "G-07", "G-08", "G-09", "G-10", "G-11", "G-12", "G-13", "G-14", "G-15", "G-16", "G-17"], "asientos": 30 },
+            "H": { "nombre": "Edificio H", "salones": ["H-01", "H-02", "H-03", "H-04", "H-05", "H-06", "H-07", "H-08", "H-09", "H-10", "H-11", "H-12", "H-13", "H-14", "H-15", "H-16", "H-17", "H-18"], "asientos": 30 },
+            "I": { "nombre": "Edificio I", "salones": ["Aula I", "Aula II"], "asientos": 50 },
+            "J": { "nombre": "Edificio J", "salones": ["J-101", "J-102", "J-103", "J-104", "J-105", "J-106", "J-107"], "asientos": 30 },
+            "K": { "nombre": "Edificio K", "salones": ["K-001", "K-002", "K-003", "K-101", "K-102", "K-103", "K-201", "K-202", "K-203", "K-301", "K-302", "K-303"], "asientos": 50 },
+            "Biblioteca": { "nombre": "Aulas de Biblioteca", "salones": ["AulaB-11", "AulaB-12", "AulaB-13", "AulaB-14", "AulaB-15", "AulaB-16", "AulaB-17"], "asientos": 60 },
+            "SalaProf": { "nombre": "Aulas de Sala de Profesores", "salones": ["Aula 2", "Aula 3", "Aula 4", "Aula 5", "Aula 6", "Aula 7", "Aula 8", "Aula 9", "Aula 10"], "asientos": 45 },
+            "CIFCA": { "nombre": "Centro de Informática (CIFCA)", "salones": [], "asientos": 0 }
+        };
+
+        function toggleDropdown(event, dropdownId) {
+            event.preventDefault();
+            const dropdown = document.getElementById(dropdownId);
+            const isActive = dropdown.classList.contains('active');
+            
+            // Cerrar todos los dropdowns
+            document.querySelectorAll('.dropdown.active').forEach(d => {
+                d.classList.remove('active');
+            });
+            
+            // Abrir el dropdown si no estaba activo
+            if (!isActive) {
+                dropdown.classList.add('active');
+            }
+        }
+
+        function selectOption(event, dropdownId, value) {
+            event.preventDefault();
+            const btnId = dropdownId === 'turno' ? 'turnoBtn' : null;
+            if (!btnId) return;
+            const btn = document.getElementById(btnId);
+            const label = btn.querySelector('.filter-label');
+            const dropdown = document.getElementById(dropdownId);
+
+            // Actualizar label del botón
+            label.textContent = value;
+
+            // Actualizar filtro activo (solo turno)
+            // Si es "Todos", establecer como null para mostrar todos
+            filtrosActivos.turno = value === 'Todos' ? null : value;
+
+            // Marcar como seleccionado
+            dropdown.querySelectorAll('li').forEach(li => {
+                li.classList.remove('selected');
+                if (li.querySelector('a').textContent.trim() === value) {
+                    li.classList.add('selected');
+                }
+            });
+
+            // Cerrar dropdown
+            dropdown.classList.remove('active');
+            // Aplicar filtro por turno inmediatamente
+            if (typeof renderHorarios === 'function') renderHorarios();
+        }
+        
+        // Cerrar dropdown al hacer clic fuera
+        document.addEventListener('click', function(event) {
+            const filt = document.querySelector('.filt');
+            if (filt && !filt.contains(event.target)) {
+                document.querySelectorAll('.dropdown.active').forEach(d => {
+                    d.classList.remove('active');
+                });
+            }
+        });
+
+        // Obtener parámetro de URL
+        function getParameterByName(name) {
+            const url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+            const results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+
+        // Datos de horarios - ahora se cargan desde localStorage
+        let horarios = {
+            'Lunes': [
+                { horario: '07 - 09', turno: 'Matutino', materia: 'Sin materia', profesor: '', clave: '' },
+                { horario: '09 - 11', turno: 'Matutino', materia: 'Sin materia', profesor: '', clave: '' },
+                { horario: '11 - 13', turno: 'Matutino', materia: 'Sin materia', profesor: '', clave: '' },
+                { horario: '16 - 18', turno: 'Vespertino', materia: 'Sin materia', profesor: '', clave: '' },
+                { horario: '18 - 20', turno: 'Vespertino', materia: 'Sin materia', profesor: '', clave: '' },
+                { horario: '20 - 22', turno: 'Vespertino', materia: 'Sin materia', profesor: '', clave: '' }
+            ],
+            'Martes': [
+                { horario: '07 - 09', turno: 'Matutino', materia: 'Sin materia', profesor: '', clave: '' },
+                { horario: '09 - 11', turno: 'Matutino', materia: 'Sin materia', profesor: '', clave: '' },
+                { horario: '11 - 13', turno: 'Matutino', materia: 'Sin materia', profesor: '', clave: '' },
+                { horario: '16 - 18', turno: 'Vespertino', materia: 'Sin materia', profesor: '', clave: '' },
+                { horario: '18 - 20', turno: 'Vespertino', materia: 'Sin materia', profesor: '', clave: '' },
+                { horario: '20 - 22', turno: 'Vespertino', materia: 'Sin materia', profesor: '', clave: '' }
+            ],
+            'Miércoles': [
+                { horario: '07 - 09', turno: 'Matutino', materia: 'Sin materia', profesor: '', clave: '' },
+                { horario: '09 - 11', turno: 'Matutino', materia: 'Sin materia', profesor: '', clave: '' },
+                { horario: '11 - 13', turno: 'Matutino', materia: 'Sin materia', profesor: '', clave: '' },
+                { horario: '16 - 18', turno: 'Vespertino', materia: 'Sin materia', profesor: '', clave: '' },
+                { horario: '18 - 20', turno: 'Vespertino', materia: 'Sin materia', profesor: '', clave: '' },
+                { horario: '20 - 22', turno: 'Vespertino', materia: 'Sin materia', profesor: '', clave: '' }
+            ],
+            'Jueves': [
+                { horario: '07 - 09', turno: 'Matutino', materia: 'Sin materia', profesor: '', clave: '' },
+                { horario: '09 - 11', turno: 'Matutino', materia: 'Sin materia', profesor: '', clave: '' },
+                { horario: '11 - 13', turno: 'Matutino', materia: 'Sin materia', profesor: '', clave: '' },
+                { horario: '16 - 18', turno: 'Vespertino', materia: 'Sin materia', profesor: '', clave: '' },
+                { horario: '18 - 20', turno: 'Vespertino', materia: 'Sin materia', profesor: '', clave: '' },
+                { horario: '20 - 22', turno: 'Vespertino', materia: 'Sin materia', profesor: '', clave: '' }
+            ],
+            'Viernes': [
+                { horario: '07 - 09', turno: 'Matutino', materia: 'Sin materia', profesor: '', clave: '' },
+                { horario: '09 - 11', turno: 'Matutino', materia: 'Sin materia', profesor: '', clave: '' },
+                { horario: '11 - 13', turno: 'Matutino', materia: 'Sin materia', profesor: '', clave: '' },
+                { horario: '16 - 18', turno: 'Vespertino', materia: 'Sin materia', profesor: '', clave: '' },
+                { horario: '18 - 20', turno: 'Vespertino', materia: 'Sin materia', profesor: '', clave: '' },
+                { horario: '20 - 22', turno: 'Vespertino', materia: 'Sin materia', profesor: '', clave: '' }
+            ],
+            'Sábado': [
+                { horario: '07 - 09', turno: 'Matutino', materia: 'Sin materia', profesor: '', clave: '' },
+                { horario: '09 - 11', turno: 'Matutino', materia: 'Sin materia', profesor: '', clave: '' },
+                { horario: '11 - 13', turno: 'Matutino', materia: 'Sin materia', profesor: '', clave: '' },
+                { horario: '16 - 18', turno: 'Vespertino', materia: 'Sin materia', profesor: '', clave: '' },
+                { horario: '18 - 20', turno: 'Vespertino', materia: 'Sin materia', profesor: '', clave: '' },
+                { horario: '20 - 22', turno: 'Vespertino', materia: 'Sin materia', profesor: '', clave: '' }
+            ]
+        };
+
+        // Cargar horarios desde localStorage
+        function cargarHorariosGuardados() {
+            const clave = `horarios_${edificioActual}_${salonActual}`;
+            const horarioGuardado = localStorage.getItem(clave);
+            if (horarioGuardado) {
+                horarios = JSON.parse(horarioGuardado);
+            }
+        }
+
+        // Guardar horarios en localStorage
+        function guardarHorarios() {
+            const clave = `horarios_${edificioActual}_${salonActual}`;
+            localStorage.setItem(clave, JSON.stringify(horarios));
+        }
+
+        // Renderiza los bloques de materia. Si hay filtro de turno, filtra por turno.
+        function renderHorarios() {
+            const container = document.getElementById('horarioFiltrado');
+            if (!container) return;
+
+            // Construir calendario: un contenedor con celdas para cada día (Lunes..Sábado)
+            const dias = Object.keys(horarios);
+            const searchValue = document.querySelector('.box-search').value.toLowerCase();
+            let html = '<div class="calendar">';
+
+            dias.forEach(dia => {
+                let filas = horarios[dia];
+                if (filtrosActivos.turno) {
+                    filas = filas.filter(r => r.turno === filtrosActivos.turno);
+                }
+
+                // Even if empty, still render the day cell (calendar look)
+                html += `<div class="calendar-day">`;
+                html += `<div class="day-name">${dia}</div>`;
+                html += `<div class="day-list">`;
+
+                if (filas.length === 0) {
+                    html += `<div class="no-entries">No hay materias</div>`;
+                } else {
+                    filas.forEach(clase => {
+                        // Aplicar filtro de búsqueda
+                        const coincideBusqueda = clase.materia.toLowerCase().includes(searchValue) || 
+                                               clase.profesor.toLowerCase().includes(searchValue) ||
+                                               searchValue === '';
+
+                        if (!coincideBusqueda) return;
+
+                        html += `
+                            <div class="mat">
+                                <div>
+                                    ${clase.horario} <br>
+                                    ${clase.materia}`;
+
+                        if (clase.profesor) html += ` <br>${clase.profesor}`;
+
+                        html += `
+                                </div>`;
+
+                        if (clase.imagen) {
+                            html += `
+                                <div class="img-mat">
+                                    <img class="img-mat" src="${clase.imagen}">
+                                </div>`;
+                        } else if (clase.materia === 'Sin materia') {
+                            // render a compact button for "Registrar"
+                            html += `
+                                <button class="no-mat" onclick="onRegistrarClick('${dia.replace("'","\'")}','${clase.horario.replace("'","\'")}')">Registrar</button>`;
+                        } else {
+                            // Si hay materia registrada, mostrar botón de eliminar
+                            html += `
+                                <button class="eliminar-mat" onclick="onEliminarClick('${dia.replace("'","\'")}','${clase.horario.replace("'","\'")}')">Eliminar</button>`;
+                        }
+
+                        html += `
+                            </div>`;
+                    });
+                }
+
+                html += `</div>`; // .day-list
+                html += `</div>`; // .calendar-day
+            });
+
+            html += '</div>'; // .calendar
+
+            container.innerHTML = html;
+        }
+
+        // Inicializar al cargar
+        window.addEventListener('load', function() {
+            // Obtener parámetros de URL
+            salonActual = getParameterByName('salon') || 'Salón desconocido';
+            edificioActual = getParameterByName('edificio') || 'Edificio desconocido';
+
+            // Actualizar título
+            document.getElementById('tituloEdificio').textContent = `${edificioActual} - ${salonActual}`;
+
+            // Obtener información del edificio
+            const datosEdif = datosEdificios[edificioActual];
+            const asientos = datosEdif ? datosEdif.asientos : 50;
+            const nombreEdificio = datosEdif ? datosEdif.nombre : edificioActual;
+
+            // Actualizar información
+            document.getElementById('infoEdificio').innerHTML = `
+                Edificio: ${nombreEdificio}<br>
+                Salón: ${salonActual}<br>
+                Número de asientos: ${asientos}
+            `;
+
+            // Cargar horarios guardados
+            cargarHorariosGuardados();
+
+            // Renderizar horarios
+            renderHorarios();
+            
+            // Agregar event listener al buscador
+            const searchBox = document.querySelector('.box-search');
+            if (searchBox) {
+                searchBox.addEventListener('input', renderHorarios);
+            }
+        });
+
+        // Handler when user clicks Registrar
+        function onRegistrarClick(dia, horario) {
+            diaRegistroActual = dia;
+            horarioRegistroActual = horario;
+            const mensajeDiv = document.getElementById('mensajeRegistro');
+            
+            // Limpiar formulario
+            document.getElementById('formularioMateria').reset();
+            
+            // Mostrar modal
+            mensajeDiv.style.display = 'flex';
+        }
+
+        // Aceptar registro de materia
+        function aceptarRegistroMateria(event) {
+            event.preventDefault();
+            
+            const nombreProfesor = document.getElementById('nombreProfesor').value;
+            const claveAsignatura = document.getElementById('claveAsignatura').value;
+            const nombreAsignatura = document.getElementById('nombreAsignatura').value;
+
+            // Actualizar el horario
+            const filasDelDia = horarios[diaRegistroActual];
+            const indiceHorario = filasDelDia.findIndex(h => h.horario === horarioRegistroActual);
+            
+            if (indiceHorario !== -1) {
+                filasDelDia[indiceHorario].materia = nombreAsignatura;
+                filasDelDia[indiceHorario].profesor = nombreProfesor;
+                filasDelDia[indiceHorario].clave = claveAsignatura;
+            }
+
+            // Guardar en localStorage
+            guardarHorarios();
+
+            // Crear solicitud para el administrador
+            crearSolicitud(nombreProfesor, nombreAsignatura, claveAsignatura, diaRegistroActual, horarioRegistroActual);
+
+            // Cerrar modal
+            const mensajeDiv = document.getElementById('mensajeRegistro');
+            mensajeDiv.style.display = 'none';
+
+            // Re-renderizar
+            renderHorarios();
+
+            alert(`Materia "${nombreAsignatura}" registrada exitosamente para ${diaRegistroActual} (${horarioRegistroActual})`);
+        }
+
+        // Crear solicitud para el administrador
+        function crearSolicitud(profesor, materia, clave, dia, horario) {
+            // Obtener solicitudes existentes
+            let solicitudes = JSON.parse(localStorage.getItem('solicitudes')) || [];
+
+            // Crear nueva solicitud
+            const nuevaSolicitud = {
+                id: Date.now(),
+                profesor: profesor,
+                materia: materia,
+                clave: clave,
+                dia: dia,
+                horario: horario,
+                edificio: edificioActual,
+                salon: salonActual,
+                estado: 'pendiente',
+                fechaCreacion: new Date().toLocaleString()
+            };
+
+            // Agregar a la lista
+            solicitudes.push(nuevaSolicitud);
+
+            // Guardar en localStorage
+            localStorage.setItem('solicitudes', JSON.stringify(solicitudes));
+        }
+
+        // Cancelar registro
+        function cancelarRegistroMateria() {
+            const mensajeDiv = document.getElementById('mensajeRegistro');
+            mensajeDiv.style.display = 'none';
+            
+            // Limpiar variables
+            diaRegistroActual = '';
+            horarioRegistroActual = '';
+        }
+
+        // Eliminar materia
+        function onEliminarClick(dia, horario) {
+            if (confirm(`¿Deseas eliminar esta materia de ${dia} (${horario})?`)) {
+                // Encontrar y eliminar la materia
+                const filasDelDia = horarios[dia];
+                const indiceHorario = filasDelDia.findIndex(h => h.horario === horario);
+                
+                if (indiceHorario !== -1) {
+                    // Restaurar el horario a "Sin materia"
+                    filasDelDia[indiceHorario].materia = 'Sin materia';
+                    filasDelDia[indiceHorario].profesor = '';
+                    filasDelDia[indiceHorario].clave = '';
+                }
+
+                // Guardar en localStorage
+                guardarHorarios();
+
+                // Re-renderizar
+                renderHorarios();
+
+                alert('Materia eliminada correctamente');
+            }
+        }
+    </script>
+<script>
+const sidebar = document.querySelector('.sidebar');
+const BREAKPOINT = 900;
+
+function showSidebar() {
+    sidebar.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function hideSidebar() {
+    sidebar.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+window.addEventListener('resize', () => {
+    if (window.innerWidth > BREAKPOINT) {
+        hideSidebar();
+    }
+});
+</script>
+
+</body>
+</html>

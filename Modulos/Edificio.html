@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=code" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/edificio.css">
+    <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body>
+    <header>
+    <nav class="nav">
+    <!-- SIDEBAR -->
+    <ul class="sidebar">
+        <li class="close-btn" onclick="hideSidebar()">
+            <i class="fa-solid fa-xmark"></i>
+        </li>
+
+        <li class="sidebar-title">
+            <img class="navbar-img1-sidebar" src="../img/logoblanco1.png">
+            <span>Universidad Nacional <br> Autónoma de México</span>
+        </li>
+
+        <li><a href="Inicio.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
+        <li><a href="#"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</a></li>
+    </ul>
+
+    <!-- NAVBAR -->
+    <ul class="navbar">
+        <li class="logo">
+            <img class="navbar-img1" src="../img/logoblanco1.png">
+            <span class="title">Universidad Nacional <br> Autónoma de México</span>
+        </li>
+
+        <li class="nav-item hideOnMobile">
+            <i class="icon-nav fa-solid fa-house"></i>
+            <a href="homeUsuario.html">Inicio</a>
+        </li>
+
+        <li class="nav-item hideOnMobile">
+            <i class="icon-nav fa-solid fa-right-from-bracket"></i>
+            <a href="index.html">Cerrar sesión</a>
+        </li>
+
+        <li class="logo2">
+            <img class="navbar-img2" src="../img/escudoFCA.png">
+        </li>
+
+        <li class="menu-btn" onclick="showSidebar()">
+            <i class="fa-solid fa-bars"></i>
+        </li>
+    </ul>
+</nav>
+</header>
+        <div class="title-edificio" id="tituloEdificio">Edificio K</div>
+        <div class="container">
+            <div>
+                <img class="img" id="imagenEdificio" src="../img/ediK.jpg" alt="">
+            </div>
+            <div href="" class="info" id="infoEdificio">
+                <div>
+                    <div class="data">Semestre:</div>
+                    <div class="dates">2025-1</div>
+                </div>
+                <div>
+                    <div class="data">Horario:</div>
+                    <div class="dates">Matutino</span></div>
+                </div>
+                <div class="filters">
+                    <div  class="data">Filtros:</div>
+                    <p>Equipo de computo</p>
+                    <div class="checkbox-body">
+                        <input id="computo" type="checkbox" class="checkbox filter-checkbox" data-filter="computo">
+                        <label for="computo" class="checkbox-label"></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="salon">
+            <div class="title-salon">Salones</div>
+            <div class="search">
+                <h1>Selecciona un Salón</h1>
+                <div>
+                    <li class="search-bar">
+                        <input class="box-search" type="search" placeholder="Buscar">
+                        <span class="icon-search"><i class="fas fa-search"></i></span>
+                    </li>
+                </div>
+            </div>
+
+            <div id="salonesContainer"></div>
+        </div> 
+    </div>
+
+        <footer class="footer">
+            <div class="footer-text-der">
+                <div class="">
+                    <i class="icon fa-brands fa-youtube" style="--color: red;"></i>
+                    <i class="icon fa-brands fa-instagram" style="--color: rgb(210, 30, 108);"></i>
+                    <i class="icon fa-brands fa-whatsapp" style="--color: rgb(0, 133, 9);"></i>
+                    <i class="icon fa-brands fa-facebook" style="--color: rgb(17, 80, 255);"></i>
+                    <i class="icon fa-regular fa-envelope" style="--color: rgb(0, 0, 0);"></i>
+                </div>
+                <h5>© 2026 | Todos los derechos reservados. Universidad Nacional Autónoma de México - Facultad de Contaduría y Administración. Plataforma de Gestión Académica.</h5>
+            </div>
+        </footer>
+<script>
+    // Datos de los edificios con sus salones
+    const datosEdificios = {
+        "A": {
+            "nombre": "Edificio A",
+            "imagen": "../img/ediA.jpg",
+            "pisos": [
+                { "piso": 1, "salones": ["A-001", "A-002", "A-003", "A-004"] },
+                { "piso": 2, "salones": ["A-101", "A-102", "A-103", "A-104", "A-105"] },
+                { "piso": 3, "salones": ["A-201", "A-202", "A-203", "A-204", "A-205"] }
+            ]
+        },
+        "B": {
+            "nombre": "Edificio B",
+            "imagen": "../img/ediB.jpg",
+            "pisos": [
+                { "piso": 1, "salones": ["B-001", "B-002", "B-003", "B-004", "B-005", "B-006", "B-007"] },
+                { "piso": 2, "salones": ["B-101", "B-102", "B-103", "B-104", "B-105", "B-106", "B-107"] },
+                { "piso": 3, "salones": ["B-201", "B-202", "B-203", "B-204", "B-205", "B-207"] }
+            ]
+        },
+        "C": {
+            "nombre": "Edificio C",
+            "imagen": "../img/ediC.jpg",
+            "pisos": [
+                { "piso": 0, "salones": ["C-001", "C-002", "C-003", "C-004"] },
+                { "piso": 1, "salones": ["C-101", "C-102", "C-103", "C-104", "C-105"] },
+                { "piso": 2, "salones": ["C-201", "C-202", "C-203", "C-204", "C-205"] }
+            ]
+        },
+        "D": {
+            "nombre": "Edificio D",
+            "imagen": "../img/ediD.jpg",
+            "pisos": [
+                { "piso": 0, "salones": ["D-001", "D-002", "D-003", "D-004"] },
+                { "piso": 1, "salones": ["D-005", "D-006", "D-101", "D-102", "D-103"] },
+                { "piso": 2, "salones": ["D-104", "D-105", "D-106", "D-107", "D-201", "D-202", "D-203", "D-204", "D-205", "D-206", "D-207"] }
+            ]
+        },
+        "F": {
+            "nombre": "Edificio F",
+            "imagen": "../img/ediF.jpg",
+            "pisos": [
+                { "piso": 0, "salones": ["F-001", "F-002", "F-003", "F-004", "F-005"] },
+                { "piso": 1, "salones": ["F-101", "F-102", "F-103", "F-104", "F-105", "F-106", "F-107"] }
+            ]
+        },
+        "G": {
+            "nombre": "Edificio G",
+            "imagen": "../img/ediG.jpg",
+            "pisos": [
+                { "piso": 0, "salones": ["G-01", "G-02", "G-03", "G-04", "G-05", "G-06"] },
+                { "piso": 1, "salones": ["G-07", "G-08", "G-09", "G-10", "G-11", "G-12"] },
+                { "piso": 2, "salones": ["G-13", "G-14", "G-15", "G-16", "G-17"] }
+            ]
+        },
+        "H": {
+            "nombre": "Edificio H",
+            "imagen": "../img/ediH.jpg",
+            "pisos": [
+                { "piso": 0, "salones": ["H-01", "H-02", "H-03", "H-04", "H-05", "H-06"] },
+                { "piso": 1, "salones": ["H-07", "H-08", "H-09", "H-10", "H-11", "H-12"] },
+                { "piso": 2, "salones": ["H-13", "H-14", "H-15", "H-16", "H-17", "H-18"] }
+            ]
+        },
+        "I": {
+            "nombre": "Edificio I",
+            "imagen": "../img/ediI.jpg",
+            "pisos": [
+                { "piso": 0, "salones": ["Aula I", "Aula II"] }
+            ]
+        },
+        "J": {
+            "nombre": "Edificio J",
+            "imagen": "../img/ediJ.jpg",
+            "pisos": [
+                { "piso": 1, "salones": ["J-101", "J-102", "J-103", "J-104", "J-105", "J-106", "J-107"] }
+            ]
+        },
+        "K": {
+            "nombre": "Edificio K",
+            "imagen": "../img/ediK.jpg",
+            "pisos": [
+                { "piso": 0, "salones": ["K-001", "K-002", "K-003"] },
+                { "piso": 1, "salones": ["K-101", "K-102", "K-103"] },
+                { "piso": 2, "salones": ["K-201", "K-202", "K-203"] },
+                { "piso": 3, "salones": ["K-301", "K-302", "K-303"] }
+            ]
+        },
+        "Biblioteca": {
+            "nombre": "Aulas de Biblioteca",
+            "imagen": "../img/ediBiblio.jpg",
+            "pisos": [
+                { "piso": 0, "salones": ["AulaB-11", "AulaB-12", "AulaB-13", "AulaB-14", "AulaB-15", "AulaB-16", "AulaB-17"] }
+            ]
+        },
+        "SalaProf": {
+            "nombre": "Aulas de Sala de Profesores",
+            "imagen": "../img/ediAulas.jpg",
+            "pisos": [
+                { "piso": 2, "salones": ["Aula 2", "Aula 3", "Aula 4", "Aula 5", "Aula 6", "Aula 7", "Aula 8", "Aula 9", "Aula 10"] }
+            ]
+        },
+        "CIFCA": {
+            "nombre": "Centro de Informática (CIFCA)",
+            "imagen": "../img/ediCIFCA.jpg",
+            "pisos": []
+        }
+    };
+
+    // Obtener parámetro de URL
+    function getParameterByName(name) {
+        const url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+        const results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+
+    // Cargar información del edificio
+    function cargarEdificio() {
+        const edificioId = getParameterByName('edificio') || 'A';
+        const edificio = datosEdificios[edificioId];
+
+        if (!edificio) {
+            document.getElementById('tituloEdificio').textContent = 'Edificio no encontrado';
+            return;
+        }
+
+        // Actualizar título e imagen
+        document.getElementById('tituloEdificio').textContent = edificio.nombre;
+        document.getElementById('imagenEdificio').src = edificio.imagen;
+
+        // Renderizar salones
+        renderizarSalones(edificio, edificioId);
+    }
+
+    // Renderizar salones por piso
+    function renderizarSalones(edificio, edificioId) {
+        const container = document.getElementById('salonesContainer');
+        let html = '';
+
+        edificio.pisos.forEach(piso => {
+            html += `<div class="cont-salon">`;
+            piso.salones.forEach(salon => {
+                html += `<div class="salones" data-equipamiento="">
+                    <a href="EdificioInfo.html?edificio=${edificioId}&salon=${salon}">${salon}</a>
+                </div>`;
+            });
+            html += `</div>`;
+        });
+
+        container.innerHTML = html;
+
+        // Agregar event listeners para búsqueda
+        agregarFiltros();
+    }
+
+    // Agregar funcionalidad de búsqueda
+    function agregarFiltros() {
+        const searchBox = document.querySelector('.box-search');
+        const salones = document.querySelectorAll('.salones');
+
+        function aplicarBusqueda() {
+            const searchValue = searchBox.value.toLowerCase();
+            salones.forEach(salon => {
+                const nombreSalon = salon.textContent.toLowerCase();
+                salon.style.display = nombreSalon.includes(searchValue) || searchValue === '' ? 'flex' : 'none';
+            });
+        }
+
+        searchBox.addEventListener('input', aplicarBusqueda);
+    }
+
+    // Inicializar al cargar
+    window.addEventListener('load', cargarEdificio);
+</script>
+<script>
+const sidebar = document.querySelector('.sidebar');
+const BREAKPOINT = 900;
+
+function showSidebar() {
+    sidebar.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function hideSidebar() {
+    sidebar.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+window.addEventListener('resize', () => {
+    if (window.innerWidth > BREAKPOINT) {
+        hideSidebar();
+    }
+});
+</script>
+
+</body>
+</html>

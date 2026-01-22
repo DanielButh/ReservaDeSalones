@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+   <link rel="stylesheet" href="../css/registro.css">
+
+   <title>Registro</title>
+</head>
+
+<body>
+
+   <div class="title">
+      <div class="left-content">
+         <img src="../img/logoblanco1.png" class="ini-img" alt="UNAM">
+         <a class="title-text">Universidad Nacional <br> Autónoma de México</a>
+      </div>
+      <img src="../img/escudoFCA.png" class="ini-img right-img" alt="FCA">
+   </div>
+
+   <div class="ini">
+      <div class="form-side">
+
+         <form id="registroForm" class="needs-validation" novalidate>
+
+            <!-- Nombre -->
+            <div class="mb-3">
+               <label class="form-label">Nombre</label>
+               <input type="text" class="form-control" required>
+               <div class="invalid-feedback">El nombre es obligatorio.</div>
+            </div>
+
+            <!-- Apellido paterno -->
+            <div class="mb-3">
+               <label class="form-label">Apellido Paterno</label>
+               <input type="text" class="form-control" required>
+               <div class="invalid-feedback">El apellido paterno es obligatorio.</div>
+            </div>
+
+            <!-- Apellido materno -->
+            <div class="mb-3">
+               <label class="form-label">Apellido Materno</label>
+               <input type="text" class="form-control">
+               <!-- <div class="invalid-feedback">El apellido materno es obligatorio.</div> -->
+            </div>
+
+            <!-- Correo -->
+            <div class="mb-3">
+               <label class="form-label">Correo Electrónico</label>
+               <input type="email" class="form-control" required>
+               <div class="invalid-feedback">Ingresa un correo electrónico válido.</div>
+            </div>
+
+            <!-- Número trabajador -->
+            <div class="mb-3">
+               <label class="form-label">Número de trabajador UNAM</label>
+               <input type="number" class="form-control" required>
+               <div class="invalid-feedback">El número de trabajador es obligatorio.</div>
+            </div>
+
+            <!-- RFC -->
+            <div class="mb-3">
+               <label class="form-label">RFC de trabajador</label>
+               <input type="text" class="form-control" id="rfc" maxlength="13" required>
+               <div class="invalid-feedback">
+                  El RFC debe tener 13 caracteres y un formato válido.
+               </div>
+            </div>
+
+            <!-- Tipo de cuenta -->
+            <div class="mb-3">
+               <label class="form-label">Tipo de cuenta</label>
+               <select id="tipoCuenta" class="form-select" required>
+                  <option value="" disabled selected hidden>Selecciona una opción</option>
+                  <option value="Administrador">Administrador</option>
+                  <option value="Profesor">Profesor</option>
+               </select>
+               <div class="invalid-feedback">Selecciona un tipo de cuenta.</div>
+            </div>
+
+            <!-- Contraseña -->
+            <div class="mb-3">
+               <label class="form-label">Contraseña</label>
+               <input type="password" class="form-control" id="password" minlength="8" required>
+               <div class="invalid-feedback">
+                  La contraseña debe tener al menos 8 caracteres.
+               </div>
+            </div>
+
+            <!-- Confirmar contraseña -->
+            <div class="mb-3">
+               <label class="form-label">Confirmar Contraseña</label>
+               <input type="password" class="form-control" id="confirmPassword" required>
+               <div class="invalid-feedback">
+                  Las contraseñas no coinciden.
+               </div>
+            </div>
+
+         </form>
+      </div>
+
+      <div class="image-side">
+         <img src="../img/fcaplace2.jpg" alt="Imagen lateral">
+      </div>
+
+      <!-- NO SE MODIFICA NAVEGACIÓN -->
+      <div class="full-bottom-btn">
+         <a href="aviso1.html" id="submitBtn" class="btn btn-custom">Registrarse</a>
+      </div>
+   </div>
+
+   <script>
+      (() => {
+         const form = document.getElementById("registroForm");
+         const submitBtn = document.getElementById("submitBtn");
+         const rfcInput = document.getElementById("rfc");
+         const password = document.getElementById("password");
+         const confirmPassword = document.getElementById("confirmPassword");
+
+         const rfcRegex = /^[A-ZÑ&]{4}[0-9]{2}(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01])[A-Z0-9]{3}$/;
+
+         rfcInput.addEventListener("input", () => {
+            rfcInput.value = rfcInput.value.toUpperCase();
+         });
+
+         submitBtn.addEventListener("click", function (event) {
+            let valid = true;
+
+            // Validación HTML5
+            if (!form.checkValidity()) {
+               valid = false;
+            }
+
+            // Validar RFC
+            if (!rfcRegex.test(rfcInput.value.trim())) {
+               rfcInput.classList.add("is-invalid");
+               valid = false;
+            } else {
+               rfcInput.classList.remove("is-invalid");
+            }
+
+            // Validar contraseñas
+            if (password.value !== confirmPassword.value) {
+               confirmPassword.classList.add("is-invalid");
+               valid = false;
+            } else {
+               confirmPassword.classList.remove("is-invalid");
+            }
+
+            if (!valid) {
+               event.preventDefault();
+               event.stopPropagation();
+            } else {
+               // Guardar tipo de usuario en localStorage
+               const tipoCuenta = document.getElementById('tipoCuenta').value;
+               localStorage.setItem('tipoUsuario', tipoCuenta);
+            }
+
+            form.classList.add("was-validated");
+         });
+      })();
+   </script>
+
+</body>
+
+</html>

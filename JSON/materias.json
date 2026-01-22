@@ -1,0 +1,91 @@
+{
+    "materias": [
+        {
+        "id_materia": 1,
+        "nombre": "Auditoría I",
+        "clave": "2526",
+        "semestre": 7,
+        "carrera": "Contaduría"
+        },
+        {
+        "id_materia": 2,
+        "nombre": "Costos I",
+        "clave": "2528",
+        "semestre": 7,
+        "carrera": "Contaduría"
+        },
+        {
+        "id_materia": 3,
+        "nombre": "Finanzas II",
+        "clave": "2532",
+        "semestre": 7,
+        "carrera": "Contaduría"
+        },
+
+        {
+        "id_materia": 4,
+        "nombre": "Administración de la tecnología",
+        "clave": "2722",
+        "semestre": 7,
+        "carrera": "Administración"
+        },
+        {
+        "id_materia": 5,
+        "nombre": "Administración de proyectos de inversión",
+        "clave": "2723",
+        "semestre": 7,
+        "carrera": "Administración"
+        },
+        {
+        "id_materia": 6,
+        "nombre": "Plan de emprendimiento",
+        "clave": "2731",
+        "semestre": 7,
+        "carrera": "Administración"
+        },
+
+        {
+        "id_materia": 7,
+        "nombre": "Costos y presupuestos",
+        "clave": "2726",
+        "semestre": 7,
+        "carrera": "Informática"
+        },
+        {
+        "id_materia": 8,
+        "nombre": "Ingeniería de software",
+        "clave": "2728",
+        "semestre": 7,
+        "carrera": "Informática"
+        },
+        {
+        "id_materia": 9,
+        "nombre": "Negocios digitales",
+        "clave": "2730",
+        "semestre": 7,
+        "carrera": "Informática"
+        },
+
+        {
+        "id_materia": 10,
+        "nombre": "Inglés (7° semestre)",
+        "clave": "1748",
+        "semestre": 7,
+        "carrera": "Negocios Internacionales"
+        },
+        {
+        "id_materia": 11,
+        "nombre": "Seminario de Negocios Internacionales III",
+        "clave": "1749",
+        "semestre": 7,
+        "carrera": "Negocios Internacionales"
+        },
+        {
+        "id_materia": 12,
+        "nombre": "Mercadotecnia Internacional",
+        "clave": "1750",
+        "semestre": 7,
+        "carrera": "Negocios Internacionales"
+        }
+  ]
+}

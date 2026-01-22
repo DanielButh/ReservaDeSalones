@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=code" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <!-- <link rel="stylesheet" href="../css/nav.css"> -->
+    <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body>
+    <header>
+    <nav class="nav">
+    <!-- SIDEBAR -->
+    <ul class="sidebar">
+        <li class="close-btn" onclick="hideSidebar()">
+            <i class="fa-solid fa-xmark"></i>
+        </li>
+
+        <li class="sidebar-title">
+            <img class="navbar-img1-sidebar" src="../img/logoblanco1.png">
+            <span>Universidad Nacional <br> Autónoma de México</span>
+        </li>
+
+        <li><a href="Inicio.html"><i class="fa-solid fa-arrow-right-to-bracket"></i> Ingresar</a></li>
+    </ul>
+
+    <!-- NAVBAR -->
+    <ul class="navbar">
+        <li class="logo">
+            <img class="navbar-img1" src="../img/logoblanco1.png" alt="Logo UNAM">
+            <span class="title">Universidad Nacional <br> Autónoma de México</span>
+        </li>
+
+        <li class="nav-item hideOnMobile">
+            <i class="icon-nav fa-solid fa-arrow-right-to-bracket"></i>
+            <a href="Inicio.html">Ingresar</a>
+        </li>
+
+        <li class="logo2">
+            <img class="navbar-img2" src="../img/escudoFCA.png" alt="Escudo UNAM">
+        </li>
+
+        <li class="menu-btn" onclick="showSidebar()">
+            <i class="fa-solid fa-bars"></i>
+        </li>
+    </ul>
+</nav>
+</header>
+
+    <section class="into">
+        <div class="tex-into">
+            <h1>
+                SISTEMA DE DISTRIBUCIÓN Y GESTIÓN<br> DE SALONES
+            </h1>
+        </div>
+    </section> 
+
+<section class="wave">
+    <div class="wave-text">
+        <h2>
+            Bienvenido al Sistema de Distribución y Gestión de Salones (SDGS), un sistema para
+            gestionar y distribuir el uso eficiente de las aulas y espacios destinados para las clases
+            dentro de la Facultad de Contaduría y Administración.
+        </h2>
+    </div>
+</section>
+
+    <div class="sec1">
+        <div class="sec-img">
+            <img src="../img/lupa.png" alt="Lupa icono de búsqueda">
+        </div>
+        <div class="sec-text">
+            <h1>Gestión eficiente de los espacios de clase</h1>
+        </div>
+    </div>
+    
+        <div class="sec1">
+            <div class="sec-text">
+                <h1>Asignación de los profesores y las materias de forma más organizada</h1>
+            </div>
+            <div class="sec-img">
+                <img src="../img/asig.png" class="" alt="Asignación de profesores">
+            </div>
+        </div>
+        
+        <div class="sec1">
+            <div class="sec-img">
+                <img src="../img/scrum.png" class="" alt="Organización de salones">
+            </div>
+            <div class="sec-text">
+                <h1>Resuelve problemáticas como la duplicación de materias o la desorganización de los salones</h1>
+            </div>
+        </div> 
+
+        <footer class="footer">
+        <div class="footer-text-der">
+            <div class="">
+                <i class="icon fa-brands fa-youtube" style="--color: red;"></i>
+                <i class="icon fa-brands fa-instagram" style="--color: rgb(210, 30, 108);"></i>
+                <i class="icon fa-brands fa-whatsapp" style="--color: rgb(0, 133, 9);"></i>
+                <i class="icon fa-brands fa-facebook" style="--color: rgb(17, 80, 255);"></i>
+                <i class="icon fa-regular fa-envelope" style="--color: rgb(0, 0, 0);"></i>
+            </div>
+            <p>© 2026 | Todos los derechos reservados. Universidad Nacional Autónoma de México - Facultad de Contaduría y Administración. Plataforma de Gestión Académica.</p>
+        </div>
+    </footer>
+
+<script>
+const sidebar = document.querySelector('.sidebar');
+const BREAKPOINT = 900;
+
+function showSidebar() {
+    sidebar.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function hideSidebar() {
+    sidebar.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+window.addEventListener('resize', () => {
+    if (window.innerWidth > BREAKPOINT) {
+        hideSidebar();
+    }
+});
+</script>
+
+</body>
+</html>

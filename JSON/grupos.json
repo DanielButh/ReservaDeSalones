@@ -1,0 +1,74 @@
+{
+    "grupos": [
+        {
+        "id_grupo": 1,
+        "nombre": "1701",
+        "turno": "Matutino",
+        "alumnos_inscritos": 35,
+        "carrera": "Contaduría"
+        },
+        {
+        "id_grupo": 2,
+        "nombre": "1702",
+        "turno": "Vespertino",
+        "alumnos_inscritos": 35,
+        "carrera": "Contaduría"
+        },
+        {
+        "id_grupo": 3,
+        "nombre": "1703",
+        "turno": "Matutino",
+        "alumnos_inscritos": 35,
+        "carrera": "Contaduría"
+        },
+        {
+        "id_grupo": 4,
+        "nombre": "1704",
+        "turno": "Matutino",
+        "alumnos_inscritos": 35,
+        "carrera": "Administración"
+        },
+        {
+        "id_grupo": 5,
+        "nombre": "1705",
+        "turno": "Vespertino",
+        "alumnos_inscritos": 35,
+        "carrera": "Administración"
+        },
+        {
+        "id_grupo": 6,
+        "nombre": "1706",
+        "turno": "Matutino",
+        "alumnos_inscritos": 35,
+        "carrera": "Administración"
+        },
+        {
+        "id_grupo": 7,
+        "nombre": "1707",
+        "turno": "Matutino",
+        "alumnos_inscritos": 35,
+        "carrera": "Informática"
+        },
+        {
+        "id_grupo": 8,
+        "nombre": "1708",
+        "turno": "Vespertino",
+        "alumnos_inscritos": 35,
+        "carrera": "Informática"
+        },
+        {
+        "id_grupo": 9,
+        "nombre": "1709",
+        "turno": "Matutino",
+        "alumnos_inscritos": 35,
+        "carrera": "Negocios Internacionales"
+        },
+        {
+        "id_grupo": 10,
+        "nombre": "1710",
+        "turno": "Vespertino",
+        "alumnos_inscritos": 35,
+        "carrera": "Negocios Internacionales"
+        }
+  ]
+}

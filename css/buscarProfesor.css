@@ -1,0 +1,251 @@
+.search-container {
+    background: white;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: 80vh;
+}
+
+.search-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: linear-gradient(135deg, #5A9DCC 0%, #3366cc 100%);
+    border-radius: 10px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.search-header h1 {
+    font-size: 2.5rem;
+    color: white;
+    margin: 0;
+}
+
+.search-box-wrapper {
+    position: relative;
+    flex: 1;
+    min-width: 250px;
+}
+
+.search-box {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    font-size: 1rem;
+    border: 2px solid white;
+    border-radius: 20px;
+    background: white;
+    transition: box-shadow 0.3s ease;
+}
+
+.search-box:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 1.1rem;
+}
+
+.filters {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    padding: 15px;
+    background: #f5f5f5;
+    border-radius: 8px;
+}
+
+.filters select {
+    flex: 1;
+    min-width: 200px;
+    padding: 10px 15px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    background: white;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.filters select:hover,
+.filters select:focus {
+    border-color: #5A9DCC;
+    outline: none;
+}
+
+.profesores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.profesor-card {
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profesor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    border-color: #5A9DCC;
+}
+
+.profesor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    gap: 10px;
+}
+
+.profesor-header img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e0e0e0;
+}
+
+.estatus {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.profesor-card:has(.estatus:contains("Disponible")) .estatus {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.profesor-card .estatus {
+    background: #ffebee;
+    color: #c62828;
+}
+
+.profesor-card h3 {
+    margin: 10px 0;
+    color: #333;
+    font-size: 1.3rem;
+}
+
+.departamento {
+    color: #666;
+    font-size: 0.95rem;
+    margin: 8px 0;
+}
+
+.materias {
+    color: #333;
+    font-weight: bold;
+    margin: 12px 0 8px 0;
+}
+
+.profesor-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 15px 0;
+}
+
+.profesor-card li {
+    padding: 5px 0;
+    color: #555;
+    font-size: 0.95rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.profesor-card li:last-child {
+    border-bottom: none;
+}
+
+.horario-preview {
+    background: #f9f9f9;
+    padding: 12px;
+    border-radius: 6px;
+    margin: 15px 0;
+    border-left: 4px solid #5A9DCC;
+}
+
+.horario-preview strong {
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.horario-preview p {
+    margin: 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.btn-ver-horario {
+    background: #5A9DCC;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: auto;
+}
+
+.btn-ver-horario:hover {
+    background: #3366cc;
+    transform: scale(1.02);
+}
+
+.btn-ver-horario:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .search-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .search-box-wrapper {
+        min-width: auto;
+    }
+
+    .filters {
+        flex-direction: column;
+    }
+
+    .filters select {
+        min-width: auto;
+    }
+
+    .profesores-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profesor-card {
+        padding: 15px;
+    }
+}

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+   <link rel="stylesheet" href="../css/Inicio.css">
+
+   <title>Iniciar sesión</title>
+</head>
+
+<body>
+
+   <div class="title">
+      <div class="left-content">
+         <img src="../img/logoblanco1.png" class="ini-img" alt="UNAM">
+         <a class="title-text">Universidad Nacional <br> Autónoma de México</a>
+      </div>
+      <img src="../img/escudoFCA.png" class="ini-img right-img" alt="FCA">
+   </div>
+
+   <div class="ini">
+      <div class="form-side">
+
+         <div class="text-ini">
+            <a>Iniciar sesión</a>
+         </div>
+
+         <form id="loginForm" class="needs-validation" novalidate>
+
+            <!-- Usuario -->
+            <div class="mb-3">
+               <label class="form-label">Usuario</label>
+               <input type="number" class="form-control" id="usuario" placeholder="Ingresa tu número de trabajador" required>
+               <div class="invalid-feedback">
+                  El número de trabajador es obligatorio.
+               </div>
+            </div>
+
+            <!-- RFC -->
+            <div class="mb-3">
+               <label class="form-label">RFC</label>
+               <input type="text" class="form-control" id="rfc" maxlength="13" required>
+               <div class="invalid-feedback">
+                  El RFC debe tener 13 caracteres y un formato válido.
+               </div>
+            </div>
+
+            <!-- Contraseña -->
+            <div class="mb-3">
+               <label class="form-label">Contraseña</label>
+               <input type="password" class="form-control" id="password" minlength="8" required>
+               <div class="invalid-feedback">
+                  La contraseña es obligatoria y debe tener al menos 8 caracteres.
+               </div>
+            </div>
+
+         </form>
+
+      </div>
+
+      <div class="image-side">
+         <img src="../img/fcaplace.png" alt="FCA">
+      </div>
+
+      <!-- NO SE MODIFICA NAVEGACIÓN -->
+      <div class="full-bottom-btn">
+         <a href="homeUsuario.html" id="loginBtn" class="btn btn-custom">Ingresar</a>
+         <a href="registro.html" class="btn btn-custom">Registrarse</a>
+      </div>
+
+   </div>
+
+   <script>
+      (() => {
+         const form = document.getElementById("loginForm");
+         const loginBtn = document.getElementById("loginBtn");
+         const rfcInput = document.getElementById("rfc");
+         const usuarioInput = document.getElementById("usuario");
+         const passwordInput = document.getElementById("password");
+
+         // Usuarios autorizados en el sistema
+         const usuariosAutorizados = [
+            {
+               nombre_completo: "Ana Maria Lopez Garcia",
+               rfc: "LOGA850312AB1",
+               numero_trabajador: "1000000000001",
+               rol_usuario: "administrador",
+               contrasenia: "123456789"
+            },
+            {
+               nombre_completo: "Ivan Roberto Salas Jimenez",
+               rfc: "SAJI840818CD6",
+               numero_trabajador: "1000000000015",
+               rol_usuario: "profesor",
+               contrasenia: "123456781"
+            }
+         ];
+
+         const rfcRegex = /^[A-ZÑ&]{4}[0-9]{6}[A-Z0-9]{3}$/;
+
+         // Convertir RFC a mayúsculas y validar
+         rfcInput.addEventListener("input", () => {
+            rfcInput.value = rfcInput.value.toUpperCase();
+            validarRFC();
+         });
+
+         function validarRFC() {
+            if (rfcRegex.test(rfcInput.value.trim())) {
+               rfcInput.classList.remove("is-invalid");
+               rfcInput.classList.add("is-valid");
+               form.classList.remove("was-validated");
+            } else {
+               rfcInput.classList.remove("is-valid");
+               rfcInput.classList.remove("is-invalid");
+            }
+         }
+
+         loginBtn.addEventListener("click", function (event) {
+            event.preventDefault();
+            let valid = true;
+
+            // Validación Usuario
+            if (!usuarioInput.value.trim()) {
+               usuarioInput.classList.add("is-invalid");
+               valid = false;
+            } else {
+               usuarioInput.classList.remove("is-invalid");
+            }
+
+            // Validación RFC
+            if (!rfcRegex.test(rfcInput.value.trim())) {
+               rfcInput.classList.add("is-invalid");
+               rfcInput.classList.remove("is-valid");
+               valid = false;
+            } else {
+               rfcInput.classList.add("is-valid");
+               rfcInput.classList.remove("is-invalid");
+            }
+
+            // Validación Contraseña
+            if (!passwordInput.value || passwordInput.value.length < 8) {
+               passwordInput.classList.add("is-invalid");
+               valid = false;
+            } else {
+               passwordInput.classList.remove("is-invalid");
+            }
+
+            form.classList.add("was-validated");
+
+            if (valid) {
+               // Validar credenciales contra usuarios autorizados
+               const usuario = usuariosAutorizados.find(u => 
+                  u.numero_trabajador === usuarioInput.value.trim() &&
+                  u.rfc === rfcInput.value.trim() &&
+                  u.contrasenia === passwordInput.value
+               );
+
+               if (usuario) {
+                  // Guardar datos del usuario en localStorage
+                  localStorage.setItem('tipoUsuario', usuario.rol_usuario);
+                  localStorage.setItem('nombreUsuario', usuario.nombre_completo);
+                  localStorage.setItem('usuarioId', usuario.numero_trabajador);
+                  
+                  // Redirigir a homeUsuario
+                  window.location.href = "homeUsuario.html";
+               } else {
+                  // Credenciales incorrectas
+                  alert("Número de trabajador, RFC o contraseña incorrectos.");
+                  passwordInput.classList.add("is-invalid");
+                  usuarioInput.classList.add("is-invalid");
+                  rfcInput.classList.add("is-invalid");
+               }
+            }
+         });
+      })();
+   </script>
+
+</body>
+
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=code" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/edificios.css">
+    <!-- <link rel="stylesheet" href="../css/nav.css"> -->
+    <link rel="stylesheet" href="../css/index.css">
+    <title>Edificios</title>
+</head>
+<body>
+    <header>
+    <nav class="nav">
+    <!-- SIDEBAR -->
+    <ul class="sidebar">
+        <li class="close-btn" onclick="hideSidebar()">
+            <i class="fa-solid fa-xmark"></i>
+        </li>
+
+        <li class="sidebar-title">
+            <img class="navbar-img1-sidebar" src="../img/logoblanco1.png">
+            <span>Universidad Nacional <br> Autónoma de México</span>
+        </li>
+
+        <li><a href="Inicio.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
+        <li><a href="#"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</a></li>
+    </ul>
+
+    <!-- NAVBAR -->
+    <ul class="navbar">
+        <li class="logo">
+            <img class="navbar-img1" src="../img/logoblanco1.png">
+            <span class="title">Universidad Nacional <br> Autónoma de México</span>
+        </li>
+
+        <li class="nav-item hideOnMobile">
+            <i class="icon-nav fa-solid fa-house"></i>
+            <a href="homeUsuario.html">Inicio</a>
+        </li>
+
+        <li class="nav-item hideOnMobile">
+            <i class="icon-nav fa-solid fa-right-from-bracket"></i>
+            <a href="index.html">Cerrar sesión</a>
+        </li>
+
+        <li class="logo2">
+            <img class="navbar-img2" src="../img/escudoFCA.png">
+        </li>
+
+        <li class="menu-btn" onclick="showSidebar()">
+            <i class="fa-solid fa-bars"></i>
+        </li>
+    </ul>
+</nav>
+</header>
+
+        <div class="search">
+            <h1>Selecciona un edificio</h1>
+            <div>
+                <li class="searching">
+                    <input class="box-search" type="search" placeholder="Buscar">
+                    <span class="icon-search"><i class="fas fa-search"></i></span>
+                </li>
+            </div>
+        </div>
+        <div class="section-group">
+            <p class="section-title">Edificios principales</p>
+            <div class="container">
+                <a href="Edificio.html?edificio=A" class="principales" data-section="Edificios principales">
+                    <img class="img" src="../img/ediA.jpg" alt="">
+                    <h2>A</h2>
+                </a>
+                <a href="Edificio.html?edificio=B" class="principales" data-section="Edificios principales">
+                    <img class="img" src="../img/ediB.jpg" alt="">
+                    <h2>B</h2>
+                </a>
+                <a href="Edificio.html?edificio=C" class="principales" data-section="Edificios principales">
+                    <img class="img" src="../img/ediC.jpg" alt="">
+                    <h2>C</h2>
+                </a>
+                <a href="Edificio.html?edificio=D" class="principales" data-section="Edificios principales">
+                    <img class="img" src="../img/ediD.jpg" alt="">
+                    <h2>D</h2>
+                </a>
+                <a href="Edificio.html?edificio=F" class="principales" data-section="Edificios principales">
+                    <img class="img" src="../img/ediF.jpg" alt="">
+                    <h2>F</h2>
+                </a>
+            </div>
+        </div>
+
+            <hr class="divicion"></hr>
+
+        <div class="section-group">
+            <p class="section-title">Edificios de Idiomas</p>
+            <div class="container">
+                <a href="Edificio.html?edificio=G" class="principales" data-section="Edificios de Idiomas">
+                    <img class="img" src="../img/ediG.jpg" alt="">
+                    <h2>G</h2>
+                </a>
+                <a href="Edificio.html?edificio=I" class="principales" data-section="Edificios de Idiomas">
+                    <img class="img" src="../img/ediI.jpg" alt="">
+                    <h2>I</h2>
+                </a>
+                <a href="Edificio.html?edificio=J" class="principales" data-section="Edificios de Idiomas">
+                    <img class="img" src="../img/ediJ.jpg" alt="">
+                    <h2>J</h2>
+                </a>
+                <a href="Edificio.html?edificio=H" class="principales" data-section="Edificios de Idiomas">
+                    <img class="img" src="../img/ediH.jpg" alt="">
+                    <h2>H</h2>
+                </a>
+            </div>
+        </div>
+
+            <hr class="divicion"></hr>
+
+        <div class="section-group">
+            <p class="section-title">Edificios de Informática</p>
+            <div class="container">
+                <a href="Edificio.html?edificio=CIFCA" class="principales" data-section="Edificios de Informática">
+                    <img class="img" src="../img/ediCIFCA.jpg" alt="">
+                    <h2>Centro de Informatica (CIFCA)</h2>
+                </a>
+                <a href="Edificio.html?edificio=K" class="principales" data-section="Edificios de Informática">
+                    <img class="img" src="../img/ediK.jpg" alt="">
+                    <h2>K</h2>
+                </a>
+            </div>
+        </div>
+
+            <hr class="divicion"></hr>
+
+        <div class="section-group">
+            <p class="section-title">Otros Edificios</p>
+            <div class="container">
+                <a href="Edificio.html?edificio=Biblioteca" class="principales" data-section="Otros Edificios">
+                    <img class="img" src="../img/ediBiblio.jpg" alt="">
+                    <h2>Biblioteca</h2>
+                </a>
+                <a href="Edificio.html?edificio=SalaProf" class="principales" data-section="Otros Edificios">
+                    <img class="img" src="../img/ediAulas.jpg" alt="">
+                    <h2>Sala de Profesores</h2>
+                </a>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-text-der">
+                <div class="">
+                    <i class="icon fa-brands fa-youtube" style="--color: red;"></i>
+                    <i class="icon fa-brands fa-instagram" style="--color: rgb(210, 30, 108);"></i>
+                    <i class="icon fa-brands fa-whatsapp" style="--color: rgb(0, 133, 9);"></i>
+                    <i class="icon fa-brands fa-facebook" style="--color: rgb(17, 80, 255);"></i>
+                    <i class="icon fa-regular fa-envelope" style="--color: rgb(0, 0, 0);"></i>
+                </div>
+                <h5>© 2026 | Todos los derechos reservados. Universidad Nacional Autónoma de México - Facultad de Contaduría y Administración. Plataforma de Gestión Académica.</h5>
+            </div>
+        </footer>
+    
+<script>
+    // BUSCADOR DE EDIFICIOS
+    const searchInput = document.querySelector('.box-search');
+    const edificios = document.querySelectorAll('.principales');
+    const sectionGroups = document.querySelectorAll('.section-group');
+
+    // Agregar data-nombre a cada edificio para poder filtrar
+    edificios.forEach(edificio => {
+        let nombre = edificio.querySelector('h2').textContent.toLowerCase().trim();
+        // Eliminar la palabra "edificio" del búsqueda
+        nombre = nombre.replace(/edificio\s+/g, '');
+        edificio.setAttribute('data-nombre', nombre);
+    });
+
+    // Función de búsqueda
+    searchInput.addEventListener('input', (e) => {
+        const searchValue = e.target.value.toLowerCase().trim();
+        let hayResultados = searchValue !== '';
+        
+        sectionGroups.forEach(section => {
+            let seccionTieneResultados = false;
+            const edificiosEnSeccion = section.querySelectorAll('.principales');
+            
+            edificiosEnSeccion.forEach(edificio => {
+                const nombre = edificio.getAttribute('data-nombre');
+                
+                if (nombre.includes(searchValue) || searchValue === '') {
+                    edificio.style.display = 'flex';
+                    if (searchValue !== '') {
+                        seccionTieneResultados = true;
+                    }
+                } else {
+                    edificio.style.display = 'none';
+                }
+            });
+            
+            // Mostrar/ocultar la sección completa según tenga resultados
+            if (searchValue === '') {
+                section.style.display = 'block';
+            } else {
+                section.style.display = seccionTieneResultados ? 'block' : 'none';
+            }
+        });
+    });
+</script>
+<script>
+const sidebar = document.querySelector('.sidebar');
+const BREAKPOINT = 900;
+
+function showSidebar() {
+    sidebar.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function hideSidebar() {
+    sidebar.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+window.addEventListener('resize', () => {
+    if (window.innerWidth > BREAKPOINT) {
+        hideSidebar();
+    }
+});
+</script>
+
+</body>
+</html>
