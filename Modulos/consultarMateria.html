@@ -64,34 +64,34 @@
 
         <!-- Información -->
         <div style="flex: 1; min-width: 300px;">
-            <h2 style="font-size: 2rem; font-weight: bold; margin-bottom: 1.5rem; color: black;">Clase I</h2>
+            <h2 style="font-size: 2rem; font-weight: bold; margin-bottom: 1.5rem; color: black;" id="nombreMateria">Clase I</h2>
             
             <div style="margin-bottom: 1.5rem;">
-                <p style="font-size: 1.3rem; font-weight: bold; color: black; margin-bottom: 0.5rem;">Horario: 9 - 11</p>
+                <p style="font-size: 1.3rem; font-weight: bold; color: black; margin-bottom: 0.5rem;" id="horarioMateria"></p>
             </div>
 
             <div style="margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem;">
-                <p style="font-size: 1.3rem; font-weight: bold; color: black;">Días:</p>
-                <button style="background: #A09696; color: black; border: none; padding: 0.8rem 1.5rem; border-radius: 20px; cursor: pointer; font-size: 1rem; font-weight: bold;">Miercoles</button>
+                <p style="font-size: 1.3rem; font-weight: bold; color: black;">Horario:</p>
+                <button style="background: #A09696; color: black; border: none; padding: 0.8rem 1.5rem; border-radius: 20px; cursor: pointer; font-size: 1rem; font-weight: bold;" id="diasMateria"></button>
             </div>
 
             <div style="margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem;">
                 <p style="font-size: 1.3rem; font-weight: bold; color: black;">Salon(es):</p>
-                <button style="background: #A09696; color: black; border: none; padding: 0.8rem 1.5rem; border-radius: 20px; cursor: pointer; font-size: 1rem; font-weight: bold;">K - 201</button>
+                <button style="background: #A09696; color: black; border: none; padding: 0.8rem 1.5rem; border-radius: 20px; cursor: pointer; font-size: 1rem; font-weight: bold;" id="salonesMateria"></button>
             </div>
 
             <div style="margin-bottom: 1.5rem;">
-                <p style="font-size: 1.3rem; color: black;"><span style="font-weight: bold;">Cantidad de Alumnos:</span> 29</p>
+                <p style="font-size: 1.3rem; color: black;"><span style="font-weight: bold;" id="alumnosMateria">Cantidad de Alumnos:</span> </p>
             </div>
 
             <div style="margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem;">
-                <p style="font-size: 1.3rem; font-weight: bold; color: black;">Profesor</p>
-                <button style="background: #A09696; color: black; border: none; padding: 0.8rem 1.5rem; border-radius: 20px; cursor: pointer; font-size: 1rem; font-weight: bold;">Profesor 3</button>
+                <p style="font-size: 1.3rem; font-weight: bold; color: black;" >Profesor</p>
+                <button style="background: #A09696; color: black; border: none; padding: 0.8rem 1.5rem; border-radius: 20px; cursor: pointer; font-size: 1rem; font-weight: bold;" id="profesorMateria"></button>
             </div>
 
             <div style="display: flex; align-items: center; gap: 1rem;">
                 <p style="font-size: 1.3rem; font-weight: bold; color: black;">Grupo</p>
-                <button style="background: #A09696; color: black; border: none; padding: 0.8rem 1.5rem; border-radius: 20px; cursor: pointer; font-size: 1rem; font-weight: bold;">1792</button>
+                <button style="background: #A09696; color: black; border: none; padding: 0.8rem 1.5rem; border-radius: 20px; cursor: pointer; font-size: 1rem; font-weight: bold;" id="grupoMateria"></button>
             </div>
         </div>
     </div>
@@ -128,7 +128,76 @@ window.addEventListener('resize', () => {
         hideSidebar();
     }
 });
+
+// --- CARGAR MATERIA SELECCIONADA ---
+const idMateria = parseInt(localStorage.getItem('materiaSeleccionada'));
+
+Promise.all([
+    fetch('../JSON/materias.json').then(r => r.json()),
+    fetch('../JSON/cursos.json').then(r => r.json()),
+    fetch('../JSON/grupos.json').then(r => r.json()),
+    fetch('../JSON/usuarios.json').then(r => r.json()),
+    fetch('../JSON/salones.json').then(r => r.json())
+])
+.then(([materiasData, cursosData, gruposData, usuariosData, salonesData]) => {
+
+    // 1️⃣ Materia
+    const materia = materiasData.materias.find(m => m.id_materia === idMateria);
+    if (!materia) return;
+    document.getElementById('nombreMateria').textContent = materia.nombre;
+
+    // 2️⃣ Curso
+    const curso = cursosData.cursos.find(c => c.id_materia === idMateria);
+    if (!curso) return;
+
+    // 3️⃣ Grupo
+    const grupo = gruposData.grupos.find(g => g.id_grupo === curso.id_grupo);
+    if (grupo) {
+        document.getElementById('grupoMateria').textContent = grupo.nombre;
+        document.getElementById('alumnosMateria').textContent =
+            `Cantidad de Alumnos: ${grupo.alumnos_inscritos}`;
+    }
+
+    // 4️⃣ Profesor
+    const profesor = usuariosData.usuarios.find(u => u.id_usuario === curso.id_profesor);
+    if (profesor) {
+        document.getElementById('profesorMateria').textContent = profesor.nombre_completo;
+    }
+
+    // 5️⃣ Horarios
+    const diasContainer = document.getElementById('diasMateria');
+    diasContainer.innerHTML = '';
+
+    curso.horarios.forEach(h => {
+        const btn = document.createElement('button');
+        btn.textContent = `${h.dia} ${h.hora_inicio} - ${h.hora_fin}`;
+        btn.style.background = '#A09696';
+        btn.style.border = 'none';
+        btn.style.padding = '0.8rem 1.5rem';
+        btn.style.borderRadius = '20px';
+        btn.style.fontWeight = 'bold';
+        diasContainer.appendChild(btn);
+    });
+
+    // 6️⃣ Salones (NOMBRE en lugar de ID)
+    const mapaSalones = {};
+    salonesData.salones.forEach(salon => {
+        mapaSalones[salon.id_salon] = salon.nombre;
+    });
+
+    const salonesContainer = document.getElementById('salonesMateria');
+    const salonesUnicos = new Set();
+
+    curso.horarios.forEach(h => {
+        const nombreSalon = mapaSalones[h.id_salon] || `Salón ${h.id_salon}`;
+        salonesUnicos.add(nombreSalon);
+    });
+
+    salonesContainer.textContent = Array.from(salonesUnicos).join(', ');
+})
+.catch(error => console.error('Error cargando datos:', error));
 </script>
+
 
 </body>
 </html>

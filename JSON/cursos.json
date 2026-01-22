@@ -5,8 +5,8 @@
         "id_grupo": 1,
         "id_profesor": 1,
         "horarios": [
-            { "dia": "Lunes", "hora_inicio": "08:00", "hora_fin": "09:30" },
-            { "dia": "Miércoles", "hora_inicio": "08:00", "hora_fin": "09:30" }
+            { "dia": "Lunes", "hora_inicio": "08:00", "hora_fin": "09:30", "id_salon": 101 },
+            { "dia": "Miércoles", "hora_inicio": "08:00", "hora_fin": "09:30", "id_salon": 101}
         ]
         },
         {
@@ -14,8 +14,8 @@
         "id_grupo": 1,
         "id_profesor": 2,
         "horarios": [
-            { "dia": "Martes", "hora_inicio": "09:30", "hora_fin": "11:00" },
-            { "dia": "Jueves", "hora_inicio": "09:30", "hora_fin": "11:00" }
+            { "dia": "Martes", "hora_inicio": "09:30", "hora_fin": "11:00", "id_salon": 102 },
+            { "dia": "Jueves", "hora_inicio": "09:30", "hora_fin": "11:00", "id_salon": 102 }
         ]
         },
         {
@@ -23,7 +23,7 @@
         "id_grupo": 1,
         "id_profesor": 3,
         "horarios": [
-            { "dia": "Viernes", "hora_inicio": "08:00", "hora_fin": "11:00" }
+            { "dia": "Viernes", "hora_inicio": "08:00", "hora_fin": "11:00", "id_salon": 73}
         ]
         },
 
@@ -33,8 +33,8 @@
         "id_grupo": 2,
         "id_profesor": 4,
         "horarios": [
-            { "dia": "Lunes", "hora_inicio": "16:00", "hora_fin": "17:30" },
-            { "dia": "Miércoles", "hora_inicio": "16:00", "hora_fin": "17:30" }
+            { "dia": "Lunes", "hora_inicio": "16:00", "hora_fin": "17:30", "id_salon": 101 },
+            { "dia": "Miércoles", "hora_inicio": "16:00", "hora_fin": "17:30", "id_salon": 101 }
         ]
         },
         {
@@ -43,8 +43,8 @@
         "id_grupo": 2,
         "id_profesor": 5,
         "horarios": [
-            { "dia": "Martes", "hora_inicio": "17:30", "hora_fin": "19:00" },
-            { "dia": "Jueves", "hora_inicio": "17:30", "hora_fin": "19:00" }
+            { "dia": "Martes", "hora_inicio": "17:30", "hora_fin": "19:00", "id_salon": 102 },
+            { "dia": "Jueves", "hora_inicio": "17:30", "hora_fin": "19:00", "id_salon": 102 }
         ]
         },
         {
@@ -53,7 +53,7 @@
         "id_grupo": 2,
         "id_profesor": 1,
         "horarios": [
-            { "dia": "Viernes", "hora_inicio": "16:00", "hora_fin": "19:00" }
+            { "dia": "Viernes", "hora_inicio": "16:00", "hora_fin": "19:00", "id_salon": 73 }
         ]
         },
 
@@ -63,8 +63,8 @@
         "id_grupo": 4,
         "id_profesor": 6,
         "horarios": [
-            { "dia": "Lunes", "hora_inicio": "08:00", "hora_fin": "09:30" },
-            { "dia": "Miércoles", "hora_inicio": "08:00", "hora_fin": "09:30" }
+            { "dia": "Lunes", "hora_inicio": "08:00", "hora_fin": "09:30", "id_salon": 10 },
+            { "dia": "Miércoles", "hora_inicio": "08:00", "hora_fin": "09:30", "id_salon": 45 }
         ]
         },
         {
@@ -73,8 +73,8 @@
         "id_grupo": 4,
         "id_profesor": 7,
         "horarios": [
-            { "dia": "Martes", "hora_inicio": "09:30", "hora_fin": "11:00" },
-            { "dia": "Jueves", "hora_inicio": "09:30", "hora_fin": "11:00" }
+            { "dia": "Martes", "hora_inicio": "09:30", "hora_fin": "11:00", "id_salon": 37 },
+            { "dia": "Jueves", "hora_inicio": "09:30", "hora_fin": "11:00", "id_salon": 37 }
         ]
         },
         {
@@ -83,7 +83,7 @@
         "id_grupo": 4,
         "id_profesor": 8,
         "horarios": [
-            { "dia": "Viernes", "hora_inicio": "08:00", "hora_fin": "11:00" }
+            { "dia": "Viernes", "hora_inicio": "08:00", "hora_fin": "11:00", "id_salon": 31 }
         ]
         },
 
@@ -93,8 +93,8 @@
         "id_grupo": 7,
         "id_profesor": 11,
         "horarios": [
-            { "dia": "Lunes", "hora_inicio": "08:00", "hora_fin": "09:30" },
-            { "dia": "Miércoles", "hora_inicio": "08:00", "hora_fin": "09:30" }
+            { "dia": "Lunes", "hora_inicio": "08:00", "hora_fin": "09:30", "id_salon": 88 },
+            { "dia": "Miércoles", "hora_inicio": "08:00", "hora_fin": "09:30", "id_salon": 65 }
         ]
         },
         {
@@ -103,8 +103,8 @@
         "id_grupo": 7,
         "id_profesor": 12,
         "horarios": [
-            { "dia": "Martes", "hora_inicio": "09:30", "hora_fin": "11:00" },
-            { "dia": "Jueves", "hora_inicio": "09:30", "hora_fin": "11:00" }
+            { "dia": "Martes", "hora_inicio": "09:30", "hora_fin": "11:00", "id_salon": 64 },
+            { "dia": "Jueves", "hora_inicio": "09:30", "hora_fin": "11:00", "id_salon": 43 }
         ]
         },
         {
@@ -113,7 +113,7 @@
         "id_grupo": 7,
         "id_profesor": 13,
         "horarios": [
-            { "dia": "Viernes", "hora_inicio": "08:00", "hora_fin": "11:00" }
+            { "dia": "Viernes", "hora_inicio": "08:00", "hora_fin": "11:00", "id_salon": 17 }
         ]
         },
 
@@ -123,8 +123,8 @@
         "id_grupo": 9,
         "id_profesor": 16,
         "horarios": [
-            { "dia": "Lunes", "hora_inicio": "08:00", "hora_fin": "09:30" },
-            { "dia": "Miércoles", "hora_inicio": "08:00", "hora_fin": "09:30" }
+            { "dia": "Lunes", "hora_inicio": "08:00", "hora_fin": "09:30", "id_salon": 60 },
+            { "dia": "Miércoles", "hora_inicio": "08:00", "hora_fin": "09:30", "id_salon": 59 }
         ]
         },
         {
@@ -133,8 +133,8 @@
         "id_grupo": 9,
         "id_profesor": 17,
         "horarios": [
-            { "dia": "Martes", "hora_inicio": "09:30", "hora_fin": "11:00" },
-            { "dia": "Jueves", "hora_inicio": "09:30", "hora_fin": "11:00" }
+            { "dia": "Martes", "hora_inicio": "09:30", "hora_fin": "11:00", "id_salon": 1 },
+            { "dia": "Jueves", "hora_inicio": "09:30", "hora_fin": "11:00", "id_salon": 1 }
         ]
         },
         {
@@ -143,7 +143,7 @@
         "id_grupo": 9,
         "id_profesor": 18,
         "horarios": [
-            { "dia": "Viernes", "hora_inicio": "08:00", "hora_fin": "11:00" }
+            { "dia": "Viernes", "hora_inicio": "08:00", "hora_fin": "11:00", "id_salon": 8 }
         ]
         }
     ]
