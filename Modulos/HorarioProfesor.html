@@ -43,7 +43,7 @@
             <li class="nav-item hideOnMobile">
                 <i class="icon-nav fa-solid fa-search"></i>
                 <a href="BuscarProfesor.html">Buscar Profesor</a>
-            </li>s
+            </li>
 
             <li class="nav-item hideOnMobile">
                 <i class="icon-nav fa-solid fa-right-from-bracket"></i>
@@ -65,29 +65,11 @@
         <div class="horario-header">
             <h1>Mi Horario</h1>
             <div class="profesor-info">
-                <strong>Profesor:</strong> Marvin Jose Rayas Sanchez
+                <strong>Profesor:</strong> <span id="nombreProfesor"></span>
             </div>
         </div>
 
         <div class="horario-content">
-            <div class="horario-filtros">
-                <label>
-                    <strong>Semestre:</strong>
-                    <select>
-                        <option>2025-1</option>
-                        <option>2025-2</option>
-                    </select>
-                </label>
-                <label>
-                    <strong>Carrera:</strong>
-                    <select>
-                        <option>Administración</option>
-                        <option>Contabilidad</option>
-                        <option>Informática</option>
-                    </select>
-                </label>
-            </div>
-
             <div class="horario-tabla">
                 <table class="schedule-table">
                     <thead>
@@ -98,161 +80,16 @@
                             <th>Miércoles</th>
                             <th>Jueves</th>
                             <th>Viernes</th>
+                            <th>Sábado</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td class="time-slot">07:00 - 08:00</td>
-                            <td class="empty"></td>
-                            <td class="class" style="background: #4A90E2;">
-                                <strong>Ingeniería de Software</strong><br>
-                                <small>K-001</small>
-                            </td>
-                            <td class="empty"></td>
-                            <td class="class" style="background: #4A90E2;">
-                                <strong>Ingeniería de Software</strong><br>
-                                <small>K-001</small>
-                            </td>
-                            <td class="empty"></td>
-                        </tr>
-                        <tr>
-                            <td class="time-slot">08:00 - 09:00</td>
-                            <td class="empty"></td>
-                            <td class="class" style="background: #4A90E2;">
-                                <strong>Ingeniería de Software</strong><br>
-                                <small>K-001</small>
-                            </td>
-                            <td class="empty"></td>
-                            <td class="class" style="background: #4A90E2;">
-                                <strong>Ingeniería de Software</strong><br>
-                                <small>K-001</small>
-                            </td>
-                            <td class="empty"></td>
-                        </tr>
-                        <tr>
-                            <td class="time-slot">09:00 - 10:00</td>
-                            <td class="class" style="background: #50C878;">
-                                <strong>Bases de Datos</strong><br>
-                                <small>K-105</small>
-                            </td>
-                            <td class="empty"></td>
-                            <td class="class" style="background: #50C878;">
-                                <strong>Bases de Datos</strong><br>
-                                <small>K-105</small>
-                            </td>
-                            <td class="empty"></td>
-                            <td class="class" style="background: #50C878;">
-                                <strong>Bases de Datos</strong><br>
-                                <small>K-105</small>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="time-slot">10:00 - 11:00</td>
-                            <td class="class" style="background: #50C878;">
-                                <strong>Bases de Datos</strong><br>
-                                <small>K-105</small>
-                            </td>
-                            <td class="empty"></td>
-                            <td class="class" style="background: #50C878;">
-                                <strong>Bases de Datos</strong><br>
-                                <small>K-105</small>
-                            </td>
-                            <td class="empty"></td>
-                            <td class="class" style="background: #50C878;">
-                                <strong>Bases de Datos</strong><br>
-                                <small>K-105</small>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="time-slot">11:00 - 12:00</td>
-                            <td class="empty"></td>
-                            <td class="class" style="background: #FFB84D;">
-                                <strong>Programación Web</strong><br>
-                                <small>K-210</small>
-                            </td>
-                            <td class="empty"></td>
-                            <td class="class" style="background: #FFB84D;">
-                                <strong>Programación Web</strong><br>
-                                <small>K-210</small>
-                            </td>
-                            <td class="empty"></td>
-                        </tr>
-                        <tr>
-                            <td class="time-slot">12:00 - 13:00</td>
-                            <td class="empty"></td>
-                            <td class="class" style="background: #FFB84D;">
-                                <strong>Programación Web</strong><br>
-                                <small>K-210</small>
-                            </td>
-                            <td class="empty"></td>
-                            <td class="class" style="background: #FFB84D;">
-                                <strong>Programación Web</strong><br>
-                                <small>K-210</small>
-                            </td>
-                            <td class="empty"></td>
-                        </tr>
-                        <tr>
-                            <td class="time-slot">13:00 - 14:00</td>
-                            <td colspan="5" class="empty" style="text-align: center; color: #999;">Descanso</td>
-                        </tr>
-                        <tr>
-                            <td class="time-slot">14:00 - 15:00</td>
-                            <td class="class" style="background: #9B59B6;">
-                                <strong>Estructura de Datos</strong><br>
-                                <small>K-315</small>
-                            </td>
-                            <td class="empty"></td>
-                            <td class="class" style="background: #9B59B6;">
-                                <strong>Estructura de Datos</strong><br>
-                                <small>K-315</small>
-                            </td>
-                            <td class="empty"></td>
-                            <td class="class" style="background: #9B59B6;">
-                                <strong>Estructura de Datos</strong><br>
-                                <small>K-315</small>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="time-slot">15:00 - 16:00</td>
-                            <td class="class" style="background: #9B59B6;">
-                                <strong>Estructura de Datos</strong><br>
-                                <small>K-315</small>
-                            </td>
-                            <td class="empty"></td>
-                            <td class="class" style="background: #9B59B6;">
-                                <strong>Estructura de Datos</strong><br>
-                                <small>K-315</small>
-                            </td>
-                            <td class="empty"></td>
-                            <td class="class" style="background: #9B59B6;">
-                                <strong>Estructura de Datos</strong><br>
-                                <small>K-315</small>
-                            </td>
-                        </tr>
-                    </tbody>
+                    <tbody id="scheduleBody"></tbody>
                 </table>
             </div>
 
             <div class="horario-leyenda">
                 <h3>Leyenda de Clases</h3>
-                <div class="leyenda-items">
-                    <div class="leyenda-item">
-                        <div class="leyenda-color" style="background: #4A90E2;"></div>
-                        <span>Ingeniería de Software (2 horas/semana)</span>
-                    </div>
-                    <div class="leyenda-item">
-                        <div class="leyenda-color" style="background: #50C878;"></div>
-                        <span>Bases de Datos (3 horas/semana)</span>
-                    </div>
-                    <div class="leyenda-item">
-                        <div class="leyenda-color" style="background: #FFB84D;"></div>
-                        <span>Programación Web (2 horas/semana)</span>
-                    </div>
-                    <div class="leyenda-item">
-                        <div class="leyenda-color" style="background: #9B59B6;"></div>
-                        <span>Estructura de Datos (3 horas/semana)</span>
-                    </div>
-                </div>
+                <div class="leyenda-items" id="leyendaItems"></div>
             </div>
         </div>
     </div>
@@ -290,6 +127,147 @@
                 hideSidebar();
             }
         });
+
+
+        /* ===============================
+        CARGA DE HORARIO DINÁMICO
+        ================================ */
+
+        const idProfesor = localStorage.getItem('profesorSeleccionado');
+
+        if (!idProfesor) {
+            alert('No se seleccionó ningún profesor');
+            window.location.href = 'BuscarProfesor.html';
+        }
+
+        Promise.all([
+            fetch('../JSON/usuarios.json').then(r => r.json()),
+            fetch('../JSON/cursos.json').then(r => r.json()),
+            fetch('../JSON/materias.json').then(r => r.json()),
+            fetch('../JSON/salones.json').then(r => r.json())
+        ])
+        .then(([usuariosData, cursosData, materiasData, salonesData]) => {
+
+            // 1️⃣ Obtener profesor
+            const profesor = usuariosData.usuarios.find(
+                u => u.id_usuario == idProfesor
+            );
+
+            document.getElementById('nombreProfesor').textContent =
+                profesor ? profesor.nombre_completo : 'Profesor desconocido';
+
+            // 2️⃣ Cursos del profesor
+            const cursosProfesor = cursosData.cursos.filter(
+                c => c.id_profesor == idProfesor
+            );
+
+            // 3️⃣ Mapa materias
+            const mapaMaterias = {};
+            materiasData.materias.forEach(m => {
+                mapaMaterias[m.id_materia] = m.nombre;
+            });
+
+            const coloresMaterias = {};
+            const paleta = [
+                '#4A90E2', // azul
+                '#50C878', // verde
+                '#FFB84D', // naranja
+                '#9B59B6', // morado
+                '#E74C3C', // rojo
+                '#1ABC9C'  // turquesa
+            ];
+
+            materiasData.materias.forEach((m, i) => {
+                coloresMaterias[m.id_materia] = paleta[i % paleta.length];
+            });
+
+            // Mapa salones (no sé si va aquí)
+            const mapaSalones = {};
+            salonesData.salones.forEach(s => {
+                mapaSalones[s.id_salon] = s.nombre;
+            });
+
+            // 4️⃣ Generar bloques de 30 minutos
+            const horas = [];
+            let inicio = 7 * 60;   // 07:00
+            let fin = 19 * 60;     // 19:00
+
+            for (let t = inicio; t < fin; t += 30) {
+                const h1 = String(Math.floor(t / 60)).padStart(2, '0');
+                const m1 = String(t % 60).padStart(2, '0');
+                const h2 = String(Math.floor((t + 30) / 60)).padStart(2, '0');
+                const m2 = String((t + 30) % 60).padStart(2, '0');
+                horas.push(`${h1}:${m1} - ${h2}:${m2}`);
+            }
+
+            const dias = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+            const tbody = document.getElementById('scheduleBody');
+
+            // 5️⃣ Crear filas
+            horas.forEach(hora => {
+                const tr = document.createElement('tr');
+
+                tr.innerHTML = `<td class="time-slot">${hora}</td>`;
+
+                dias.forEach(dia => {
+                    const td = document.createElement('td');
+                    td.className = 'empty';
+
+                    cursosProfesor.forEach(curso => {
+                        curso.horarios.forEach(h => {
+                            if (h.dia === dia &&
+                                hora >= `${h.hora_inicio} - ${h.hora_inicio}` &&
+                                hora < `${h.hora_fin} - ${h.hora_fin}`) {
+
+                                td.className = 'class';
+                                td.style.background = coloresMaterias[curso.id_materia];
+
+                                td.innerHTML = `
+                                    <strong class="materia-link" style="cursor:pointer; text-decoration:underline;">
+                                        ${mapaMaterias[curso.id_materia]}
+                                    </strong>
+                                    <small>${mapaSalones[h.id_salon] || `Salón ${h.id_salon}`}</small>
+                                `;
+
+                                td.querySelector('.materia-link').addEventListener('click', () => {
+                                    localStorage.setItem('materiaSeleccionada', curso.id_materia);
+                                    window.location.href = 'consultarMateria.html';
+                                });
+                            }
+                        });
+                    });
+
+                    tr.appendChild(td);
+                });
+
+                tbody.appendChild(tr);
+            });
+
+            const leyenda = document.getElementById('leyendaItems');
+            leyenda.innerHTML = '';
+
+            const materiasProfesor = new Set();
+
+            cursosProfesor.forEach(c => materiasProfesor.add(c.id_materia));
+
+            materiasProfesor.forEach(idMateria => {
+                const item = document.createElement('div');
+                item.className = 'leyenda-item';
+
+                item.innerHTML = `
+                    <div class="leyenda-color"
+                        style="background:${coloresMaterias[idMateria]}"></div>
+                    <span>${mapaMaterias[idMateria]}</span>
+                `;
+
+                leyenda.appendChild(item);
+            });
+
+        }).catch(err => {
+            console.error(err);
+            alert('Error cargando el horario');
+        });
+
     </script>
 </body>
 </html>

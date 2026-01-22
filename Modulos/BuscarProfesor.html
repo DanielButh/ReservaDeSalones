@@ -58,7 +58,7 @@
         <div class="search-header">
             <h1>Buscar Profesor</h1>
             <div class="search-box-wrapper">
-                <input type="text" id="searchInput" class="search-box" placeholder="Buscar por nombre o materia...">
+                <input type="text" id="searchInput" class="search-box" placeholder="Buscar profesor">
                 <i class="fas fa-search search-icon"></i>
             </div>
         </div>
@@ -80,119 +80,7 @@
             </select>
         </div>
 
-        <div class="profesores-grid">
-            <div class="profesor-card" data-materia="ingenieria" data-departamento="sistemas">
-                <div class="profesor-header">
-                    <img src="img/logoblanco1.png" alt="Profesor">
-                    <span class="estatus">Disponible</span>
-                </div>
-                <h3>Marvin Jose Rayas Sanchez</h3>
-                <p class="departamento"><strong>Departamento:</strong> Sistemas Computacionales</p>
-                <p class="materias"><strong>Materias:</strong></p>
-                <ul>
-                    <li>Ingeniería de Software</li>
-                    <li>Estructura de Datos</li>
-                </ul>
-                <div class="horario-preview">
-                    <strong>Horarios disponibles:</strong>
-                    <p>Lunes a Viernes: 8:00 - 10:00</p>
-                </div>
-                <button class="btn-ver-horario" onclick="verHorario('Marvin Jose Rayas Sanchez')">Ver Horario</button>
-            </div>
-
-            <div class="profesor-card" data-materia="bases" data-departamento="sistemas">
-                <div class="profesor-header">
-                    <img src="img/logoblanco1.png" alt="Profesor">
-                    <span class="estatus">Disponible</span>
-                </div>
-                <h3>Dr. Juan Carlos López</h3>
-                <p class="departamento"><strong>Departamento:</strong> Sistemas Computacionales</p>
-                <p class="materias"><strong>Materias:</strong></p>
-                <ul>
-                    <li>Bases de Datos</li>
-                    <li>Programación Web</li>
-                </ul>
-                <div class="horario-preview">
-                    <strong>Horarios disponibles:</strong>
-                    <p>Martes a Jueves: 10:00 - 12:00</p>
-                </div>
-                <button class="btn-ver-horario" onclick="verHorario('Dr. Juan Carlos López')">Ver Horario</button>
-            </div>
-
-            <div class="profesor-card" data-materia="web" data-departamento="sistemas">
-                <div class="profesor-header">
-                    <img src="img/logoblanco1.png" alt="Profesor">
-                    <span class="estatus">Disponible</span>
-                </div>
-                <h3>Dra. María García González</h3>
-                <p class="departamento"><strong>Departamento:</strong> Sistemas Computacionales</p>
-                <p class="materias"><strong>Materias:</strong></p>
-                <ul>
-                    <li>Programación Web</li>
-                    <li>Ingeniería de Software</li>
-                </ul>
-                <div class="horario-preview">
-                    <strong>Horarios disponibles:</strong>
-                    <p>Lunes, Miércoles, Viernes: 14:00 - 16:00</p>
-                </div>
-                <button class="btn-ver-horario" onclick="verHorario('Dra. María García González')">Ver Horario</button>
-            </div>
-
-            <div class="profesor-card" data-materia="estructura" data-departamento="finanzas">
-                <div class="profesor-header">
-                    <img src="img/logoblanco1.png" alt="Profesor">
-                    <span class="estatus">No Disponible</span>
-                </div>
-                <h3>Mtro. Roberto Martínez</h3>
-                <p class="departamento"><strong>Departamento:</strong> Finanzas</p>
-                <p class="materias"><strong>Materias:</strong></p>
-                <ul>
-                    <li>Estructura de Datos</li>
-                </ul>
-                <div class="horario-preview">
-                    <strong>Próxima disponibilidad:</strong>
-                    <p>Próximo semestre</p>
-                </div>
-                <button class="btn-ver-horario" disabled>Ver Horario</button>
-            </div>
-
-            <div class="profesor-card" data-materia="ingenieria" data-departamento="administracion">
-                <div class="profesor-header">
-                    <img src="img/logoblanco1.png" alt="Profesor">
-                    <span class="estatus">Disponible</span>
-                </div>
-                <h3>Lic. Patricia Rodríguez</h3>
-                <p class="departamento"><strong>Departamento:</strong> Administración</p>
-                <p class="materias"><strong>Materias:</strong></p>
-                <ul>
-                    <li>Ingeniería de Software</li>
-                    <li>Bases de Datos</li>
-                </ul>
-                <div class="horario-preview">
-                    <strong>Horarios disponibles:</strong>
-                    <p>Martes, Jueves: 11:00 - 13:00</p>
-                </div>
-                <button class="btn-ver-horario" onclick="verHorario('Lic. Patricia Rodríguez')">Ver Horario</button>
-            </div>
-
-            <div class="profesor-card" data-materia="web" data-departamento="economia">
-                <div class="profesor-header">
-                    <img src="img/logoblanco1.png" alt="Profesor">
-                    <span class="estatus">Disponible</span>
-                </div>
-                <h3>Dr. Fernando Soto</h3>
-                <p class="departamento"><strong>Departamento:</strong> Economía</p>
-                <p class="materias"><strong>Materias:</strong></p>
-                <ul>
-                    <li>Programación Web</li>
-                </ul>
-                <div class="horario-preview">
-                    <strong>Horarios disponibles:</strong>
-                    <p>Lunes a Viernes: 17:00 - 19:00</p>
-                </div>
-                <button class="btn-ver-horario" onclick="verHorario('Dr. Fernando Soto')">Ver Horario</button>
-            </div>
-        </div>
+        <div class="profesores-grid" id="profesoresGrid"></div>
     </div>
 
     <footer class="footer">
@@ -228,12 +116,121 @@
                 hideSidebar();
             }
         });
+    
+    /* ===============================
+    CARGAR PROFESORES + MATERIAS
+    ================================ */
+
+    const grid = document.getElementById('profesoresGrid');
+
+    Promise.all([
+        fetch('../JSON/usuarios.json').then(r => r.json()),
+        fetch('../JSON/cursos.json').then(r => r.json()),
+        fetch('../JSON/materias.json').then(r => r.json())
+    ])
+    .then(([usuariosData, cursosData, materiasData]) => {
+
+        /* 1️⃣ Solo profesores
+        const profesores = usuariosData.usuarios.filter(
+            u => u.rol_usuario === 'profesor'
+        );*/
+
+        // 1️⃣ Todos los usuarios
+        const profesores = usuariosData.usuarios;
+
+        // 2️⃣ Mapa de materias (id → nombre)
+        const mapaMaterias = {};
+        materiasData.materias.forEach(m => {
+            mapaMaterias[m.id_materia] = m.nombre;
+        });
+
+        profesores.forEach(profesor => {
+
+            // 3️⃣ Cursos del profesor
+            const cursosProfesor = cursosData.cursos.filter(
+                c => c.id_profesor === profesor.id_usuario
+            );
+
+            // 4️⃣ Materias + horarios
+            let listaMateriasHTML = '';
+            let horariosHTML = '';
+
+            if (cursosProfesor.length === 0) {
+                listaMateriasHTML = '<li>No asignadas</li>';
+                horariosHTML = '<p>No registrados</p>';
+            } else {
+                cursosProfesor.forEach(curso => {
+                    const nombreMateria =
+                        mapaMaterias[curso.id_materia] || 'Materia desconocida';
+
+                    listaMateriasHTML += `<li>${nombreMateria}</li>`;
+
+                    curso.horarios.forEach(h => {
+                        horariosHTML += `
+                            <p>
+                                <strong>${nombreMateria}:</strong>
+                                ${h.dia} ${h.hora_inicio} - ${h.hora_fin}
+                            </p>
+                        `;
+                    });
+                });
+            }
+
+            // 5️⃣ Tarjeta
+            const card = document.createElement('div');
+            card.className = 'profesor-card';
+            card.dataset.departamento = profesor.carrera.toLowerCase();
+            card.dataset.materia = cursosProfesor.length > 0
+                ? mapaMaterias[cursosProfesor[0].id_materia].toLowerCase()
+                : '';
+
+
+            card.innerHTML = `
+                <div class="profesor-header">
+                    <img src="../img/logoblanco1.png" alt="Profesor">
+                    <span class="estatus">
+                        ${cursosProfesor.length > 0 ? 'Disponible' : 'No Disponible'}
+                    </span>
+                </div>
+
+                <h3>${profesor.nombre_completo}</h3>
+
+                <p class="departamento">
+                    <strong>Departamento:</strong> ${profesor.carrera}
+                </p>
+
+                <p class="materias"><strong>Materias:</strong></p>
+                <ul>
+                    ${listaMateriasHTML}
+                </ul>
+
+                <div class="horario-preview">
+                    <strong>Horarios:</strong>
+                    ${horariosHTML}
+                </div>
+
+                <button class="btn-ver-horario"
+                    ${cursosProfesor.length === 0 ? 'disabled' : ''}
+                    onclick="verHorario(${profesor.id_usuario})">
+                    Ver Horario
+                </button>
+            `;
+
+            grid.appendChild(card);
+        });
+
+        // Actualizar tarjetas para filtros
+        cards = document.querySelectorAll('.profesor-card');
+
+    })
+    .catch(err => console.error('Error cargando datos:', err));
+
 
         // BÚSQUEDA Y FILTROS
         const searchInput = document.getElementById('searchInput');
         const departamentoFilter = document.getElementById('departamentoFilter');
         const materiaFilter = document.getElementById('materiaFilter');
-        const cards = document.querySelectorAll('.profesor-card');
+        let cards = [];
 
         function filtrarProfesores() {
             const searchValue = searchInput.value.toLowerCase();
@@ -257,11 +254,11 @@
         departamentoFilter.addEventListener('change', filtrarProfesores);
         materiaFilter.addEventListener('change', filtrarProfesores);
 
-        function verHorario(profesor) {
-            // Por ahora redirige a HorarioProfesor.html
-            // En el futuro se puede pasar el nombre del profesor como parámetro
+        function verHorario(idProfesor) {
+            localStorage.setItem('profesorSeleccionado', idProfesor);
             window.location.href = 'HorarioProfesor.html';
         }
+
     </script>
 </body>
 </html>
