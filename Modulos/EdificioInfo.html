@@ -94,8 +94,8 @@
                 <h2>Registrar Materia</h2>
                 <form id="formularioMateria" onsubmit="aceptarRegistroMateria(event)">
                     <div class="form-group">
-                        <label for="nombreProfesor">Nombre del Profesor:</label>
-                        <input type="text" id="nombreProfesor" name="nombreProfesor" required>
+                        <label>Profesor:</label>
+                        <input type="text" id="nombreProfesor" disabled>
                     </div>
                     <div class="form-group">
                         <label for="claveAsignatura">Clave de la Asignatura:</label>
@@ -105,6 +105,10 @@
                         <label for="nombreAsignatura">Nombre de la Asignatura:</label>
                         <input type="text" id="nombreAsignatura" name="nombreAsignatura" required>
                     </div>
+                    <div class="form-group">
+                        <label for="horarioFin">Horario fin:</label>
+                        <select id="horarioFin" required></select>
+                    </div>
                     <div class="modal-buttons">
                         <button type="submit" class="aceptar-btn">Aceptar</button>
                         <button type="button" onclick="cancelarRegistroMateria()" class="rechazar-btn">Cancelar</button>
@@ -113,26 +117,24 @@
             </div>
         </div>
 
-        <div class="filt">
-            <div class="dropdown-container">
-                <a class="filters" id="turnoBtn" onclick="toggleDropdown(event, 'turno')">
-                    <span class="filter-label">Turno</span> <i class="fas fa-solid fa-caret-down"></i>
-                </a>
-                <div class="dropdown" id="turno">
-                    <ul>
-                        <li><a href="#" onclick="selectOption(event, 'turno', 'Todos')">Todos</a></li>
-                        <li><a href="#" onclick="selectOption(event, 'turno', 'Matutino')">Matutino</a></li>
-                        <li><a href="#" onclick="selectOption(event, 'turno', 'Vespertino')">Vespertino</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
         <!-- Restored: contenedor de horarios (solo visualización de materias) -->
         <div class="hor">
             Horario
-            <div id="horarioFiltrado" class="horario-container">
-                <!-- Los días se mostrarán aquí dinámicamente -->
+            <div class="horario-tabla-edificio">
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Hora</th>
+                            <th>Lunes</th>
+                            <th>Martes</th>
+                            <th>Miércoles</th>
+                            <th>Jueves</th>
+                            <th>Viernes</th>
+                            <th>Sábado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="horarioFiltrado"></tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -243,8 +245,50 @@
             return decodeURIComponent(results[2].replace(/\+/g, ' '));
         }
 
+        function generarBloquesHorario() {
+            const bloques = [];
+            let hora = 7 * 60;       // 07:00 en minutos
+            const fin = 22 * 60;     // 22:00
+
+            while (hora < fin) {
+                const inicio = hora;
+                const finBloque = hora + 30;
+
+                const turno = finBloque <= (14 * 60 + 30)
+                    ? 'Matutino'
+                    : 'Vespertino';
+
+                const formato = m => {
+                    const h = Math.floor(m / 60).toString().padStart(2, '0');
+                    const min = (m % 60).toString().padStart(2, '0');
+                    return `${h}:${min}`;
+                };
+
+                bloques.push({
+                    horario: `${formato(inicio)} - ${formato(finBloque)}`,
+                    turno,
+                    materia: 'Sin materia',
+                    profesor: '',
+                    clave: ''
+                });
+
+                hora += 30;
+            }
+
+            return bloques;
+        }
+
         // Datos de horarios - ahora se cargan desde localStorage
         let horarios = {
+            'Lunes': generarBloquesHorario(),
+            'Martes': generarBloquesHorario(),
+            'Miércoles': generarBloquesHorario(),
+            'Jueves': generarBloquesHorario(),
+            'Viernes': generarBloquesHorario(),
+            'Sábado': generarBloquesHorario()
+        };
+
+        /*let horarios = {
             'Lunes': [
                 { horario: '07 - 09', turno: 'Matutino', materia: 'Sin materia', profesor: '', clave: '' },
                 { horario: '09 - 11', turno: 'Matutino', materia: 'Sin materia', profesor: '', clave: '' },
@@ -293,7 +337,7 @@
                 { horario: '18 - 20', turno: 'Vespertino', materia: 'Sin materia', profesor: '', clave: '' },
                 { horario: '20 - 22', turno: 'Vespertino', materia: 'Sin materia', profesor: '', clave: '' }
             ]
-        };
+        };*/
 
         // Cargar horarios desde localStorage
         function cargarHorariosGuardados() {
@@ -312,104 +356,183 @@
 
         // Renderiza los bloques de materia. Si hay filtro de turno, filtra por turno.
         function renderHorarios() {
-            const container = document.getElementById('horarioFiltrado');
-            if (!container) return;
+            const tbody = document.getElementById('horarioFiltrado');
+            if (!tbody) return;
 
-            // Construir calendario: un contenedor con celdas para cada día (Lunes..Sábado)
-            const dias = Object.keys(horarios);
+            tbody.innerHTML = '';
+
+            const dias = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
             const searchValue = document.querySelector('.box-search').value.toLowerCase();
-            let html = '<div class="calendar">';
 
-            dias.forEach(dia => {
-                let filas = horarios[dia];
-                if (filtrosActivos.turno) {
-                    filas = filas.filter(r => r.turno === filtrosActivos.turno);
-                }
+            // Obtener horarios únicos (07 - 09, 09 - 11, etc.)
+            const bloques = horarios['Lunes'].map(h => h.horario);
 
-                // Even if empty, still render the day cell (calendar look)
-                html += `<div class="calendar-day">`;
-                html += `<div class="day-name">${dia}</div>`;
-                html += `<div class="day-list">`;
+            bloques.forEach(hora => {
+                const tr = document.createElement('tr');
 
-                if (filas.length === 0) {
-                    html += `<div class="no-entries">No hay materias</div>`;
-                } else {
-                    filas.forEach(clase => {
-                        // Aplicar filtro de búsqueda
-                        const coincideBusqueda = clase.materia.toLowerCase().includes(searchValue) || 
-                                               clase.profesor.toLowerCase().includes(searchValue) ||
-                                               searchValue === '';
+                tr.innerHTML = `<td class="time-slot">${hora}</td>`;
 
-                        if (!coincideBusqueda) return;
+                dias.forEach(dia => {
+                    let filasDia = horarios[dia];
 
-                        html += `
-                            <div class="mat">
-                                <div>
-                                    ${clase.horario} <br>
-                                    ${clase.materia}`;
+                    const clase = filasDia.find(f => f.horario === hora);
+                    const td = document.createElement('td');
 
-                        if (clase.profesor) html += ` <br>${clase.profesor}`;
+                    if (!clase) {
+                        td.className = 'empty';
+                        td.textContent = '-';
+                    } else {
+                        const coincideBusqueda =
+                            clase.materia.toLowerCase().includes(searchValue) ||
+                            clase.profesor.toLowerCase().includes(searchValue) ||
+                            searchValue === '';
 
-                        html += `
-                                </div>`;
-
-                        if (clase.imagen) {
-                            html += `
-                                <div class="img-mat">
-                                    <img class="img-mat" src="${clase.imagen}">
-                                </div>`;
+                        if (!coincideBusqueda) {
+                            td.className = 'empty';
+                            td.textContent = '-';
                         } else if (clase.materia === 'Sin materia') {
-                            // render a compact button for "Registrar"
-                            html += `
-                                <button class="no-mat" onclick="onRegistrarClick('${dia.replace("'","\'")}','${clase.horario.replace("'","\'")}')">Registrar</button>`;
+                            td.innerHTML = `
+                                <button class="no-mat"
+                                    onclick="onRegistrarClick('${dia}','${hora}')">
+                                    Registrar
+                                </button>`;
                         } else {
-                            // Si hay materia registrada, mostrar botón de eliminar
-                            html += `
-                                <button class="eliminar-mat" onclick="onEliminarClick('${dia.replace("'","\'")}','${clase.horario.replace("'","\'")}')">Eliminar</button>`;
+                            td.className = 'class-cell';
+                            td.innerHTML = `
+                                <strong>${clase.materia}</strong><br>
+                                <small>${clase.profesor}</small><br>`;
                         }
+                    }
 
-                        html += `
-                            </div>`;
-                    });
-                }
+                    tr.appendChild(td);
+                });
 
-                html += `</div>`; // .day-list
-                html += `</div>`; // .calendar-day
+                tbody.appendChild(tr);
             });
+        }
 
-            html += '</div>'; // .calendar
+        let cursosJSON = [];
+        let materiasJSON = [];
+        let usuariosJSON = [];
+        let salonesJSON = [];
 
-            container.innerHTML = html;
+        async function cargarDatosIniciales() {
+            const [cursosRes, materiasRes, usuariosRes, salonesRes] = await Promise.all([
+                fetch('../JSON/cursos.json'),
+                fetch('../JSON/materias.json'),
+                fetch('../JSON/usuarios.json'),
+                fetch('../JSON/salones.json')
+            ]);
+
+            cursosJSON = (await cursosRes.json()).cursos;
+            materiasJSON = (await materiasRes.json()).materias;
+            usuariosJSON = (await usuariosRes.json()).usuarios;
+            salonesJSON = (await salonesRes.json()).salones;
+        }
+
+            /*const cursosData = await cursosRes.json();
+            const materiasData = await materiasRes.json();
+            const usuariosData = await usuariosRes.json();
+
+            cursosJSON = cursosData.cursos;
+            materiasJSON = materiasData.materias;
+            usuariosJSON = usuariosData.usuarios;
+        }*/
+
+        function obtenerMateriaPorId(id) {
+            return materiasJSON.find(m => m.id_materia === id);
+        }
+
+        function obtenerProfesorPorId(id) {
+            return usuariosJSON.find(u => u.id_usuario === id);
+        }
+
+        function obtenerSalonPorId(idSalon) {
+            return salonesJSON.find(s => s.id_salon === idSalon);
+        }
+
+        function obtenerSalonPorNombre(nombre) {
+            return salonesJSON.find(
+                s => s.nombre.replace('-', '').toUpperCase() ===
+                    nombre.replace('-', '').toUpperCase()
+            );
+        }
+
+
+        function cargarCursosEnHorario() {
+            cursosJSON.forEach(curso => {
+                curso.horarios.forEach(h => {
+
+                    // Filtrar por salón actual
+                    if (h.id_salon !== salonActual) return;
+
+                    const dia = h.dia;
+                    const bloquesDia = horarios[dia];
+                    if (!bloquesDia) return;
+
+                    const materia = obtenerMateriaPorId(curso.id_materia);
+                    const profesor = obtenerProfesorPorId(curso.id_profesor);
+
+                    if (!materia || !profesor) return;
+
+                    bloquesDia.forEach(bloque => {
+                        const [inicioBloque, finBloque] = bloque.horario.split(' - ');
+
+                        if (
+                            inicioBloque >= h.hora_inicio &&
+                            finBloque <= h.hora_fin
+                        ) {
+                            bloque.materia = materia.nombre;
+                            bloque.profesor = profesor.nombre_completo;
+                            bloque.clave = materia.clave;
+                        }
+                    });
+                });
+            });
         }
 
         // Inicializar al cargar
-        window.addEventListener('load', function() {
-            // Obtener parámetros de URL
-            salonActual = getParameterByName('salon') || 'Salón desconocido';
+        window.addEventListener('load', async function () {
+            // 1️⃣ cargar JSON primero
+            await cargarDatosIniciales();
+
+            // 2️⃣ resolver salón
+            const salonNombreURL = getParameterByName('salon');
+            const salonObj = obtenerSalonPorNombre(salonNombreURL);
+
+            if (!salonObj) {
+                alert('Salón no válido');
+                return;
+            }
+
+            salonActual = salonObj.id_salon;
             edificioActual = getParameterByName('edificio') || 'Edificio desconocido';
 
-            // Actualizar título
-            document.getElementById('tituloEdificio').textContent = `${edificioActual} - ${salonActual}`;
-
-            // Obtener información del edificio
+            // 3️⃣ mostrar información
             const datosEdif = datosEdificios[edificioActual];
             const asientos = datosEdif ? datosEdif.asientos : 50;
             const nombreEdificio = datosEdif ? datosEdif.nombre : edificioActual;
 
-            // Actualizar información
+            document.getElementById('tituloEdificio').textContent =
+                `${nombreEdificio} - ${salonObj.nombre}`;
+
             document.getElementById('infoEdificio').innerHTML = `
                 Edificio: ${nombreEdificio}<br>
-                Salón: ${salonActual}<br>
+                Salón: ${salonObj.nombre}<br>
                 Número de asientos: ${asientos}
             `;
 
-            // Cargar horarios guardados
+            // 4️⃣ cargar horarios
             cargarHorariosGuardados();
 
-            // Renderizar horarios
+            if (!localStorage.getItem(`horarios_${edificioActual}_${salonActual}`)) {
+                cargarCursosEnHorario();
+                guardarHorarios();
+            }
+
+            // 5️⃣ renderizar
             renderHorarios();
-            
-            // Agregar event listener al buscador
+
             const searchBox = document.querySelector('.box-search');
             if (searchBox) {
                 searchBox.addEventListener('input', renderHorarios);
@@ -417,75 +540,101 @@
         });
 
         // Handler when user clicks Registrar
-        function onRegistrarClick(dia, horario) {
+        function onRegistrarClick(dia, horarioInicio) {
             diaRegistroActual = dia;
-            horarioRegistroActual = horario;
-            const mensajeDiv = document.getElementById('mensajeRegistro');
-            
-            // Limpiar formulario
+            horarioRegistroActual = horarioInicio;
+
+            const selectFin = document.getElementById('horarioFin');
+            selectFin.innerHTML = '';
+
+            const bloquesDia = horarios[dia];
+            const inicioIndex = bloquesDia.findIndex(b => b.horario === horarioInicio);
+
+            // Solo permitir bloques posteriores como horario fin
+            for (let i = inicioIndex + 1; i <= bloquesDia.length; i++) {
+                const option = document.createElement('option');
+                option.value = i - 1;
+                option.textContent = bloquesDia[i - 1]?.horario.split(' - ')[1] || 'Fin';
+                selectFin.appendChild(option);
+            }
+
             document.getElementById('formularioMateria').reset();
-            
-            // Mostrar modal
-            mensajeDiv.style.display = 'flex';
+
+            // Colocar automáticamente el nombre del usuario logueado
+            const nombreUsuario = localStorage.getItem('nombreUsuario') || 'Usuario desconocido';
+            document.getElementById('nombreProfesor').value = nombreUsuario;
+
+            document.getElementById('mensajeRegistro').style.display = 'flex';
         }
+
 
         // Aceptar registro de materia
         function aceptarRegistroMateria(event) {
             event.preventDefault();
-            
-            const nombreProfesor = document.getElementById('nombreProfesor').value;
+
+            const nombreProfesor = localStorage.getItem('nombreUsuario');
             const claveAsignatura = document.getElementById('claveAsignatura').value;
             const nombreAsignatura = document.getElementById('nombreAsignatura').value;
+            const indiceFin = parseInt(document.getElementById('horarioFin').value);
 
-            // Actualizar el horario
             const filasDelDia = horarios[diaRegistroActual];
-            const indiceHorario = filasDelDia.findIndex(h => h.horario === horarioRegistroActual);
-            
-            if (indiceHorario !== -1) {
-                filasDelDia[indiceHorario].materia = nombreAsignatura;
-                filasDelDia[indiceHorario].profesor = nombreProfesor;
-                filasDelDia[indiceHorario].clave = claveAsignatura;
+            const indiceInicio = filasDelDia.findIndex(h => h.horario === horarioRegistroActual);
+
+            if (indiceInicio === -1 || indiceFin < indiceInicio) {
+                alert('Horario inválido');
+                return;
             }
 
-            // Guardar en localStorage
+            for (let i = indiceInicio; i <= indiceFin; i++) {
+                filasDelDia[i].materia = nombreAsignatura;
+                filasDelDia[i].profesor = nombreProfesor;
+                filasDelDia[i].clave = claveAsignatura;
+            }
+
             guardarHorarios();
 
-            // Crear solicitud para el administrador
-            crearSolicitud(nombreProfesor, nombreAsignatura, claveAsignatura, diaRegistroActual, horarioRegistroActual);
+            crearSolicitud(
+                nombreProfesor,
+                nombreAsignatura,
+                claveAsignatura,
+                diaRegistroActual,
+                filasDelDia[indiceInicio].horario,
+                filasDelDia[indiceFin].horario
+            );
 
-            // Cerrar modal
-            const mensajeDiv = document.getElementById('mensajeRegistro');
-            mensajeDiv.style.display = 'none';
-
-            // Re-renderizar
+            document.getElementById('mensajeRegistro').style.display = 'none';
             renderHorarios();
 
-            alert(`Materia "${nombreAsignatura}" registrada exitosamente para ${diaRegistroActual} (${horarioRegistroActual})`);
+            alert(
+                `Materia registrada de ${
+                    formatearHorarioCorto(
+                        filasDelDia[indiceInicio].horario,
+                        filasDelDia[indiceFin].horario
+                    )
+                }`
+            );
         }
 
+
         // Crear solicitud para el administrador
-        function crearSolicitud(profesor, materia, clave, dia, horario) {
-            // Obtener solicitudes existentes
+        function crearSolicitud(profesor, materia, clave, dia, horarioInicio, horarioFin) {
             let solicitudes = JSON.parse(localStorage.getItem('solicitudes')) || [];
 
-            // Crear nueva solicitud
             const nuevaSolicitud = {
                 id: Date.now(),
-                profesor: profesor,
-                materia: materia,
-                clave: clave,
-                dia: dia,
-                horario: horario,
+                profesor,
+                materia,
+                clave,
+                dia,
+                horarioInicio,
+                horarioFin,
                 edificio: edificioActual,
                 salon: salonActual,
                 estado: 'pendiente',
                 fechaCreacion: new Date().toLocaleString()
             };
 
-            // Agregar a la lista
             solicitudes.push(nuevaSolicitud);
-
-            // Guardar en localStorage
             localStorage.setItem('solicitudes', JSON.stringify(solicitudes));
         }
 
@@ -521,6 +670,12 @@
 
                 alert('Materia eliminada correctamente');
             }
+        }
+
+        function formatearHorarioCorto(inicio, fin) {
+            const horaInicio = inicio.split(' - ')[0];
+            const horaFin = fin.split(' - ')[1];
+            return `${horaInicio} → ${horaFin}`;
         }
     </script>
 <script>

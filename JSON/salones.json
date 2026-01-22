@@ -4,245 +4,245 @@
         "id_salon": 1,
         "nombre": "A001",
         "aforo": 40,
-        "fotografia": "/salones/salon_edificio_a.png",
+        "fotografia": "../img/ediA.jpg",
         "id_edificio": 1
         },
         {
         "id_salon": 2,
         "nombre": "A002",
         "aforo": 40,
-        "fotografia": "/salones/salon_edificio_a.png",
+        "fotografia": "../img/ediA.jpg",
         "id_edificio": 1
         },
         {
         "id_salon": 3,
         "nombre": "A003",
         "aforo": 40,
-        "fotografia": "/salones/salon_edificio_a.png",
+        "fotografia": "../img/ediA.jpg",
         "id_edificio": 1
         },
         {
         "id_salon": 4,
         "nombre": "A004",
         "aforo": 40,
-        "fotografia": "/salones/salon_edificio_a.png",
+        "fotografia": "../img/ediA.jpg",
         "id_edificio": 1
         },
         {
         "id_salon": 8,
         "nombre": "A101",
         "aforo": 40,
-        "fotografia": "/salones/salon_edificio_a.png",
+        "fotografia": "../img/ediA.jpg",
         "id_edificio": 1
         },
         {
         "id_salon": 9,
         "nombre": "A102",
         "aforo": 40,
-        "fotografia": "/salones/salon_edificio_a.png",
+        "fotografia": "../img/ediA.jpg",
         "id_edificio": 1
         },
         {
         "id_salon": 10,
         "nombre": "A103",
         "aforo": 40,
-        "fotografia": "/salones/salon_edificio_a.png",
+        "fotografia": "../img/ediA.jpg",
         "id_edificio": 1
         },
         {
         "id_salon": 11,
         "nombre": "A104",
         "aforo": 40,
-        "fotografia": "/salones/salon_edificio_a.png",
+        "fotografia": "../img/ediA.jpg",
         "id_edificio": 1
         },
         {
         "id_salon": 12,
         "nombre": "A105",
         "aforo": 40,
-        "fotografia": "/salones/salon_edificio_a.png",
+        "fotografia": "../img/ediA.jpg",
         "id_edificio": 1
         },
         {
         "id_salon": 15,
         "nombre": "A201",
         "aforo": 40,
-        "fotografia": "/salones/salon_edificio_a.png",
+        "fotografia": "../img/ediA.jpg",
         "id_edificio": 1
         },
         {
         "id_salon": 16,
         "nombre": "A202",
         "aforo": 40,
-        "fotografia": "/salones/salon_edificio_a.png",
+        "fotografia": "../img/ediA.jpg",
         "id_edificio": 1
         },
         {
         "id_salon": 17,
         "nombre": "A203",
         "aforo": 40,
-        "fotografia": "/salones/salon_edificio_a.png",
+        "fotografia": "../img/ediA.jpg",
         "id_edificio": 1
         },
         {
         "id_salon": 18,
         "nombre": "A204",
         "aforo": 40,
-        "fotografia": "/salones/salon_edificio_a.png",
+        "fotografia": "../img/ediA.jpg",
         "id_edificio": 1
         },
         {
         "id_salon": 19,
         "nombre": "A205",
         "aforo": 40,
-        "fotografia": "/salones/salon_edificio_a.png",
+        "fotografia": "../img/ediA.jpg",
         "id_edificio": 1
         },
         {
         "id_salon": 29,
         "nombre": "B001",
         "aforo": 40,
-        "fotografia": "/salones/salon_edificio_b.png",
+        "fotografia": "../img/ediB.jpg",
         "id_edificio": 2
         },
         {
         "id_salon": 30,
         "nombre": "B002",
         "aforo": 40,
-        "fotografia": "/salones/salon_edificio_b.png",
+        "fotografia": "../img/ediB.jpg",
         "id_edificio": 2
         },
         {
         "id_salon": 31,
         "nombre": "B003",
         "aforo": 40,
-        "fotografia": "/salones/salon_edificio_b.png",
+        "fotografia": "../img/ediB.jpg",
         "id_edificio": 2
         },
         {
         "id_salon": 32,
         "nombre": "B004",
         "aforo": 40,
-        "fotografia": "/salones/salon_edificio_b.png",
+        "fotografia": "../img/ediB.jpg",
         "id_edificio": 2
         },
         {
         "id_salon": 33,
         "nombre": "B005",
         "aforo": 40,
-        "fotografia": "/salones/salon_edificio_b.png",
+        "fotografia": "../img/ediB.jpg",
         "id_edificio": 2
         },
         {
         "id_salon": 34,
         "nombre": "B006",
         "aforo": 40,
-        "fotografia": "/salones/salon_edificio_b.png",
+        "fotografia": "../img/ediB.jpg",
         "id_edificio": 2
         },
         {
         "id_salon": 35,
         "nombre": "B007",
         "aforo": 40,
-        "fotografia": "/salones/salon_edificio_b.png",
+        "fotografia": "../img/ediB.jpg",
         "id_edificio": 2
         },
         {
         "id_salon": 36,
         "nombre": "B101",
         "aforo": 40,
-        "fotografia": "/salones/salon_edificio_b.png",
+        "fotografia": "../img/ediB.jpg",
         "id_edificio": 2
         },
         {
         "id_salon": 37,
         "nombre": "B102",
         "aforo": 40,
-        "fotografia": "/salones/salon_edificio_b.png",
+        "fotografia": "../img/ediB.jpg",
         "id_edificio": 2
         },
         {
         "id_salon": 38,
         "nombre": "B103",
         "aforo": 40,
-        "fotografia": "/salones/salon_edificio_b.png",
+        "fotografia": "../img/ediB.jpg",
         "id_edificio": 2
         },
         {
         "id_salon": 39,
         "nombre": "B104",
         "aforo": 40,
-        "fotografia": "/salones/salon_edificio_b.png",
+        "fotografia": "../img/ediB.jpg",
         "id_edificio": 2
         },
         {
         "id_salon": 40,
         "nombre": "B105",
         "aforo": 40,
-        "fotografia": "/salones/salon_edificio_b.png",
+        "fotografia": "../img/ediB.jpg",
         "id_edificio": 2
         },
         {
         "id_salon": 41,
         "nombre": "B106",
         "aforo": 40,
-        "fotografia": "/salones/salon_edificio_b.png",
+        "fotografia": "../img/ediB.jpg",
         "id_edificio": 2
         },
         {
         "id_salon": 42,
         "nombre": "B107",
         "aforo": 40,
-        "fotografia": "/salones/salon_edificio_b.png",
+        "fotografia": "../img/ediB.jpg",
         "id_edificio": 2
         },
         {
         "id_salon": 43,
         "nombre": "B201",
         "aforo": 40,
-        "fotografia": "/salones/salon_edificio_b.png",
+        "fotografia": "../img/ediB.jpg",
         "id_edificio": 2
         },
         {
         "id_salon": 44,
         "nombre": "B202",
         "aforo": 40,
-        "fotografia": "/salones/salon_edificio_b.png",
+        "fotografia": "../img/ediB.jpg",
         "id_edificio": 2
         },
         {
         "id_salon": 45,
         "nombre": "B203",
         "aforo": 40,
-        "fotografia": "/salones/salon_edificio_b.png",
+        "fotografia": "../img/ediB.jpg",
         "id_edificio": 2
         },
         {
         "id_salon": 46,
         "nombre": "B204",
         "aforo": 40,
-        "fotografia": "/salones/salon_edificio_b.png",
+        "fotografia": "../img/ediB.jpg",
         "id_edificio": 2
         },
         {
         "id_salon": 47,
         "nombre": "B205",
         "aforo": 40,
-        "fotografia": "/salones/salon_edificio_b.png",
+        "fotografia": "../img/ediB.jpg",
         "id_edificio": 2
         },
         {
         "id_salon": 48,
         "nombre": "B206",
         "aforo": 40,
-        "fotografia": "/salones/salon_edificio_b.png",
+        "fotografia": "../img/ediB.jpg",
         "id_edificio": 2
         },
         {
         "id_salon": 49,
         "nombre": "B207",
         "aforo": 40,
-        "fotografia": "/salones/salon_edificio_b.png",
+        "fotografia": "../img/ediB.jpg",
         "id_edificio": 2
         },
         {

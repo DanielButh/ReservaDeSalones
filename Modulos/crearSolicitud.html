@@ -320,13 +320,13 @@
         <div class="crud-container">
             <div class="crud-header">
                 <h1>Gestión de Solicitudes</h1>
-                <p>Crear, editar y eliminar solicitudes de forma sencilla</p>
+                <p>Edita y elimina solicitudes de forma sencilla</p>
             </div>
-
+            <!--
             <button class="btn-crear-solicitud" onclick="abrirFormulario()">
                 <i class="fas fa-plus"></i> Nueva Solicitud
             </button>
-
+            -->
             <div id="solicitudesList" class="solicitudes-grid">
                 <!-- Las solicitudes se cargarán aquí dinámicamente -->
             </div>
@@ -361,7 +361,8 @@
                 <div class="form-group">
                     <label for="dias">Día:</label>
                     <input type="text" id="dias" required placeholder="Ej: Lunes">
-
+                </div>
+                
                 <div class="form-group">
                     <label for="horario">Horario:</label>
                     <input type="text" id="horario" required placeholder="Ej: 9 - 11">
@@ -404,6 +405,20 @@
         const BREAKPOINT = 900;
         let solicitudes = [];
         let editandoId = null;
+        let mapaSalones = {};
+
+        async function cargarSalones() {
+            try {
+                const response = await fetch('../JSON/salones.json');
+                const data = await response.json();
+
+                data.salones.forEach(salon => {
+                    mapaSalones[salon.id_salon] = salon.nombre;
+                });
+            } catch (error) {
+                console.warn('No se pudieron cargar los salones, se usará texto directo');
+            }
+        }
 
         // Cargar solicitudes del localStorage
         function cargarSolicitudes() {
@@ -437,9 +452,15 @@
                     <p><strong>Materia:</strong> ${sol.materia}</p>
                     <p><strong>Clave:</strong> ${sol.clave || 'N/A'}</p>
                     <p><strong>Día:</strong> ${sol.dia || sol.dias}</p>
-                    <p><strong>Horario:</strong> ${sol.horario}</p>
+                    <p><strong>Horario:</strong> 
+                        ${sol.horario 
+                            ? sol.horario 
+                            : (sol.horarioInicio && sol.horarioFin
+                                ? formatearHorarioCorto(sol.horarioInicio, sol.horarioFin)
+                                : 'No especificado')}
+                    </p>
                     <p><strong>Edificio:</strong> ${sol.edificio}</p>
-                    <p><strong>Salón:</strong> ${sol.salon}</p>
+                    <p><strong>Salón:</strong> ${mapaSalones[sol.salon] || sol.salon}</p>
                     <div class="card-actions">
                         <button class="btn-editar" onclick="editarSolicitud(${index})">
                             <i class="fas fa-edit"></i> Editar
@@ -478,7 +499,8 @@
             document.getElementById('dias').value = sol.dia || sol.dias;
             document.getElementById('horario').value = sol.horario;
             document.getElementById('edificio').value = sol.edificio;
-            document.getElementById('salon').value = sol.salon;
+            document.getElementById('salon').value =
+                mapaSalones[sol.salon] || sol.salon;
 
             document.getElementById('modalFormulario').classList.add('active');
         }
@@ -518,11 +540,20 @@
         // Eliminar solicitud
         function eliminarSolicitud(index) {
             if (confirm('¿Está seguro que desea eliminar esta solicitud?')) {
+                const sol = solicitudes[index];
+
+                // LIMPIAR HORARIO
+                limpiarHorarioSolicitud(sol);
+
+                // ELIMINAR SOLICITUD
                 solicitudes.splice(index, 1);
                 guardarEnLocal();
                 renderizarSolicitudes();
+
+                alert('Solicitud eliminada y horario liberado');
             }
         }
+
 
         // Navbar sidebar
         function showSidebar() {
@@ -549,7 +580,49 @@
         });
 
         // Cargar solicitudes al iniciar
-        window.addEventListener('DOMContentLoaded', cargarSolicitudes);
+        window.addEventListener('DOMContentLoaded', async () => {
+            await cargarSalones();
+            cargarSolicitudes();
+        });
+
+        function limpiarHorarioSolicitud(sol) {
+            // 🔒 Si la solicitud NO viene del horario automático, no hacemos nada
+            if (!sol.horarioInicio || !sol.horarioFin || !sol.edificio || !sol.salon || !sol.dia) {
+                return;
+            }
+
+            const claveHorario = `horarios_${sol.edificio}_${sol.salon}`;
+            const data = localStorage.getItem(claveHorario);
+            if (!data) return;
+
+            const horarios = JSON.parse(data);
+            const bloquesDia = horarios[sol.dia];
+            if (!bloquesDia) return;
+
+            const inicioIndex = bloquesDia.findIndex(
+                b => b.horario === sol.horarioInicio
+            );
+            const finIndex = bloquesDia.findIndex(
+                b => b.horario === sol.horarioFin
+            );
+
+            if (inicioIndex === -1 || finIndex === -1) return;
+
+            for (let i = inicioIndex; i <= finIndex; i++) {
+                bloquesDia[i].materia = 'Sin materia';
+                bloquesDia[i].profesor = '';
+                bloquesDia[i].clave = '';
+            }
+
+            localStorage.setItem(claveHorario, JSON.stringify(horarios));
+        }
+
+        function formatearHorarioCorto(inicio, fin) {
+            const horaInicio = inicio.split(' - ')[0];
+            const horaFin = fin.split(' - ')[1];
+            return `${horaInicio} → ${horaFin}`;
+        }
+
     </script>
 </body>
 
