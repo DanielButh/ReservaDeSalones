@@ -295,6 +295,42 @@ const BREAKPOINT = 900;
 let currentAction = null;
 let currentSolicitud = null;
 
+function obtenerHorarioDesdeEdificio(solicitud) {
+    const claveStorage = `horarios_${solicitud.edificio}_${solicitud.salon}`;
+    const horariosGuardados = localStorage.getItem(claveStorage);
+
+    if (!horariosGuardados) return 'No asignado';
+
+    const horarios = JSON.parse(horariosGuardados);
+    const bloquesDia = horarios[solicitud.dia];
+
+    if (!bloquesDia) return 'No asignado';
+
+    // 🔹 Obtener todos los bloques que correspondan a la materia
+    const bloquesMateria = bloquesDia.filter(b =>
+        b.clave === solicitud.clave &&
+        b.materia === solicitud.materia
+    );
+
+    if (bloquesMateria.length === 0) return 'No asignado';
+
+    // 🔹 Ordenar por hora de inicio
+    bloquesMateria.sort((a, b) => {
+        const inicioA = a.horario.split(' - ')[0];
+        const inicioB = b.horario.split(' - ')[0];
+        return inicioA.localeCompare(inicioB);
+    });
+
+    // 🔹 Primera hora de inicio
+    const horaInicio = bloquesMateria[0].horario.split(' - ')[0];
+
+    // 🔹 Última hora de fin
+    const horaFin = bloquesMateria[bloquesMateria.length - 1]
+        .horario.split(' - ')[1];
+
+    return `${horaInicio} - ${horaFin}`;
+}
+
 // Cargar solicitudes desde localStorage
 function cargarSolicitudesDinamicas() {
     const container = document.getElementById('solicitudes-dinamicas');
@@ -329,7 +365,7 @@ function cargarSolicitudesDinamicas() {
                     <a>Materia: ${solicitud.materia}</a>
                     <a>Clave: ${solicitud.clave}</a>
                     <a>Día: ${solicitud.dia}</a>
-                    <a>Horario: ${solicitud.horario}</a>
+                    <a>Horario: ${obtenerHorarioDesdeEdificio(solicitud)}</a>
                     <a>Edificio: ${solicitud.edificio}</a>
                     <a>Salon: ${solicitud.salon}</a>
                 </div>
