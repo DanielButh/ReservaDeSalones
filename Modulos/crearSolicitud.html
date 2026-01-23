@@ -143,8 +143,6 @@
             height: 100%;
             background: rgba(0,0,0,0.5);
             z-index: 1000;
-            justify-content: center;
-            align-items: center;
         }
 
         .modal-form.active {
@@ -153,12 +151,17 @@
 
         .form-container {
             background: white;
-            border-radius: 10px;
+            border-radius: 12px;
             padding: 40px;
-            max-width: 500px;
-            width: 90%;
+
+            width: 100%;
+            max-width: 800px;   /* 👈 controla el largo horizontal */
+            height: 100%;
+
+            margin: auto;       /* 👈 centra horizontalmente */
             box-shadow: 0 10px 40px rgba(0,0,0,0.3);
             animation: slideIn 0.3s ease;
+            overflow-y: auto;
         }
 
         @keyframes slideIn {
@@ -362,11 +365,22 @@
                     <label for="dias">Día:</label>
                     <input type="text" id="dias" required placeholder="Ej: Lunes">
                 </div>
-                
+                <!--
                 <div class="form-group">
                     <label for="horario">Horario:</label>
                     <input type="text" id="horario" required placeholder="Ej: 9 - 11">
+                </div> -->
+
+                <div class="form-group">
+                    <label for="horarioInicio">Horario inicio:</label>
+                    <input type="text" id="horarioInicio" placeholder="Ej: 09:00 - 09:30">
                 </div>
+
+                <div class="form-group">
+                    <label for="horarioFin">Horario fin:</label>
+                    <input type="text" id="horarioFin" placeholder="Ej: 10:30 - 11:00">
+                </div>
+
 
                 <div class="form-group">
                     <label for="edificio">Edificio:</label>
@@ -497,7 +511,8 @@
             document.getElementById('materia').value = sol.materia;
             document.getElementById('clave').value = sol.clave || '';
             document.getElementById('dias').value = sol.dia || sol.dias;
-            document.getElementById('horario').value = sol.horario;
+            document.getElementById('horarioInicio').value = sol.horarioInicio || '';
+            document.getElementById('horarioFin').value = sol.horarioFin || '';
             document.getElementById('edificio').value = sol.edificio;
             document.getElementById('salon').value =
                 mapaSalones[sol.salon] || sol.salon;
@@ -515,16 +530,21 @@
                 materia: document.getElementById('materia').value,
                 clave: document.getElementById('clave').value,
                 dia: document.getElementById('dias').value,
-                horario: document.getElementById('horario').value,
+                horarioInicio: document.getElementById('horarioInicio').value,
+                horarioFin: document.getElementById('horarioFin').value,
                 edificio: document.getElementById('edificio').value,
                 salon: document.getElementById('salon').value,
                 estado: editandoId !== null ? solicitudes[editandoId].estado : 'pendiente',
-                fechaCreacion: editandoId !== null ? solicitudes[editandoId].fechaCreacion : new Date().toLocaleString()
+                fechaCreacion: editandoId !== null
+                    ? solicitudes[editandoId].fechaCreacion
+                    : new Date().toLocaleString()
             };
 
+
             if (editandoId !== null) {
-                // Editar solicitud existente
+                limpiarHorarioSolicitud(solicitudes[editandoId]);
                 solicitudes[editandoId] = nuevaSol;
+                asignarHorarioSolicitud(nuevaSol);
                 alert('Solicitud actualizada correctamente');
             } else {
                 // Crear nueva solicitud
@@ -554,6 +574,34 @@
             }
         }
 
+        function asignarHorarioSolicitud(sol) {
+            if (!sol.horarioInicio || !sol.horarioFin) return;
+
+            const claveHorario = `horarios_${sol.edificio}_${sol.salon}`;
+            const data = localStorage.getItem(claveHorario);
+            if (!data) return;
+
+            const horarios = JSON.parse(data);
+            const bloquesDia = horarios[sol.dia];
+            if (!bloquesDia) return;
+
+            const inicioIndex = bloquesDia.findIndex(
+                b => b.horario === sol.horarioInicio
+            );
+            const finIndex = bloquesDia.findIndex(
+                b => b.horario === sol.horarioFin
+            );
+
+            if (inicioIndex === -1 || finIndex === -1) return;
+
+            for (let i = inicioIndex; i <= finIndex; i++) {
+                bloquesDia[i].materia = sol.materia;
+                bloquesDia[i].profesor = sol.profesor;
+                bloquesDia[i].clave = sol.clave;
+            }
+
+            localStorage.setItem(claveHorario, JSON.stringify(horarios));
+        }
 
         // Navbar sidebar
         function showSidebar() {
